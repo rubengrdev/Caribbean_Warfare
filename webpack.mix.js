@@ -1,5 +1,11 @@
 const mix = require('laravel-mix');
 
+mix.webpackConfig({
+    stats: {
+        children: true,
+    },
+});
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -13,3 +19,5 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.css('resources/css/own.css', 'public/css');
