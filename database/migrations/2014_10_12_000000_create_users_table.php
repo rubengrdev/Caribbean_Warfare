@@ -15,12 +15,24 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId('role_id');
+            $table->foreignId('region_id');
+            $table->foreignId('rank_id');
+            $table->foreingId('avatar_id');
             $table->rememberToken();
             $table->timestamps();
+            $table->foreign('role_id')->references('id')->on('roles');
+            $table->foreign('region_id')->references('id')->on('region');
+        });
+
+        Schema::table('users', function($table){
+            //si eliminamos el post o los usuarios los comentarios se eliminarán para que no haya problemas
+            $table->foreign('rank_id')->references('id')->on('ranks')->onDelete('cascade');
+            $table->foreign('avatar_id')->references('id')->on('inventory')->onDelete('cascade');
         });
     }
 
@@ -32,5 +44,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::dropForeign('rank_id');
+        Schema::dropForeign('avatar_id');
     }
 }
