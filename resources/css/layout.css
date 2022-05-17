@@ -1,0 +1,64 @@
+@import url(https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap);
+html,* {
+    margin: 0;
+    padding:0;
+}
+
+body{
+    display: block;
+    width:100vw;
+    height:100vh;
+    background-color:black;
+}
+/*Caja que contiene el navbar*/
+#app{
+    width:100%;
+    height:180px;
+}
+
+nav{
+    width:100%;
+    height:100%;
+    display:flex;
+}
+
+.container{
+    flex:1;
+    align-items:center;
+    height:180px;
+
+}
+.list{
+    flex:1;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    height:180px;
+}
+
+.logo{
+    align-items:center;
+    margin-top:20px;
+    margin-left:50px;
+}
+.nav-link{
+    text-decoration:none;
+    color:white;
+    font-family: 'Lexend', sans-serif;
+    font-size:22px;
+
+    padding-bottom: 5px;
+}
+.nav-link:hover{
+    border-bottom: 3px solid white;
+
+}
+li{
+    display: inline-block;
+    text-decoration:none;
+    margin-right:50px;
+
+}
+ul{
+    margin-right:15px;
+}
