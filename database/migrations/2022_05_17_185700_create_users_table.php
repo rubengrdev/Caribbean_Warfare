@@ -22,18 +22,19 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id');
             $table->foreignId('region_id');
             $table->foreignId('rank_id');
-            $table->foreingId('avatar_id');
+            $table->foreignId('avatar_id');
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles');
-            $table->foreign('region_id')->references('id')->on('region');
-        });
+            $table->foreign('region_id')->references('id')->on('regions');
+            $table->foreign('rank_id')->references('id')->on('ranks')->onDelete('cascade');
 
-        Schema::table('users', function($table){
+        });
+        /* Schema::table('users', function($table){
             //si eliminamos el post o los usuarios los comentarios se eliminarán para que no haya problemas
             $table->foreign('rank_id')->references('id')->on('ranks')->onDelete('cascade');
-            $table->foreign('avatar_id')->references('id')->on('inventory')->onDelete('cascade');
-        });
+            $table->foreign('avatar_id')->nullable()->references('id')->on('inventory')->onDelete('cascade')->unsigned;
+        });*/
     }
 
     /**
