@@ -23,6 +23,10 @@ class CreateInventoryTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('product_id')->references('id')->on('products');
         });
+        /*Agregamos una clave foranea que no podriamos tener is no existiera la tabla inventory */
+        Schema::table('users', function(Blueprint $table){
+            $table->foreign('avatar_id')->nullable()->references('id')->on('inventory')->onDelete('cascade');
+        });
     }
 
     /**

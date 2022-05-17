@@ -18,7 +18,7 @@ class CreateMatchesTable extends Migration
             $table->foreignId('user_id1');
             $table->foreignId('user_id2');
             $table->string('winner');
-            $table->int('points');
+            $table->integer('points');
             $table->dateTimeTz('date');
             $table->foreign('user_id1')->references('id')->on('users');
             $table->foreign('user_id2')->references('id')->on('users');
