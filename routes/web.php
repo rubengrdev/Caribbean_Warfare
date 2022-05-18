@@ -18,8 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//get de la tienda (nos devuelve la vista de la tienda y todos los productos mediante el function Index)
-Route::get('/shop', 'ProductController@index');
+//resource de Productos, solamente se pueden modificar productos (su estado de available en tienda y obtener o buscar por id tods los productos)
+Route::resource('shop', 'ProductController');
+Route::get('shop', 'ProductController@index')->name('shop');
+
 
 Auth::routes();
 
