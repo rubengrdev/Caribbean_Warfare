@@ -1,4 +1,11 @@
+const { css } = require('laravel-mix');
 const mix = require('laravel-mix');
+
+mix.webpackConfig({
+    stats: {
+        children: true,
+    },
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -13,3 +20,9 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
+
+mix.css('resources/css/own.css', 'public/css')
+    css('resources/css/layout.css','public/css');
+
+mix.css('resources/css/welcome.css', 'public/css');
+
