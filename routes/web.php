@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//get de la tienda (nos devuelve la vista de la tienda y todos los productos mediante el function Index)
+Route::get('/shop', 'ProductController@index');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
