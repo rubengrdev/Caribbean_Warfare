@@ -62,6 +62,6 @@ class User extends Authenticatable
     }
 
     public function products(){
-        return $this->belongsToMany(Product::class)->withPivot('amount', 'buy_date');
+        return $this->belongsToMany(Product::class)->withPivot('amount')->withTimestamps();
     }
 }

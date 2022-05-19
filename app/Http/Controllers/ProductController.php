@@ -102,23 +102,26 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        dd($request);
-        /***
-         *  if($product != '[]'){
+        $jsonProduct = json_decode($request->product);
+        $product = Product::where('id', $jsonProduct->id);
+
+          if($product != '[]'){
             //Solamente se puede modificar el atributo available de products, para que pueda aparecer o no en la tienda
             $validatedData = $request->validate([
-                'available'=>'boolean'
+                'available'=>'integer'
             ]);
-            if($product->update($validatedData)){
+
+            $product->update($validatedData);
+
+            if(1 == 1){
                 return view('shop.show',['response' => true]);
             }
+
             return view('shop.show',['response' => false]);
         }
         return back();
-        */
+
         //$product = Product::where('id', $id)->get();
-
-
     }
 
     /**
