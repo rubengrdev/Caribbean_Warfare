@@ -8,7 +8,6 @@ body{
     display: block;
     width:100vw;
     height:100vh;
-    background-color:black;
 }
 /*Caja que contiene el navbar*/
 #app{
@@ -52,6 +51,17 @@ nav{
 .nav-link:hover{
     border-bottom: 3px solid white;
 
+}
+.nav-link-black{
+    text-decoration:none;
+    color:black;
+    font-family: 'Lexend', sans-serif;
+    font-size:22px;
+
+    padding-bottom: 5px;
+}
+.nav-link-black:hover{
+    border-bottom: 3px solid black;
 }
 li{
     display: inline-block;

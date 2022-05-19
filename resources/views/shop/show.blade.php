@@ -1,3 +1,3 @@
-@extends('layouts.app_inventory')
+@extends('layouts.app_logged')
 
 {{ $response }}

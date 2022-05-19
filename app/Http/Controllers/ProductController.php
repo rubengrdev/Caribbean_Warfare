@@ -69,17 +69,12 @@ class ProductController extends Controller
                 'status' => true,
                 'code' => 200
             }");
-
-
             return view('shop.show')->with('response',$response);
-        }else{
-            //no cuadra
-            return response()->json("{
-                'message' => '".$id." was not found',
-                'status' => false,
-                'code' => 404
-            }");
         }
+
+        //no cuadra
+        return back();
+
     }
 
     /**
@@ -91,7 +86,11 @@ class ProductController extends Controller
     public function edit($id)
     {
         //Solamente se puede modificar el atributo available de products, para que pueda aparecer o no en la tienda
-        return view('shop.show');
+        $product = Product::where('id', $id)->get();
+        if($product != '[]'){
+            return view('shop.edit')->with('product', $product[0]);
+        }
+        return back();
     }
 
     /**
@@ -101,24 +100,25 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //Solamente se puede modificar el atributo available de products, para que pueda aparecer o no en la tienda
-        $old = Product::where('id', $id)->get();
-        if(Product::where('id', $id)->update($request->all())){
-            $new = Product::where('id', $id)->get();
-            return response()->json("{
-                'oldproduct' => $old,
-                'newproduct' => $new,
-                'status' => true,
-                'code' => 200
-            }");
-        }else{
-            return response()->json("{
-                'message' => '".$id." was not found',
-                'status' => false
-            }");
+        dd($request);
+        /***
+         *  if($product != '[]'){
+            //Solamente se puede modificar el atributo available de products, para que pueda aparecer o no en la tienda
+            $validatedData = $request->validate([
+                'available'=>'boolean'
+            ]);
+            if($product->update($validatedData)){
+                return view('shop.show',['response' => true]);
+            }
+            return view('shop.show',['response' => false]);
         }
+        return back();
+        */
+        //$product = Product::where('id', $id)->get();
+
+
     }
 
     /**
