@@ -36,4 +36,32 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function score(){
+        return $this->has(Score::class);
+    }
+
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+
+    public function region(){
+        return $this->belongsTo(Region::class);
+    }
+
+    public function lobby(){
+        return $this->belongsTo(Lobby::class);
+    }
+
+    public function matches(){
+        return $this->hasMany(Matche::class);
+    }
+
+    public function current_game(){
+        return $this->has(Current_Game::class);
+    }
+
+    public function products(){
+        return $this->belongsToMany(Product::class)->withPivot('amount', 'buy_date');
+    }
 }
