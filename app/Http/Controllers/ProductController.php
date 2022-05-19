@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class ProductController extends Controller
 {
@@ -103,21 +104,31 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $jsonProduct = json_decode($request->product);
+
         $product = Product::where('id', $jsonProduct->id);
 
           if($product != '[]'){
-            //Solamente se puede modificar el atributo available de products, para que pueda aparecer o no en la tienda
-            $validatedData = $request->validate([
-                'available'=>'integer'
-            ]);
 
-            $product->update($validatedData);
-
-            if(1 == 1){
-                return view('shop.show',['response' => true]);
+            if($request->available != null){
+                $request = new Request(array_merge($request->all(), ['available' => 1]));
+                $validatedData = $request->validate([
+                    'available'=>'integer'
+                ]);
+            }else{
+                $request = new Request(array_merge($request->all(), ['available' => 0]));
+                $validatedData = $request->validate([
+                    'available'=> "integer"
+                ]);
             }
 
-            return view('shop.show',['response' => false]);
+
+            if($product->update($validatedData)){
+                return view('shop.show',['response' => true]);
+            }else{
+                return view('shop.show',['response' => false]);
+            }
+
+
         }
         return back();
 
