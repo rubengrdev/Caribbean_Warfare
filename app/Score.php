@@ -8,8 +8,8 @@ class Score extends Model
 {
     protected $fillable=['id_user', 'score', 'date'];
 
-    public function scores(){
-        return $this->hasMany(User::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 }
