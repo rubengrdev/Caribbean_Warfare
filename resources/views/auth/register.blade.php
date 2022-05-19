@@ -40,6 +40,24 @@
                             </div>
                         </div>
 
+
+
+                        <div class="row align-items-start mb-3">
+                            <div class="col-2">
+                                <label  class="form-label" for="contents"><p>{{ __('Region') }}</p></label>
+                            </div>
+                            <div class="col-10 w-20">
+                                <select class="form-select  form-select-lg mb-3" name="tag" aria-label="Default select example"  class="@error('tag') is-invalid @enderror">
+                                    <option disabled hidden selected>Select your region</option>
+                                    @foreach ($regions as $region )
+                                        <option value="{{ $region->id }}">{{ $region->region }}</option>
+                                    @endforeach
+                                  </select>
+                            </div>
+                        </div>
+
+
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right"><p>{{ __('Password') }}</p></label>
 
@@ -62,13 +80,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right"><p>{{ __('Confirm Password') }}</p></label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
 
 
 
