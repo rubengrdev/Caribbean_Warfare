@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class ProductController extends Controller
 {
@@ -69,17 +70,12 @@ class ProductController extends Controller
                 'status' => true,
                 'code' => 200
             }");
-
-
             return view('shop.show')->with('response',$response);
-        }else{
-            //no cuadra
-            return response()->json("{
-                'message' => '".$id." was not found',
-                'status' => false,
-                'code' => 404
-            }");
         }
+
+        //no cuadra
+        return back();
+
     }
 
     /**
@@ -91,7 +87,11 @@ class ProductController extends Controller
     public function edit($id)
     {
         //Solamente se puede modificar el atributo available de products, para que pueda aparecer o no en la tienda
-        return view('shop.show');
+        $product = Product::where('id', $id)->get();
+        if($product != '[]'){
+            return view('shop.edit')->with('product', $product[0]);
+        }
+        return back();
     }
 
     /**
@@ -101,24 +101,38 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //Solamente se puede modificar el atributo available de products, para que pueda aparecer o no en la tienda
-        $old = Product::where('id', $id)->get();
-        if(Product::where('id', $id)->update($request->all())){
-            $new = Product::where('id', $id)->get();
-            return response()->json("{
-                'oldproduct' => $old,
-                'newproduct' => $new,
-                'status' => true,
-                'code' => 200
-            }");
-        }else{
-            return response()->json("{
-                'message' => '".$id." was not found',
-                'status' => false
-            }");
+        $jsonProduct = json_decode($request->product);
+
+        $product = Product::where('id', $jsonProduct->id);
+
+          if($product != '[]'){
+
+            if($request->available != null){
+                $request = new Request(array_merge($request->all(), ['available' => 1]));
+                $validatedData = $request->validate([
+                    'available'=>'integer'
+                ]);
+            }else{
+                $request = new Request(array_merge($request->all(), ['available' => 0]));
+                $validatedData = $request->validate([
+                    'available'=> "integer"
+                ]);
+            }
+
+
+            if($product->update($validatedData)){
+                return view('shop.show',['response' => true]);
+            }else{
+                return view('shop.show',['response' => false]);
+            }
+
+
         }
+        return back();
+
+        //$product = Product::where('id', $id)->get();
     }
 
     /**
