@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles');
             $table->foreign('region_id')->references('id')->on('regions');
             $table->foreign('rank_id')->references('id')->on('ranks')->onDelete('cascade');
+            // $table->foreign('avatar_id')->references('product_id')->on('inventory'); hay que hacer que este funcione
 
         });
         /* Schema::table('users', function($table){
