@@ -26,3 +26,6 @@ Route::get('shop', 'ProductController@index')->name('shop');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('leaderboard', 'LeaderboardController@index')->name('leaderboard');
+Route::get('leaderboard', 'LeaderboardController@getTop')->name('getTop');
