@@ -70,7 +70,7 @@ class ProductController extends Controller
                 'status' => true,
                 'code' => 200
             }");
-            return view('shop.show')->with('response',$response);
+            //return view('shop.show')->with('response',$response);
         }
 
         //no cuadra
