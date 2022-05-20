@@ -18,6 +18,7 @@ class CreateInventoryTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('product_id');
             $table->integer('amount');
+            $table->boolean('equipped');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('product_id')->references('id')->on('products');
