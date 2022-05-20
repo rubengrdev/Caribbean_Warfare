@@ -18,12 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('register', '')
-
-Route::resource('shop', 'ProductController')->names('shop');
+//Route::get('register', '');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::get('/shop', 'ShopController@index')->name('shop');
