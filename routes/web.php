@@ -20,7 +20,10 @@ Route::get('/', function () {
 
 Route::resource('shop', 'ProductController')->names('shop');
 
+Route::get('register/regions', 'RegionController@index')->name('regions');
+
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
