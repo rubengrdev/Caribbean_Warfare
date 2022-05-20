@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('register', '')
+// Route::get('register', '');
 
 Route::resource('shop', 'ProductController')->names('shop');
 
