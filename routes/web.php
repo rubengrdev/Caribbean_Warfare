@@ -19,9 +19,9 @@ Route::get('/', function () {
 });
 
 //resource de Productos, solamente se pueden modificar productos (su estado de available en tienda y obtener o buscar por id tods los productos)
-Route::resource('shop', 'ProductController');
-Route::get('shop', 'ProductController@index')->name('shop');
 
+
+Route::resource('shop', 'ProductController')->names('shop');
 
 Auth::routes();
 

@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
             $table->boolean('available');
             $table->string('image');
+            $table->timestamps();   
         });
     }
 

@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/partial-main.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -42,7 +43,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link-black" href="{{ route('shop') }}">{{ __('Shop') }}</a>
+                                <a class="nav-link-black" href="{{ route('shop.index') }}">{{ __('Shop') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">

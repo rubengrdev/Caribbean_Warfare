@@ -37098,10 +37098,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./resources/css/leaderboard.css":
 /*!***************************************!*\
   !*** ./resources/css/leaderboard.css ***!
   \***************************************/
+=======
+/***/ "./resources/css/partial-main.css":
+/*!****************************************!*\
+  !*** ./resources/css/partial-main.css ***!
+  \****************************************/
+>>>>>>> 29369bc11ccf5ce11de7a593a6027e3d374fe3b8
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40075,7 +40082,11 @@ process.umask = function() { return 0; };
 /******/ 			"css/welcome": 0,
 /******/ 			"css/layout": 0,
 /******/ 			"css/app": 0,
+<<<<<<< HEAD
 /******/ 			"css/leaderboard": 0,
+=======
+/******/ 			"css/partial-main": 0,
+>>>>>>> 29369bc11ccf5ce11de7a593a6027e3d374fe3b8
 /******/ 			"css/own": 0
 /******/ 		};
 /******/ 		
@@ -40126,12 +40137,21 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+<<<<<<< HEAD
 /******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/own"], () => (__webpack_require__("./resources/js/app.js")))
 /******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/own"], () => (__webpack_require__("./resources/sass/app.scss")))
 /******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/own"], () => (__webpack_require__("./resources/css/own.css")))
 /******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/own"], () => (__webpack_require__("./resources/css/layout.css")))
 /******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/own"], () => (__webpack_require__("./resources/css/leaderboard.css")))
 /******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/own"], () => (__webpack_require__("./resources/css/welcome.css")))
+=======
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/partial-main","css/own"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/partial-main","css/own"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/partial-main","css/own"], () => (__webpack_require__("./resources/css/own.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/partial-main","css/own"], () => (__webpack_require__("./resources/css/layout.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/partial-main","css/own"], () => (__webpack_require__("./resources/css/partial-main.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/partial-main","css/own"], () => (__webpack_require__("./resources/css/welcome.css")))
+>>>>>>> 29369bc11ccf5ce11de7a593a6027e3d374fe3b8
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
