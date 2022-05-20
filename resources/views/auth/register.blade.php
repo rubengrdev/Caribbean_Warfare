@@ -47,11 +47,9 @@
                                 <label  class="form-label" for="contents"><p>{{ __('Region') }}</p></label>
                             </div>
                             <div class="col-10 w-20">
-                                <select class="form-select  form-select-lg mb-3" name="tag" aria-label="Default select example"  class="@error('tag') is-invalid @enderror">
+                                <select class="form-select region-selector" name="tag" aria-label="Default select example"  class="@error('tag') is-invalid @enderror">
                                     <option disabled hidden selected>Select your region</option>
-                                    @foreach ($regions as $region )
-                                        <option value="{{ $region->id }}">{{ $region->region }}</option>
-                                    @endforeach
+
                                   </select>
                             </div>
                         </div>
@@ -97,4 +95,30 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    let selector = document.querySelector(".region-selector");
+    fetch(window.location + "/regions")
+    .then(response => response.json())
+    .then(data =>getData(data));
+
+    function getData(data){
+        let selector = document.querySelector(".region-selector");
+        for(let i = 0; i < data.length; i++){
+
+            let option = document.createElement("option");
+                option.value = data[i].id;
+                option.text = data[i].region;
+                selector.appendChild(option);
+        }
+
+
+
+
+
+    }
+
+
+</script>
 @endsection
