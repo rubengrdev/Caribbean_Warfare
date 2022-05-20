@@ -22,7 +22,7 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 
 mix.css('resources/css/own.css', 'public/css')
-    css('resources/css/layout.css','public/css');
+    css('resources/css/layout.css','public/css'), css('resources/css/dashboard.css','public/css');
 
 mix.css('resources/css/welcome.css', 'public/css');
 
