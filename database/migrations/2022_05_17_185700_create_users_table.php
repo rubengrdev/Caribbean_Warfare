@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->foreignId('role_id');
             $table->foreignId('region_id');
             $table->foreignId('rank_id');
-            $table->foreignId('avatar_id');
+            $table->foreignId('avatar_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->foreign('role_id')->references('id')->on('roles');
