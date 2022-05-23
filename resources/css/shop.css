@@ -1,4 +1,10 @@
 #shop-section{
+    display:none;
     width:100%;
     height:auto;
+    background-color:red;
+}
+
+h2{
+
 }
