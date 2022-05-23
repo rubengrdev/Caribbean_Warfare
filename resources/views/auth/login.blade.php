@@ -39,8 +39,16 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="form-group row">
+                        <div class="form-group row mb-0 restore-pass">
+                            <div class="col-md-8 offset-md-4  button-div">
+                                @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <p>{{ __('Forgot Your Password?') }}</p>
+                                </a>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row div-remember">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
@@ -52,6 +60,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group row mb-0  button-div">
                             <div class="col-md-8 offset-md-4  button-div">
                                 <button type="submit" class="btn btn-primary btn-action">
@@ -60,15 +69,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0  button-div">
-                            <div class="col-md-8 offset-md-4  button-div">
-                                @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                <p>{{ __('Forgot Your Password?') }}</p>
-                                </a>
-                                @endif
-                            </div>
-                        </div>
+
 
 
 
