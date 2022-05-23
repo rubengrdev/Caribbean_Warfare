@@ -43,7 +43,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link-black" href="{{ route('shop.index') }}">{{ __('Shop') }}</a>
+
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
