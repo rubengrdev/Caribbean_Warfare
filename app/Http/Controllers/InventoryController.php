@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Inventory;
+use App\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -47,7 +48,7 @@ class InventoryController extends Controller
      */
     public function show($id)
     {
-        //
+        Product::where('id',$id)->get();
     }
 
     /**
