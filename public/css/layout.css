@@ -91,6 +91,7 @@ ul{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius:5px;
 }
 .form-check{
     display:flex;
@@ -105,4 +106,15 @@ ul{
 }
 .div-remember{
     margin-top:5px;
+}
+input[type=text], input[type=email], input[type=password] {
+    border-radius:5px;
+    border: 0.1px solid black;
+    text-indent:1em;
+}
+
+select{
+    border-radius:5px;
+    background-color: white;
+    text-indent:1em;
 }
