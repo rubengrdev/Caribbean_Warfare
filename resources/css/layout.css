@@ -8,6 +8,7 @@ body{
     display: block;
     width:100vw;
     height:100vh;
+
 }
 /*Caja que contiene el navbar*/
 #app{
@@ -62,6 +63,7 @@ nav{
 }
 .nav-link-black:hover{
     border-bottom: 3px solid black;
+
 }
 li{
     display: inline-block;
