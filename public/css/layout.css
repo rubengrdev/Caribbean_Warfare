@@ -53,6 +53,18 @@ nav{
     border-bottom: 3px solid white;
 
 }
+.nav-link-black{
+    text-decoration:none;
+    color:black;
+    font-family: 'Lexend', sans-serif;
+    font-size:22px;
+
+    padding-bottom: 5px;
+}
+.nav-link-black:hover{
+    border-bottom: 3px solid black;
+
+}
 li{
     display: inline-block;
     text-decoration:none;
@@ -62,4 +74,3 @@ li{
 ul{
     margin-right:15px;
 }
-

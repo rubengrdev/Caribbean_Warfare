@@ -26,7 +26,6 @@ $factory->define(User::class, function (Faker $faker) {
         'role_id'=>1,
         'region_id'=>Int::random(3),
         'password' => Hash::make('1234'),
-        'remember_token' => Str::random(10),
-
+        'remember_token' => Str::random(10)
     ];
 });
