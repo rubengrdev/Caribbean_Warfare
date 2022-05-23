@@ -1,5 +1,5 @@
 @section('head')
-    @extends('layouts.app_dashboard')
+    @extends('layouts.app_black')
 @endsection
 @section('content')
 <div class="dashboard">

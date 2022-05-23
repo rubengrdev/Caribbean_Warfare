@@ -14,21 +14,33 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products=Product::where('available', 1)-> orderBy("created_at","desc")->get();
         if($products != null && $products != '[]'){
-            return response()->json([
-                'message' => $products,
-                'status' => true,
-                'code' => 200
-            ]);
+            return view('shop.index', compact('products'));
+
         }else{
-            return response()->json("{
-                'message' => 'error not found',
-                'status' => false,
-                'code' => 404
-            }");
+           //en el caso de que no haya resultados tenemos que enviar a otra ruta
+           return back();
         }
     }
+
+/**public function index(){
+    $products=Product::where('available', 1)-> orderBy("created_at","desc") ->get();
+    return view('shop.index')->with('products');
+
+}
+
+public function search($data){
+    $result= Product::where([['name','LIKE','%'.$data.'%'],['category','LIKE','%'.$data.'%']])->where('available',1);
+    return $result;
+}
+
+public function additem($arrayprod){
+    foreach($arrayprod as $product){
+        Inventory::create(['user_id'=>Auth::user()->id,'product_id',$product['id']]);
+    }
+    //return view('shop');
+} */
 
     /**
      * Show the form for creating a new resource.
