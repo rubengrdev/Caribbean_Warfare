@@ -47,7 +47,7 @@
                                 <label  class="form-label" for="contents"><p>{{ __('Region') }}</p></label>
                             </div>
                             <div class="col-10 w-20">
-                                <select class="form-select region-selector" name="tag" aria-label="Default select example"  class="@error('tag') is-invalid @enderror">
+                                <select class="form-select region-selector" name="region_id" aria-label="Default select example"  class="@error('region_id') is-invalid @enderror">
                                     <option disabled hidden selected>Select your region</option>
 
                                   </select>
