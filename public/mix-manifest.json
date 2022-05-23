@@ -5,6 +5,8 @@
     "/css/layout.css": "/css/layout.css",
     "/css/app.css": "/css/app.css",
     "/css/leaderboard.css": "/css/leaderboard.css",
-    "/css/partial-main.css": "/css/partial-main.css",
-    "/css/own.css": "/css/own.css"
+    "/css/shop.css": "/css/shop.css",
+    "/css/own.css": "/css/own.css",
+    "/css/dashboard.css": "/css/dashboard.css",
+    "/css/partial-main.css": "/css/partial-main.css"
 }

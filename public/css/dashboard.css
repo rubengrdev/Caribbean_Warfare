@@ -1,95 +1,27 @@
-.dashboard {
+#dashboard {
     display: flex;
-    margin-top: 50px;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10%;
 }
 
 
 #userdata {
     display: flex;
-    width: 25%;
+    width: 40%;
     flex-direction: column;
-    background-color: aqua;
 }
 
 #username {
     font-size: 50px;
-    align-self: center;
-}
-
-#avatar {
-    align-self: center;
-    margin: 20px;
-    width: 150px;
-    height: 150px;
-    border: 1px solid;
 }
 
 #usertitle {
     border: 1px solid;
     border-radius: 5px;
-    align-self: center;
 }
 
-
-#livesinfo {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-#lives,#livestext {
-    align-self: center;
-}
-
-#lives img {
-    width: 25px;
-    height: 25px;
-}
-
-#livestext {
-    font-size: 12px;
-    margin-top: 5px;
-}
 
 
 #useractions {
     display: flex;
-    width: 40%;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: blueviolet;
 }
 
-
-#inventory {
-    align-self: center;
-    font-size: 40px;
-
-}
-
-#leaderboard {
-    align-self: center;
-    font-size: 30px;
-}
-
-#leaderboard img {
-    width: 25px;
-    height: 25px;
-}
-
-#gamestart {
-    background-color: #3377CC;
-    align-self: center;
-    text-align: center;
-    border-radius: 10px;
-    width: 80%;
-    height: 25%;
-    color: #ffffff;
-}
-
-#gamestart div {
-}
