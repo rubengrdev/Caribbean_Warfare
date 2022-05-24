@@ -55,18 +55,31 @@
         </div>
         <span></span>
         <div id="description">
+
             <div class="description-inventory">
                 <div class="desc-head">
                     <div class="desc-image">
-
+                        <img src="{{ asset('media/img/coconuts.png') }}">
                     </div>
                     <div class="desc-title">
-
+                        <p>Spanish Galeon Skin</p>
                     </div>
+                </div>
+                <div class="desc-body">
+                    <p>This is a description about my items ajdja sjdasjd jkadkjasjkdjks ajksajkjasjd</p>
+                </div>
+                <div class="desc-options">
+                  <form method="POST" action="{{ route('inventory.index') }}">
+                    @csrf
 
+                    <button type="submit" class="btn btn-primary btn-action">
+                        <p>{{ __('Equip') }}</p>
+                    </button>
+                  </form>
                 </div>
             </div>
         </div>
+        
 </div>
 </section>
 
