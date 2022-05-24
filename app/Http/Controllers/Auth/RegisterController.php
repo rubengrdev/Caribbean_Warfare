@@ -81,8 +81,6 @@ class RegisterController extends Controller
 
         Inventory::create(['user_id'=>$userid['id'],'product_id'=>1,'amount'=>1,'equipped'=>true,'created_at'=>now(),'updated_at'=>now()]);
 
-
-
         User::where('id',$userid['id'])->update(['avatar_id'=>1]);
 
         return $createduser;
