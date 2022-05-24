@@ -47,6 +47,8 @@
                         let descbody = document.querySelector(".desc-body p")
                         descbody.textContent = `{{ $item->description }}`;
                         //agregamos el valor que pasaremos por ID al mediante el formulario hidden, cuando pulse el botón de equipar enviará un Request al método Update
+                        let hiddeninput = document.querySelector(".hidden-input");
+                        hiddeninput.value = `{{ $item->id }}`;
                     });
                 </script>
                 @endif
@@ -87,9 +89,10 @@
                     <p>This is a description about my items ajdja sjdasjd jkadkjasjkdjks ajksajkjasjd</p>
                 </div>
                 <div class="desc-options">
-                  <form method="POST" action="{{ route('inventory.index') }}">
+                  <form method="POST" action="{{ route('inventory.update', 1) }}">
                     @csrf
-
+                    @method('PUT')
+                    <input type="hidden" value="" name="id" class="hidden-input">
                     <button type="submit" class="btn btn-primary btn-action">
                         <p>{{ __('Equip') }}</p>
                     </button>
