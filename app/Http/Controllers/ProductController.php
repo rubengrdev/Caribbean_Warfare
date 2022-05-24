@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Product::class, 'product');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products=Product::where('available', 1)-> orderBy("created_at","desc")->get();
+        $products=Product::where('available', 1)->where('id','>',1)-> orderBy("created_at","desc")->get();
         if($products != null && $products != '[]'){
             return view('shop.index', compact('products'));
 
