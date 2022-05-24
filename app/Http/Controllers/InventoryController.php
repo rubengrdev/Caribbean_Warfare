@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use App\Inventory;
 use App\Product;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,7 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Product $products)
+    public function store(Request $products)
     {
 
             foreach($products as $product){
@@ -81,18 +82,19 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Product $product)
     {
-        $categ=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id'==Auth::user()->id)->where('product_id',$id)->select('products.category')->get();
+        $categ=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id'==Auth::user()->id)->where('product_id',$product['id'])->select('products.category')->get();
 
         $invproducts= DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('category',$categ)->select('products.id')->get();
 
         Inventory::where('user_id'==Auth::user()->id)->whereIn('product_id',$invproducts)->update(['equipped'=>false]);
 
-        Inventory::where('user_id'==Auth::user()->id)->where('product_id',$id)->update(['equipped'=>true]);
+        Inventory::where('user_id'==Auth::user()->id)->where('product_id',$product['id'])->update(['equipped'=>true]);
 
         if ($categ=='avatar'){
-            //redirigir a userController
+            $user = User::where(['id'=>Auth::user()->id]);
+            $user->updateAvatar($product['id']);
         }
 
     }

@@ -67,10 +67,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
+        $validatedData = $request->validate([
+            'username' => 'required|max:255',
+            'email' => 'required|max:255',
+            'avatar_id' => 'nullable|max:20',
+        ]);
 
-        //User::where('user_id'==Auth::user()->id)->update(['username'=>]);
+        $user->update($validatedData);
+
+        return back();
     }
 
     /**
@@ -79,8 +86,24 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        return back();
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        dd($request);
+        $validatedData = $request->validate([
+            'avatar_id' => 'nullable|max:20',
+        ]);
+
+        $user = User::where(['id'=>Auth::user()->id]);
+
+        $user->update($validatedData);
+
+        return back();
     }
 }
