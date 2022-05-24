@@ -16,9 +16,10 @@ class InventoryController extends Controller
      */
     public function index()
     {
+
         //$items=Inventory::where('user_id'==Auth::user()->id)->get();
 
-        $items=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id'==Auth::user()->id)->select('products.*')->get();
+        $items=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->select('products.*')->get();
 
         return view('inventory', compact('items'));
 
