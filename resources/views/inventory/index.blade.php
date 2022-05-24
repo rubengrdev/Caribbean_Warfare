@@ -72,7 +72,7 @@
                             @csrf
                             @method('PUT')
                             <input type="hidden" value="" name="id" class="hidden-input">
-                            <button type="submit" class="btn btn-primary btn-action">
+                            <button type="submit" class="btn btn-primary btn-action btn-equip">
                                 <p>{{ __('Equip') }}</p>
                             </button>
                         </form>
@@ -112,6 +112,12 @@
                 //agregamos el valor que pasaremos por ID al mediante el formulario hidden, cuando pulse el botón de equipar enviará un Request al método Update
                 let hiddeninput = document.querySelector(".hidden-input");
                 hiddeninput.value = itemData.product_id;
+                let button = document.querySelector(".btn-equip");
+                if(itemData.equipped == 1){
+                    button.style.display = "none";
+                }else{
+                    button.style.display = "block";
+                }
             })
         });
     </script>
