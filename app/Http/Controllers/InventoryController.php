@@ -21,7 +21,7 @@ class InventoryController extends Controller
 
         $items=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->select('products.*')->get();
 
-        return view('inventory', compact('items'));
+        return view('inventory.index', compact('items'));
 
 
     }
