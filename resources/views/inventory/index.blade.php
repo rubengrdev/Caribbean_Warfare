@@ -69,6 +69,30 @@
                     @csrf
                     <input type="hidden" value="{{ $item->id }}">
                 </form>
+                <script>
+                    let equippedstatus = ({{ $item->equipped }});
+                    let inventoryitem = document.querySelector(".inventory-item");
+                    if(equippedstatus == 1){
+                        inventoryitem.style.border = " 12px solid #235694be";
+                    }
+                    //para poder tener un escuchador de eventos para saber si le da click a este item del inventario
+                    inventoryitem.addEventListener("click", (e)=>{
+
+                        //en el caso que haya hecho click en ESTA imagen en específico
+                        //asignamos los valores de PHP Blade a los datos de la descripción del item:
+                        let descimg = document.querySelector(".desc-image img");
+                        //cambiamos el atributo con la ruta de php del item seleccionado
+                        descimg.setAttribute("src",`{{ $item->image }}`);
+                        //cambiamos el titulo del objeto seleccionado
+                        let desctitle = document.querySelector(".desc-title p");
+                        desctitle.textContent = `{{ $item->name }}`;
+                        let descbody = document.querySelector(".desc-body p")
+                        descbody.textContent = `{{ $item->description }}`;
+                        //agregamos el valor que pasaremos por ID al mediante el formulario hidden, cuando pulse el botón de equipar enviará un Request al método Update
+                        let hiddeninput = document.querySelector(".hidden-input");
+                        hiddeninput.value = `{{ $item->id }}`;
+                    });
+                </script>
                 @endif
                 @endforeach
             </div>
