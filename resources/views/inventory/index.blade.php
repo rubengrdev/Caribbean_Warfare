@@ -7,7 +7,12 @@
                     <p>Inventory</p>
                 </div>
                 <div class="history-title">
-                    <p>Shopping history</p>
+                    <div>
+                        <a  href="{{ route('history') }}">
+                            <p>Shopping history</p>
+                        </a>
+                    </div>
+
                 </div>
             </nav>
         </div>
@@ -80,7 +85,15 @@
     <script>
         let inventoryitem = document.querySelectorAll(".inventory-item");
         let descinventory = document.querySelector(".description-inventory");
+
         inventoryitem.forEach(item => {
+            let itemData = JSON.parse(item.children[1].children[0].value);
+                if(itemData.equipped == 1){
+                    item.style.border = " 10px solid #235694be";
+                }else{
+                    item.style.border = " 12px solid gray";
+
+                }
             //si le da click  a uno de los items obtenemos su JSON
             item.addEventListener("click", () => {
                 //cuando le de click a algún item cambiaremos el display del menú de descripción

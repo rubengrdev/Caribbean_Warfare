@@ -161,4 +161,14 @@ public function additem($arrayprod){
     {
         //
     }
+
+     /**
+     * Shopping history
+     *
+     *
+     */
+    public function history()
+    {
+        return view('shop.history');
+    }
 }
