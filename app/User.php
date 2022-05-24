@@ -64,4 +64,12 @@ class User extends Authenticatable
     public function products(){
         return $this->belongsToMany(Product::class)->withPivot('amount')->withTimestamps();
     }
+
+    public function isAdmin(User $user)
+    {
+        if ($user->role_id === 2) {
+            return true;
+        }
+        return false;
+    }
 }
