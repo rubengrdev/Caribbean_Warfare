@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Inventory;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Region;
@@ -67,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $createduser=User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -75,5 +76,13 @@ class RegisterController extends Controller
             'region_id' => $data['region_id'],
             'rank_id'=>1
         ]);
+
+        $userid=User::select('id')->orderBy('created_at','desc')->first();
+
+        Inventory::create(['user_id'=>$userid['id'],'product_id'=>1,'amount'=>1,'equipped'=>true,'created_at'=>now(),'updated_at'=>now()]);
+
+        //User::where(['id',$userid['id']])->update(['avatar_id',1]);
+
+        return $createduser;
     }
 }
