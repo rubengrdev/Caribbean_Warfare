@@ -92,13 +92,21 @@ class InventoryController extends Controller
         //a lo mejor es una tontería pero hay que echarle un ojo
         $product = Product::where("id", "=",$request->id)->get();
 
-        dd($categ=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id'==Auth::user()->id)->where('product_id',$product[0]->id)->select('products.category')->get());
+        $categ=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('product_id',$product[0]->id)->select('products.category')->get();
 
-        $invproducts= DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('category',$categ)->select('products.id')->get();
+        //dd($categ[0]->category);
+        //dd($categ);
+        $invproducts= DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('category',$categ[0]->category)->select('products.id')->get();
 
-        Inventory::where('user_id'==Auth::user()->id)->whereIn('product_id',$invproducts)->update(['equipped'=>false]);
+        //dd($invproducts[0]->id);
 
-        Inventory::where('user_id'==Auth::user()->id)->where('product_id',$product['id'])->update(['equipped'=>true]);
+        DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('products.category',$categ[0]->category)->update(['equipped'=>false]);
+
+        //$unequip=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('products.category',$categ[0]->category)->get();
+
+        //dd($unequip);
+        //dd($invproducts[0]->id);
+        Inventory::where('user_id',Auth::user()->id)->where('product_id',$invproducts[0]->id)->update(['equipped'=>true]);
 
         if ($categ=='avatar'){
             $user = User::where(['id'=>Auth::user()->id]);
