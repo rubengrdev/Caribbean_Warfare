@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Symfony\Component\HttpFoundation\Session\Session;
-use App\Shoppingcart;
 use Illuminate\Support\Facades\Auth;
+use App\User;
 use Illuminate\Http\Request;
 
-class ShoppingCartController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-
-        $cart=session()->get('product.id');
-        return view('cart', compact('cart'));
+        //
     }
 
     /**
@@ -38,10 +35,7 @@ class ShoppingCartController extends Controller
      */
     public function store(Request $request)
     {
-        $id=$request['id'];
-        //Shoppingcart::create(['user_id'=>Auth::user()->id,'product_id'=>$id]);
-
-        $request->session()->put('product.id', $id);
+        //
     }
 
     /**
@@ -52,11 +46,7 @@ class ShoppingCartController extends Controller
      */
     public function show($id)
     {
-
-
-        $cart=session()->get('product.id',$id);
-
-        return $cart;
+        //
     }
 
     /**
@@ -77,9 +67,17 @@ class ShoppingCartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'username' => 'required|max:255',
+            'email' => 'required|max:255',
+            'avatar_id' => 'nullable|max:20',
+        ]);
+
+        $user->update($validatedData);
+
+        return back();
     }
 
     /**
@@ -88,15 +86,24 @@ class ShoppingCartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        session()->forget('product.id');
+        $user->delete();
 
+        return back();
     }
 
-    public function removeproduct($id)
+    public function updateAvatar(Request $request)
     {
-        session()->forget('product.id',$id);
-    }
+        dd($request);
+        $validatedData = $request->validate([
+            'avatar_id' => 'nullable|max:20',
+        ]);
 
+        $user = User::where(['id'=>Auth::user()->id]);
+
+        $user->update($validatedData);
+
+        return back();
+    }
 }

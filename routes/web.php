@@ -19,6 +19,8 @@ Route::get('/', function () {
 });
 
 Route::resource('shop', 'ProductController')->names('shop');
+Route::resource('inventory', 'InventoryController')->names('inventory');
+Route::resource('user', 'UserController')->names('user');
 
 Route::get('register/regions', 'RegionController@index')->name('regions');
 

@@ -20,14 +20,24 @@
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/shop.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/inventory.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+
+                @if(Auth::user())
+                    <a class="anchor-logo" href="{{ url('home') }}">
+                    <img class="logo" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
+                    </a>
+                @else
                 <a class="anchor-logo" href="{{ url('/') }}">
                     <img class="logo" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
                 </a>
+                @endif
+
+
             </div>
 
 
@@ -52,6 +62,10 @@
                             </li>
                             @endif
                         @else
+
+                        <li class="nav-item">
+                            <a class="nav-link-black" href="{{ route('inventory.index') }}">{{ __('Inventory') }}</a>
+                        </li>
 
                         <li class="nav-item">
                             <a class="nav-link-black" href="{{ route('shop.index') }}">{{ __('Shop') }}</a>

@@ -37059,6 +37059,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/css/leaderboard.css":
+/*!***************************************!*\
+  !*** ./resources/css/leaderboard.css ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/css/partial-main.css":
 /*!****************************************!*\
   !*** ./resources/css/partial-main.css ***!
@@ -37150,10 +37163,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/css/leaderboard.css":
-/*!***************************************!*\
-  !*** ./resources/css/leaderboard.css ***!
-  \***************************************/
+/***/ "./resources/css/inventory.css":
+/*!*************************************!*\
+  !*** ./resources/css/inventory.css ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -40112,13 +40125,14 @@ process.umask = function() { return 0; };
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
 /******/ 			"css/welcome": 0,
+/******/ 			"css/shop": 0,
 /******/ 			"css/layout": 0,
 /******/ 			"css/app": 0,
-/******/ 			"css/leaderboard": 0,
-/******/ 			"css/shop": 0,
+/******/ 			"css/inventory": 0,
 /******/ 			"css/own": 0,
 /******/ 			"css/dashboard": 0,
-/******/ 			"css/partial-main": 0
+/******/ 			"css/partial-main": 0,
+/******/ 			"css/leaderboard": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -40168,15 +40182,16 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/css/own.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/css/layout.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/css/shop.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/css/leaderboard.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/css/partial-main.css")))
-/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/css/dashboard.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/welcome","css/layout","css/app","css/leaderboard","css/shop","css/own","css/dashboard","css/partial-main"], () => (__webpack_require__("./resources/css/welcome.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/own.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/layout.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/shop.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/inventory.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/leaderboard.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/partial-main.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/dashboard.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/welcome","css/shop","css/layout","css/app","css/inventory","css/own","css/dashboard","css/partial-main","css/leaderboard"], () => (__webpack_require__("./resources/css/welcome.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
