@@ -104,6 +104,9 @@ ul{
     width:5px;
     height:auto;
 }
+body{
+    overflow-x:hidden;
+}
 .div-remember{
     margin-top:5px;
 }
@@ -118,3 +121,4 @@ select{
     background-color: white;
     text-indent:1em;
 }
+
