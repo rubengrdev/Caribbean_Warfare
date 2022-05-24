@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Http\Request;
 use App\Score;
@@ -25,12 +26,26 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        return view('leaderboard');
+        $userdata=User::where('id',Auth::id())->select('users.*')->get();
+        $this->getTop();
+        return view('leaderboard',compact('userdata'));
     }
 
     public function getTop()
     {
-        return $topUsers = Score::orderBy('score', 'desc')->value('id_user','score')->take(10)->get();
+        return Score::orderBy('score', 'desc')->value('id_user','score')->take(10)->get();
         // No se si puedo pillar 2 values (id y score)
+    }
+
+    public function getTopRegion()
+    {
+        return DB::table('users')->join('scores','scores.id_user','=','users.id')->where('region_id',Auth::region_id())->orderBy('score', 'desc')->value('id_user','score')->take(10)->get();
+
+    }
+
+    public function getTopRegionUserChoice($regionId)
+    {
+        return DB::table('users')->join('scores','scores.id_user','=','users.id')->where('region_id',$regionId)->orderBy('score', 'desc')->value('id_user','score')->take(10)->get();
+
     }
 }
