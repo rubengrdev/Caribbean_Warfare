@@ -95,6 +95,28 @@ public function additem($arrayprod){
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+
+        $products = product::where('name', 'LIKE', '%'.$request->search.'%')->get();
+
+        $collection = collect(new Product());
+        foreach($products as $product){
+            $collection->add($product);
+        }
+        if(count($collection) >= 1){
+            return view('shop.search', ['products' => $collection]);
+        }
+        return back();
+
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -160,5 +182,15 @@ public function additem($arrayprod){
     public function destroy($id)
     {
         //
+    }
+
+     /**
+     * Shopping history
+     *
+     *
+     */
+    public function history()
+    {
+        return view('shop.history');
     }
 }

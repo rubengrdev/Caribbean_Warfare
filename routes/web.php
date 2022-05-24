@@ -19,7 +19,12 @@ Route::get('/', function () {
 });
 
 Route::resource('shop', 'ProductController')->names('shop');
+Route::get('shop/history', 'ProductController@history')->name('history');
+Route::post('shop/search','ProductController@search')->name('product.search');
+
+
 Route::resource('inventory', 'InventoryController')->names('inventory');
+
 Route::resource('user', 'UserController')->names('user');
 
 Route::get('register/regions', 'RegionController@index')->name('regions');

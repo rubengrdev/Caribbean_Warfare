@@ -83,9 +83,17 @@ class InventoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Product $product)
+    public function update(Request $request)
     {
-        $categ=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id'==Auth::user()->id)->where('product_id',$product['id'])->select('products.category')->get();
+        dd($request->id);
+
+        //la id del producto al que quiere cambiar:
+        //$request->id
+        //hay que mirarse como pasar el objeto de tipo product, he intentado buscar por ID, pero no me deja, algo no va bien
+        //a lo mejor es una tontería pero hay que echarle un ojo
+        $product = Product::where("id", "=",$request->id)->get();
+
+        dd($categ=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id'==Auth::user()->id)->where('product_id',$product[0]->id)->select('products.category')->get());
 
         $invproducts= DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('category',$categ)->select('products.id')->get();
 
