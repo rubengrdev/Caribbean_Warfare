@@ -55,8 +55,16 @@
         </div>
         <span></span>
         <div id="description">
-            <div class="description-inventoty-header">
+            <div class="description-inventory">
+                <div class="desc-head">
+                    <div class="desc-image">
 
+                    </div>
+                    <div class="desc-title">
+
+                    </div>
+
+                </div>
             </div>
         </div>
 </div>

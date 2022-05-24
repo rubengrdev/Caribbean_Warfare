@@ -72,17 +72,29 @@
     border: 4px solid red;
 }
 
-#description{
-    border:1px solid black;
-}
-.description-inventoty-header
+
+.description-inventory
 {
     margin-top:50px;
+    width: 100%;
+    min-height:100%;
+    border-radius:5px;
+    border: 1px solid black;
+}
+.desc-head{
+    width:100%;
+    height:50%;
     display:flex;
     justify-content: center;
     align-items:center;
-    width: 100%;
-    min-height:100%;
-    background-color:red;
-    background-color:#235694be;
+
 }
+.desc-image{
+    flex:1;
+    background-color:blue;
+}
+.desc-title{
+flex:1;
+background-color:green;
+}
+
