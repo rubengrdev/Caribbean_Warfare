@@ -28,6 +28,19 @@ class ProductController extends Controller
         }
     }
 
+    /**
+     * Display a listing of all the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function all()
+    {
+        $products=Product::all();
+        return view('shop.all', compact('products'));
+    }
+
+
+
 /**public function index(){
     $products=Product::where('available', 1)-> orderBy("created_at","desc") ->get();
     return view('shop.index')->with('products');
