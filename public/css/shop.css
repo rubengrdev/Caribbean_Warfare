@@ -20,7 +20,11 @@
     height:100px;
 }
 .location{
+    transition:0.3s;
     flex:1;
+}
+.location p{
+    transition:0.3s;
 }
 .bigpan{
     flex:0.5;
@@ -39,6 +43,7 @@
 }
 #searchbar{
 margin-right:20px;
+transition:0.3s;
 }
 .options{
     display:flex;
@@ -48,6 +53,7 @@ margin-right:20px;
 .options img{
     max-width:40px;
     max-height:40px;
+    transition:0.3s;
 }
 .separator{
     height:30px;
@@ -60,6 +66,7 @@ margin-right:20px;
     display:flex;
     height:auto;
     width:auto;
+    transition:0.3s;
 }
 .btn-simple{
     border:0px;
@@ -85,12 +92,13 @@ margin-right:20px;
 .content-text{
     position: absolute;
     top: 50%;
-    left: 12%;
+    left: 200px;
     transform: translate( -50%, -50% );
 
     color: white;
     font-weight: bold;
 }
+
 .title-header{
     font-family: 'Lexend', sans-serif;
     font-size:30px;
@@ -268,6 +276,20 @@ p{
 
 #card .nav-shop{
     margin-bottom:50px;
+}
+@media (max-width:800px) {
+    .location p{
+        font-size:40px;
+    }
+    .form-search .btn img{
+        height:35px;
+    }
+    #searchbar{
+        width:100%;
+        min-width:130px;
+        transition:0.3s;
+    }
+
 }
 
 
