@@ -112,6 +112,7 @@ class InventoryController extends Controller
             $user = User::where(['id'=>Auth::user()->id]);
             $user->updateAvatar($product['id']);
         }
+        return back();  
 
     }
 
