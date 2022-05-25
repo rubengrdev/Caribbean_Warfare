@@ -87,6 +87,7 @@
                 </div>
         </nav>
 
+        @if (Auth::user())
         <div id="dropdown-menu">
             <div class="responsive-dropdown">
                 <li class="nav-item">
@@ -116,7 +117,9 @@
                 </li>
             </div>
         </div>
+        @else
 
+        @endif
         <main class="py-4">
             @yield('content')
         </main>
