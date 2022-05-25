@@ -40,8 +40,9 @@
     width:100%;
     height:100px;
 }
-.rank{
 
+.rank{
+    transition: 0.3s;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -49,6 +50,9 @@
     border-radius:5px;
     height:60%;
     border:1px solid black;
+}
+.rank:hover{
+    background-color:rgb(215, 215, 215);
 }
 .rank p{
     font-size:20px;
@@ -93,12 +97,13 @@
 }
 .start-game-box{
     display:flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items:flex-start;
     width:100%;
     height:30%;
 }
 .button-start-game{
+    transition:0.3s;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -106,6 +111,9 @@
     width:70%;
     height:70%;
     background: #3680d97b;
+}
+.button-start-game:hover{
+    background-color: #367fd9a7;
 }
 .button-start-game p{
     font-size:30px;
@@ -126,3 +134,4 @@
     width:100%;
     height:auto;
 }
+
