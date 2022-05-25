@@ -23,6 +23,7 @@ nav{
 }
 
 .container{
+    display:flex;
     flex:1;
     align-items:center;
     height:180px;
@@ -43,8 +44,8 @@ nav{
     transition:0.2s;
 }
 .logo{
+    transition:0.3s;
     align-items:center;
-    margin-top:20px;
     margin-left:50px;
 }
 .nav-link{
@@ -182,6 +183,15 @@ select{
         align-items: center;
         transform-origin: top center;
         height:100px;
+    }
+
+    .anchor-logo{
+        width:220px;
+        height:120px;
+    }
+    .logo{
+        align-items:center;
+        margin-left:30px;
     }
 
 }
