@@ -310,14 +310,13 @@ p{
     .location p{
         font-size:40px;
     }
-    .form-search .btn img{
-        height:35px;
+    .form-search:nth-child(1) {
+        display:none;
     }
-    #searchbar{
-        width:100%;
-        min-width:130px;
-        transition:0.3s;
+    .separator{
+        display:none;
     }
+
 
     #portal-shop img{
        width:50px;
