@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+@import url(https://fonts.googleapis.com/css2?family=DM+Sans&display=swap);
 #shop-section{
     display:flex;
     justify-content:center;
@@ -269,3 +269,4 @@ p{
 #card .nav-shop{
     margin-bottom:50px;
 }
+

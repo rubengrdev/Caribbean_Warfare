@@ -124,6 +124,7 @@ class InventoryController extends Controller
 
 
         }
+        return back();  
 
     }
 
