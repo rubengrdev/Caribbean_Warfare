@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::resource('shop', 'ProductController')->names('shop');
 Route::get('shop/history', 'ProductController@history')->name('history');
+Route::get('shop/all', 'ProductController@all')->name('all');
 Route::post('shop/search','ProductController@search')->name('product.search');
 
 

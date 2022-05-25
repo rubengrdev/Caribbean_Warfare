@@ -163,6 +163,9 @@ p{
     height:auto;
     transition:0.1s;
 }
+.all-filter a{
+    text-decoration: none;
+}
 .all-filter a:hover{
     border-bottom: 3px solid #A18A68 !important;
 }
