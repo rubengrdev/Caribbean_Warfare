@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+
 use App\CurrentGame;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Lobby;
 use Illuminate\Support\Facades\Auth;
 
+
 class LobbyController extends Controller
 {
     public function findGame()
     {
+
         $lobbies = DB::table('lobbies')->orderBy('created_at', 'asc')->select('connections')->take(1)->get();
 
 
@@ -49,5 +52,6 @@ class LobbyController extends Controller
 
             return view('home');
         }
+
     }
 }
