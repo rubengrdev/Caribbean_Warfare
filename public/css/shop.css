@@ -229,9 +229,12 @@ p{
     width:80%;
     display:flex;
     justify-content: center;
-    margin-left:15px;
+
     display:block;
     flex:1;
+}
+.product-title p{
+    text-align: start;
 }
 .product-shopping{
     display:flex;
