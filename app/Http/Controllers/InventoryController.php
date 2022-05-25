@@ -85,6 +85,7 @@ class InventoryController extends Controller
      */
     public function update(Request $request)
     {
+        dd($request->id);
 
         //la id del producto al que quiere cambiar:
         //$request->id

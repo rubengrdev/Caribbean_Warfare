@@ -35,7 +35,12 @@ nav{
     align-items:center;
     height:180px;
 }
-
+.anchor-logo{
+    display:flex;
+    width:300px;
+    height:auto;
+    height:180px;
+}
 .logo{
     align-items:center;
     margin-top:20px;
@@ -130,3 +135,4 @@ select{
     background-color: white;
     text-indent:1em;
 }
+
