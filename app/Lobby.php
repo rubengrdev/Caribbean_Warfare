@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lobby extends Model
 {
-    protected $fillable=['connections', 'user_id1', 'user_id2', 'status'];
+    protected $fillable=['user_id1', 'user_id2', 'connections'];
 
     protected $casts = [
         'created_at' => 'datetime',

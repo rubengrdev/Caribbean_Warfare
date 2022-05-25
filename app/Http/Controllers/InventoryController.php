@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Inventory;
 use App\Product;
 use App\User;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -85,7 +86,7 @@ class InventoryController extends Controller
      */
     public function update(Request $request)
     {
-
+        //dd($request);
         //la id del producto al que quiere cambiar:
         //$request->id
         //hay que mirarse como pasar el objeto de tipo product, he intentado buscar por ID, pero no me deja, algo no va bien
@@ -98,6 +99,7 @@ class InventoryController extends Controller
         //dd($categ);
         $invproducts= DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('category',$categ[0]->category)->select('products.id')->get();
 
+        //dd($invproducts);
         //dd($invproducts[0]->id);
 
         DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('products.category',$categ[0]->category)->update(['equipped'=>false]);
@@ -106,11 +108,21 @@ class InventoryController extends Controller
 
         //dd($unequip);
         //dd($invproducts[0]->id);
-        Inventory::where('user_id',Auth::user()->id)->where('product_id',$invproducts[0]->id)->update(['equipped'=>true]);
+        Inventory::where('user_id',Auth::user()->id)->where('product_id',$request->id)->update(['equipped'=>true]);
 
-        if ($categ=='avatar'){
-            $user = User::where(['id'=>Auth::user()->id]);
-            $user->updateAvatar($product['id']);
+
+
+        //Ahora ya accede y llama a la función correctamente,
+        //pero todavía no actualiza el campo de avatar_id del usuario
+
+
+        if ($categ[0]->category=='avatar'){
+            $user = User::where('id',Auth::user()->id);
+            //dd($user);
+            $updateAv= new UserController;
+            $updateAv->updateAvatar($request);
+
+
         }
         return back();  
 

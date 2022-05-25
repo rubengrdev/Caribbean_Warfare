@@ -17,10 +17,10 @@ class CreateCurrentGamesTable extends Migration
             $table->id();
             $table->foreignId('user_id1');
             $table->foreignId('user_id2');
-            $table->string('user1_boats');
-            $table->string('user2_boats');
-            $table->string('user1_slots');
-            $table->string('user2_slots');
+            $table->string('user1_boats')->nullable();
+            $table->string('user2_boats')->nullable();
+            $table->string('user1_shots')->nullable();
+            $table->string('user2_shots')->nullable();
             $table->string('status');
             $table->timestamps();
             $table->foreign('user_id1')->references('id')->on('users');

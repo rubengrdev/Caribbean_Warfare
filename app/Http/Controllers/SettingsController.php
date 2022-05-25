@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class SettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('settings');
     }
 
     /**
@@ -67,17 +67,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'username' => 'required|max:255',
-            'email' => 'required|max:255',
-            'avatar_id' => 'nullable|max:20',
-        ]);
-
-        $user->update($validatedData);
-
-        return back();
+        //
     }
 
     /**
@@ -86,24 +78,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
-
-        return back();
-    }
-
-    public function updateAvatar(Request $request)
-    {
-        //dd($request);
-        $validatedData = $request->validate([
-            'avatar_id' => 'nullable|max:20',
-        ]);
-
-        $user = User::where('id',Auth::user()->id);
-        //dd($user);
-        $user->update($validatedData,$user);
-
-        return back();
+        User::where('id',Auth::user()->id)->where('id',Auth::user()->username)->delete();
     }
 }
