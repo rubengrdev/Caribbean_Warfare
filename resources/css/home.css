@@ -134,4 +134,14 @@
     width:100%;
     height:auto;
 }
-
+#user-data-main-header{
+    width:100%;
+    display:flex;
+    justify-content: flex-end;
+    align-items:flex-end;
+    align-items:flex-end;
+}
+.space-home{
+    width:50px;
+    height:auto;
+}
