@@ -10,13 +10,15 @@
                 </div>
                 <div class="image-box">
                     <div>
-                        <img src="{{ asset('media/img/skins/blas-de-lezo/blas-de-lezo-template-image-small-caribbean-warfare-render-skin-buy.png') }}">
+                        @foreach($items as $item)
+                        <img src="{{ $item->image }}">
+                        @endforeach
                     </div>
                 </div>
                 <div class="rank-box">
-                    <div class="rank">
-                        <p>Rank</p>
-                    </div>
+                    <a class="rank">
+                        <p></p>
+                    </a>
                 </div>
                 <div class="coconout-box">
                     <div class="coconout-info">
@@ -32,11 +34,17 @@
                 <div class="home-main">
                     <div id="home-main-order">
                         <div id="user-data-main">
-                            
+                            <div id="user-data-main-header">
+                                <a class="leaderboard-box">
+                                    <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >
+                                </a>
+                                <span class="space-home"></span>
+                                <a class="leaderboard-box">
+                                    <img class="throphy-icon" title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
+                                </a>
+                            </div>
                         </div>
-                        <div class="leaderboard-box">
-                            <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >
-                        </div>
+
                     </div>
                 </div>
                 <div class="start-game-box">
@@ -48,4 +56,18 @@
         </div>
     </div>
 </section>
+<script>
+    let rankbox = document.querySelector(".rank");
+    let rankp = document.querySelector(".rank p");
+    //fetch para conseguir el rango
+    fetch(window.location + "/rank")
+        .then(response => response.text())
+        .then(data =>rankp.textContent= data);
+    //si le da click a el botón podrá ver sus puntos actuales
+    rankbox.addEventListener("click", ()=>{
+        fetch(window.location + "/score")
+        .then(response => response.text())
+        .then(data =>console.log(data));
+    });
+</script>
 @endsection
