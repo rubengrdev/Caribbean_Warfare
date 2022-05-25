@@ -58,7 +58,7 @@ class User extends Authenticatable
     }
 
     public function current_game(){
-        return $this->has(Current_Game::class);
+        return $this->has(CurrentGame::class);
     }
 
     public function products(){

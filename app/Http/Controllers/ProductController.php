@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(Product::class, 'product');
+        // $this->authorizeResource(Product::class, 'product');
     }
     /**
      * Display a listing of the resource.
