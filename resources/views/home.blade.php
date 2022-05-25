@@ -14,9 +14,23 @@
                     </div>
                 </div>
                 <div class="rank-box">
-                    <div class="rank">
+                    <a class="rank">
                         <p>Rank</p>
-                    </div>
+                    </a>
+                    <script>
+                        let rankbox = document.querySelector(".rank");
+                        let rankp = document.querySelector(".rank p");
+                        //fetch para conseguir el rango
+                        fetch(window.location + "/rank")
+                            .then(response => response.text())
+                            .then(data =>rankp.textContent= data);
+                        //si le da click a el botón podrá ver sus puntos actuales
+                        rankbox.addEventListener("click", ()=>{
+                            fetch(window.location + "/score")
+                            .then(response => response.text())
+                            .then(data =>console.log(data));
+                        });
+                    </script>
                 </div>
                 <div class="coconout-box">
                     <div class="coconout-info">
@@ -32,7 +46,7 @@
                 <div class="home-main">
                     <div id="home-main-order">
                         <div id="user-data-main">
-                            
+
                         </div>
                         <div class="leaderboard-box">
                             <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >

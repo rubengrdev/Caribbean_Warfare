@@ -31,8 +31,10 @@ Route::resource('inventory', 'InventoryController')->names('inventory');
 
 //ruta para los recursos del usuario
 Route::resource('user', 'UserController')->names('user');
-//ruta para obtener el rango del usuario mediante la ID
-Route::post('rank/{id}', 'RankController@fetchRank')->name('rank');
+//ruta para obtener el rango del usuario
+Route::get('home/rank', 'RankController@fetchRank')->name('rank');
+//ruta para obtener la puntuación del usuario
+Route::get('home/score', 'RankController@fetchScore')->name('rank');
 //ruta para obtener el JSON de regiones
 Route::get('register/regions', 'RegionController@index')->name('regions');
 //rutas de autenticación
