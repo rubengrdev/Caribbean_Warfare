@@ -71,8 +71,7 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'username' => 'required|max:255',
-            'email' => 'required|max:255',
-            'avatar_id' => 'nullable|max:20',
+            'email' => 'required|max:255'
         ]);
 
         $user->update($validatedData);

@@ -62,6 +62,8 @@
                             <a class="nav-link-black" href="{{ route('shop.index') }}">{{ __('Shop') }}</a>
                         </li>
 
+                            <span class="separator-layout"></span>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link-black dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
@@ -121,6 +123,7 @@
         @else
 
         @endif
+        <hr class="bighr">
         <main class="py-4">
             @yield('content')
         </main>

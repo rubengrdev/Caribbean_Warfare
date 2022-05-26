@@ -5,7 +5,7 @@
     <div class="margin-header">
 <nav class="nav-shop">
     <div class="location">
-        <p>Product</p>
+        <p>{{ $response->name }}</p>
     </div>
     <span class="bigpan"></span>
     <div class="options">
@@ -30,7 +30,7 @@
     <div id="desc-box">
 
     <div class="responsive-text">
-        <h1 class="text-title">{{ $response->name }}</h1><br>
+
         <p class="text">{{ $response->description }}</p><br>
         <p>Category</p>
         <p class="type-item">{{ $response->category }}</p>
