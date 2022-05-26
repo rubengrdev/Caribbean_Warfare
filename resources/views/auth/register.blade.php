@@ -1,6 +1,13 @@
 @extends('layouts.app_black')
 
 @section('content')
+<nav class="nav-login">
+    <div class="login-location">
+        <div class="location">
+            <p>Register</p>
+        </div>
+    </div>
+</nav>
 <div class="container-auth">
     <div class="row justify-content-center">
         <div class="col-md-8">

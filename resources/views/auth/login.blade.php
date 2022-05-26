@@ -7,8 +7,6 @@
                 <p>Login</p>
             </div>
         </div>
-
-
 </nav>
 <div class="container-auth">
     <div class="row justify-content-center">
