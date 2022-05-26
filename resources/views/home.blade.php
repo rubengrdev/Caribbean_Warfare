@@ -10,9 +10,7 @@
                 </div>
                 <div class="image-box">
                     <div>
-                        @foreach($items as $item)
-                        <img src="{{ $item->image }}">
-                        @endforeach
+                        <img src="{{ $items[0]->image }}">
                     </div>
                 </div>
                 <div class="rank-box">
