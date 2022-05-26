@@ -25,9 +25,6 @@
                     </div>
                 </div>
             </div>
-
-
-
             <article id="home-section">
                 <div class="home-main">
                     <div id="home-main-order">
