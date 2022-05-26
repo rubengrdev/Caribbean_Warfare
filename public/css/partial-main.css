@@ -56,6 +56,7 @@
         font-family: 'Lexend', sans-serif;
         color:black;
         font-size:70px;
+        transition:0.3s;
     }
     .make-changes{
         display:flex;
@@ -145,4 +146,74 @@
     width:100px;
     height:100%;
 }
-@media (max-width:)
+@media (max-width:800px) {
+    .center{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .get-into-cart{
+            margin:0px;
+        }
+        .responsive-text{
+            width:400px;
+            height:auto;
+            margin-bottom:100px;
+        }
+        #view-product{
+            margin-bottom:30px;
+        }
+        .text-title{
+            font-size:40px;
+        }
+}
+@media (max-width:1800px) {
+    #image-box{
+        margin-left:0px;
+        min-height:480px;
+        min-width:480px;
+    }
+
+
+}
+@media (max-width:1500px) {
+    #view-product{
+        display:block;
+        width:100%;
+        height:auto;
+    }
+    #image-box{
+        padding:0px;
+        max-width:100%;
+        height:auto;
+        min-height:auto;
+    }
+    #image-box img{
+        width:30%;
+        height:30%;
+        min-width:300px;
+    }
+    #desc-box{
+        margin-left:0px;
+        display:flex;
+        justify-content: center;
+        min-height:400px;
+    }
+    .cart-box{
+        display:block;
+    }
+    #buy-options
+{
+    position:absolute;
+    bottom: 0px;
+    margin-top:20px;
+    width:auto;
+    height:auto;
+    justify-content: center;
+    align-items:center;
+}
+.get-into-cart{
+    margin-top:20px;
+}
+
+}
