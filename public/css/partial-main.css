@@ -43,7 +43,7 @@
         margin-top:50px;
         flex:2;
         display:block;
-        height:100%;
+        height:auto;
     }
     .text{
         font-family: 'Lexend', sans-serif;
@@ -100,7 +100,7 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    flex:2;
+    flex:0.8;
     height:100%;
     border:1px solid black;
     border-radius:5px;

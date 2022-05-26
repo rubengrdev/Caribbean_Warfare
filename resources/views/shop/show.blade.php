@@ -30,8 +30,7 @@
         <h1 class="text-title">{{ $response->name }}</h1>
         <p class="text">{{ $response->description }}</p>
     <div id="buy-options">
-        <div class="price-box">
-        </div>
+
         <div class="cart-box">
             <div class="price">
                 <p>{{ $response->price }}</p>
