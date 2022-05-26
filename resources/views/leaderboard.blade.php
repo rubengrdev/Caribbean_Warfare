@@ -1,6 +1,4 @@
-@section('head')
-    @extends('layouts.app_leaderboard')
-@endsection
+@extends('layouts.app_black')
 
 @section('content')
 <div class="container">

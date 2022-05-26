@@ -49,7 +49,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link-white" href="{{ route('register') }}"><p>{{ __('Register') }}</p></a>
                                 </li>
-                            --> 
+                            -->
                             @endif
                         @else
                             <li class="nav-item dropdown">

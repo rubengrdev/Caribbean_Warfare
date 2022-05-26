@@ -126,6 +126,9 @@
     margin-top:20px;
 
 }
+.responsive-options{
+    display: none;
+}
 .throphy-icon
 {
     width:45px;
@@ -146,3 +149,42 @@
     width:50px;
     height:auto;
 }
+@media (max-width:1300px)
+{
+    .start-game-box{
+        display:flex;
+        justify-content: center;
+
+    }
+    .button-start-game{
+        text-align:center;
+    }
+    #home-section{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        height:auto;
+        min-height:auto;
+        margin-bottom:50px;
+    }
+    .home-main{
+        display:none;
+    }
+    #card-content{
+        display:block;
+    }
+    #user-info{
+        width:100%;
+    }
+    .responsive-options{
+        display: flex;
+        justify-content: center;
+    }
+    .button-start-game{
+        padding-top:20px;
+        padding-bottom:20px;
+        margin-top:20px;
+    }
+}
+

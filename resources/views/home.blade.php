@@ -4,6 +4,15 @@
 <section id="shop-section">
     <div id="card-home">
         <div id="card-content">
+            <div class="responsive-options">
+                <a class="leaderboard-box">
+                    <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >
+                </a>
+                <span class="space-home"></span>
+                <a class="leaderboard-box">
+                    <img class="throphy-icon" title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
+                </a>
+            </div>
             <div id="user-info">
                 <div class="name">
                         <p>{{ Auth::user()->username }}</p>
