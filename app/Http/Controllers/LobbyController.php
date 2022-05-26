@@ -26,7 +26,9 @@ class LobbyController extends Controller
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-            return back();
+            $user = Auth::user();
+
+            return view('current_games/current_game', compact('user'));
 
         } else {
 
@@ -36,22 +38,34 @@ class LobbyController extends Controller
 
             $lobby = Lobby::where('user_id2', Auth::user()->id)->get();
 
-            CurrentGame::create([
+            $currentGame = CurrentGame::create([
                 'user_id1' => $lobby[0]['user_id1'],
                 'user_id2' => $lobby[0]['user_id2'],
                 'user1_boats' => null,
                 'user2_boats' => null,
                 'user1_shots' => null,
                 'user2_shots' => null,
-                'status' => 'ongoing',
+                'status' => 'starting',
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
 
-            Lobby::where('user_id2', Auth::user()->id)->delete();
+            /* Lobby::where('user_id2', Auth::user()->id)->delete();
 
-            return view('home');
+            $user = Auth::user(); */
+
+            return view('current_games/current_game', compact('currentGame'));
         }
+    }
 
+    public function isThereCurrentGame($id)
+    {
+        $currentGame = DB::table('current_games')->orderBy('created_at', 'desc')->where(['user_id1', $id])->orWhere(['user_id2', $id])->take(1);
+
+        if ($currentGame > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

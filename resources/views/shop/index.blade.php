@@ -56,7 +56,7 @@
                 @foreach($products as $product)
                     <div class="grid-item">
                         <div class="product-image">
-                            <a onclick="window.location='{{ route('shop.show', ['shop'=>$product->id])}}'">
+                            <a onclick="window.location='{{ route('shop.show', $product->id)}}'">
                                 <img src={{ asset('media/img/skins/blas-de-lezo/blas-de-lezo-template-image-small-caribbean-warfare-render-skin-buy.png') }}>
                             </a>
                         </div>
