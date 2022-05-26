@@ -24,24 +24,28 @@
 
 <div id="view-product">
     <div id="image-box">
-        <img id="product-img" src="{{ $response->image }}">
+        <img id="product-img" src="{{" ../".$response->image }}">
     </div>
     <div id="desc-box">
-        <h1 class="text-title">{{ $response->name }}</h1>
-        <p class="text">{{ $response->description }}</p>
+        <h1 class="text-title">{{ $response->name }}</h1><br>
+        <p class="text">{{ $response->description }}</p><br>
+        <p>Category</p>
+        <p class="type-item">{{ $response->category }}</p>
     <div id="buy-options">
 
         <div class="cart-box">
             <div class="price">
-                <p>{{ $response->price }}</p>
+                <p>Price</p>
+                <p class="price-num">{{ $response->price }}</p>
             </div>
 
             <form>
                 <input type="hidden" value="{{ $response->discount }}">
             </form>
+            <span class="separate-price"></span>
             <div class="get-into-cart">
                 <div class="cart-title">
-                    <p> Add to card</p>
+                    <p> Add to cart</p>
                 </div>
                 <div class="options-show">
                     <form class="form-search-show" method="GET" action="{{ route('login') }}">
