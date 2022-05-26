@@ -80,6 +80,6 @@ class SettingsController extends Controller
      */
     public function destroy($id)
     {
-        User::where('id',Auth::user()->id)->where('id',Auth::user()->username)->delete();
+        User::where('id',Auth::user()->id)->delete();
     }
 }
