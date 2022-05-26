@@ -10,9 +10,7 @@
                 </div>
                 <div class="image-box">
                     <div>
-                        @foreach($items as $item)
-                        <img src="{{ $item->image }}">
-                        @endforeach
+                        <img src="{{ $items[0]->image }}">
                     </div>
                 </div>
                 <div class="rank-box">
@@ -27,9 +25,6 @@
                     </div>
                 </div>
             </div>
-
-
-
             <article id="home-section">
                 <div class="home-main">
                     <div id="home-main-order">

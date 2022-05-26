@@ -120,11 +120,12 @@ class InventoryController extends Controller
             $user = User::where('id',Auth::user()->id);
             //dd($user);
             $updateAv= new UserController;
+            $request->merge(['avatar_id' => $request->id]);
             $updateAv->updateAvatar($request);
 
 
         }
-        return back();  
+        return back();
 
     }
 

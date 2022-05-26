@@ -29,9 +29,10 @@ class ProductPolicy
      * @param  \App\Product  $product
      * @return mixed
      */
-    public function view(User $user, Product $product)
+    public function show(User $user, Product $product)
     {
-        return $user->id > 0;
+        dd($user);
+        return $user->id > 0 && $product->id > 0;
     }
 
     /**

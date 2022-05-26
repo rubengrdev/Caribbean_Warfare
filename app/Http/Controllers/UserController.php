@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Inventory;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -71,8 +72,7 @@ class UserController extends Controller
     {
         $validatedData = $request->validate([
             'username' => 'required|max:255',
-            'email' => 'required|max:255',
-            'avatar_id' => 'nullable|max:20',
+            'email' => 'required|max:255'
         ]);
 
         $user->update($validatedData);
@@ -88,6 +88,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        //Inventory::where('user_id',Auth::user()->id)->delete();
         $user->delete();
 
         return back();
