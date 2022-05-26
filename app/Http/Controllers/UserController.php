@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use App\Inventory;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -88,6 +89,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        //Inventory::where('user_id',Auth::user()->id)->delete();
         $user->delete();
 
         return back();
