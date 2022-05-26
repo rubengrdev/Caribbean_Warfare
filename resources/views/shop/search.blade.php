@@ -5,11 +5,14 @@
     <div id="card">
         <nav class="nav-shop">
             <div class="location">
-                <p>Search Results</p>
+                <p class="search-result">Results</p>
             </div>
             <span class="bigpan"></span>
             <div class="options">
-                <form class="form-search" method="POST" action="{{ route('product.search') }}">
+                <a class="js-button-drop-search">
+                    <img src="{{ asset('media/img/icons/lupa.png') }}" title='icon lupa' alt="Icon from FlatIcon: https://www.flaticon.es/iconos-gratis/lupa">
+                </a>
+                <form class="form-search search-result-form" method="POST" action="{{ route('product.search') }}">
                     @csrf
                 <input id="searchbar" type="text" class="form-control @error('search') is-invalid @enderror" name="search" value="{{ old('search') }}" required autocomplete="Find products" autofocus>
 
@@ -54,4 +57,19 @@
     </div>
 
 </section>
+<script>
+        let searchbuttonresponsive = document.querySelector(".js-button-drop-search");
+        let formsearch = document.querySelector(".form-search");
+        let title = document.querySelector(".location");
+        let options = document.querySelector(".options");
+
+        searchbuttonresponsive.addEventListener("click", ()=>{
+            formsearch.style.display = "flex";
+            title.style.display = "none";
+            searchbuttonresponsive.style.display = "none";
+            options.style.display = "flex";
+            options.style.justifyContent = "center";
+            options.style.alignItems = "center";
+        });
+</script>
 @endsection

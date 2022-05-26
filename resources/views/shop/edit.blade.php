@@ -1,4 +1,4 @@
-@extends('layouts.app_logged')
+@extends('layouts.app_black')
 @section('content')
 <section>
 
