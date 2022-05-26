@@ -280,6 +280,9 @@ p{
 #card .nav-shop{
     margin-bottom:50px;
 }
+.js-button-drop-search{
+    display:none;
+}
 
 @media (max-width:1800px) {
 .location p{
@@ -339,7 +342,12 @@ p{
         display:none;
     }
 
-
+    .search-result-form{
+        display:none;
+    }
+    .js-button-drop-search{
+        display:block;
+    }
     #portal-shop img{
        width:50px;
        border-radius:10px;
