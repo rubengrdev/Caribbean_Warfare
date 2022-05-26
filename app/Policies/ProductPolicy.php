@@ -31,6 +31,7 @@ class ProductPolicy
      */
     public function view(User $user, Product $product)
     {
+        dd($user);
         return $user->id > 0;
     }
 
