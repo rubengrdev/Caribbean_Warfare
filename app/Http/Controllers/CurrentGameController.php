@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 
-class SettingsController extends Controller
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class CurrentGameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('settings');
+        return view('current_games/current_game');
     }
 
     /**
@@ -80,6 +80,11 @@ class SettingsController extends Controller
      */
     public function destroy($id)
     {
-        User::where('id',Auth::user()->id)->where('id',Auth::user()->username)->delete();
+        //
+    }
+
+    public function getCurrentGame($id)
+    {
+        return DB::table('current_games')->orderBy('created_at', 'desc')->where(['user_id1', $id])->orWhere(['user_id2', $id])->take(1);
     }
 }
