@@ -20,7 +20,7 @@ class CreateInventoriesTable extends Migration
             $table->integer('amount');
             $table->boolean('equipped');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('products');
         });
         /*Agregamos una clave foranea que no podriamos tener is no existiera la tabla inventory */
