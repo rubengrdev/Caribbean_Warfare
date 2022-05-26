@@ -4,11 +4,11 @@
 <div class="show-header">
     <div class="margin-header">
 <nav class="nav-shop">
-    <div class="location">
+    <div class="location-show">
         <p>{{ $response->name }}</p>
     </div>
     <span class="bigpan"></span>
-    <div class="options">
+    <div class="options-show">
         <form class="form-search-show" method="GET" action="{{ route('login') }}">
             @csrf
 

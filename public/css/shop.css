@@ -27,9 +27,14 @@
     transition:0.3s;
 }
 .bigpan{
-    flex:0.5;
-    width:10%;
+    flex:auto;
+
     height:100%;
+}
+.options-cart{
+    flex:1;
+    display:flex;
+    justify-content: right;
 }
 .options{
     flex:1.5;
@@ -64,9 +69,13 @@ transition:0.3s;
 }
 .form-search{
     display:flex;
-    height:auto;
     width:auto;
+    height:auto;
     transition:0.3s;
+}
+.form-search button img{
+    max-width:40px;
+    max-height:40px;
 }
 .btn-simple{
     border:0px;
@@ -246,6 +255,7 @@ p{
 .produt-info p{
     font-size:30px;
 }
+
 
 /**SEARCH ITEMS SHOP**/
 #search-results{

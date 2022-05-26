@@ -9,7 +9,7 @@
                 <p>Shop</p>
             </div>
             <span class="bigpan"></span>
-            <div class="options">
+            <div class="options-cart">
                 <form class="form-search" method="POST" action="{{ route('product.search') }}">
                     @csrf
                 <input id="searchbar" type="text" class="form-control @error('search') is-invalid @enderror" name="search" value="{{ old('search') }}" required autocomplete="Find products" autofocus>
