@@ -94,12 +94,7 @@ public function additem($arrayprod){
         $product = Product::where('id', $id)->get();
         //comprovamos que no esté vacio y solo nos devuelva unas llaves sin contenido
         if($product != '[]'){
-            $response = response()->json("{
-                'message' => $product,
-                'status' => true,
-                'code' => 200
-            }");
-            return view('shop.show')->with('response',$response);
+            return view('shop.show')->with('response',$product[0]);
         }
 
         //no cuadra

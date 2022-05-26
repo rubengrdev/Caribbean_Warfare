@@ -1,13 +1,13 @@
 {
     "/js/app.js": "/js/app.js",
     "/js/admin.js": "/js/admin.js",
+    "/js/rank.js": "/js/rank.js",
     "/css/welcome.css": "/css/welcome.css",
     "/css/shop.css": "/css/shop.css",
     "/css/layout.css": "/css/layout.css",
     "/css/app.css": "/css/app.css",
-    "/css/inventory.css": "/css/inventory.css",
+    "/css/home.css": "/css/home.css",
     "/css/own.css": "/css/own.css",
-    "/css/dashboard.css": "/css/dashboard.css",
     "/css/partial-main.css": "/css/partial-main.css",
-    "/css/leaderboard.css": "/css/leaderboard.css"
+    "/css/inventory.css": "/css/inventory.css"
 }

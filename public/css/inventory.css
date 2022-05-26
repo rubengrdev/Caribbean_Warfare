@@ -85,7 +85,8 @@
     height:140px;
     overflow:hidden;
     transition: 1s;
-    animation:1s;
+    -webkit-animation:1s;
+            animation:1s;
 }
 
 
@@ -156,3 +157,5 @@
     width:100%;
     height:auto;
 }
+
+

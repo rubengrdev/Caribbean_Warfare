@@ -77,6 +77,7 @@
                         <form>
                             <input type="hidden" value="{{ $product->id }}">
                         </form>
+                        <span class="grid-item-space"></span>
                     </div>
                 @endforeach
             </div>

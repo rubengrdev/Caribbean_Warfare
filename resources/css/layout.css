@@ -23,6 +23,7 @@ nav{
 }
 
 .container{
+    display:flex;
     flex:1;
     align-items:center;
     height:180px;
@@ -37,13 +38,14 @@ nav{
 }
 .anchor-logo{
     display:flex;
-    width:300px;
+    width:280px;
     height:auto;
-    height:180px;
+    height:160px;
+    transition:0.2s;
 }
 .logo{
+    transition:0.3s;
     align-items:center;
-    margin-top:20px;
     margin-left:50px;
 }
 .nav-link{
@@ -52,7 +54,15 @@ nav{
     font-family: 'Lexend', sans-serif;
     font-size:22px;
     padding-bottom: 5px;
+    transition:0.2s;
 }
+.responsive-dropdown{
+    display:none;
+}
+.navbar-auto{
+    display:flex;
+}
+
 .nav-link:hover{
     border-bottom: 3px solid white !important;
 
@@ -86,7 +96,7 @@ li{
 
 }
 ul{
-    margin-right:15px;
+    margin-right:25px;
 }
 .button-div{
     margin-top:5px;
@@ -135,4 +145,65 @@ select{
     background-color: white;
     text-indent:1em;
 }
+.dropdown-img{
+    display:none;
+    width:40px;
+    margin-right:30px;
+}
 
+@media (max-width:1500px) {
+    .anchor-logo{
+        width:250px;
+        height:140px;
+    }
+    .nav-link-black{
+        font-size:20px;
+    }
+
+}
+@media (max-width:800px) {
+    .responsive-nav{
+        display:none;
+    }
+    .responsive-dropdown{
+        display:block;
+    }
+    .dropdown-img{
+        display:block;
+        width:40px;
+    }
+    #dropdown-menu{
+        animation: lazydrop 300ms ease-in-out forwards;
+
+        width:auto;
+        padding-left:50px;
+        background-color: white;
+        display:none;
+        justify-content: center;
+        align-items: center;
+        transform-origin: top center;
+        height:100px;
+    }
+
+    .anchor-logo{
+        width:220px;
+        height:120px;
+    }
+    .logo{
+        align-items:center;
+        margin-left:30px;
+    }
+
+}
+
+@keyframes lazydrop {
+    85% {
+        transform: scaleY(1.1)
+    }
+    0% {
+        transform: scaleY(0)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}

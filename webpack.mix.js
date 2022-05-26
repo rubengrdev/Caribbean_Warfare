@@ -22,14 +22,14 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 
 mix.js('resources/js/admin.js', 'public/js');
+mix.js('resources/js/rank.js', 'public/js');
 
 mix.css('resources/css/own.css', 'public/css')
     css('resources/css/layout.css','public/css'),
+    css('resources/css/home.css','public/css'),
     css('resources/css/shop.css','public/css'),
     css('resources/css/inventory.css','public/css'),
-    css('resources/css/leaderboard.css','public/css'),
-    css('resources/css/partial-main.css','public/css'),
-    css('resources/css/dashboard.css','public/css');
+    css('resources/css/partial-main.css','public/css');
 
 mix.css('resources/css/welcome.css', 'public/css');
 
