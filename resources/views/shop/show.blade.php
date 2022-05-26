@@ -26,11 +26,15 @@
     <div id="image-box">
         <img id="product-img" src="{{" ../".$response->image }}">
     </div>
+
     <div id="desc-box">
+
+    <div class="responsive-text">
         <h1 class="text-title">{{ $response->name }}</h1><br>
         <p class="text">{{ $response->description }}</p><br>
         <p>Category</p>
         <p class="type-item">{{ $response->category }}</p>
+    </div>
     <div id="buy-options">
 
         <div class="cart-box">
@@ -43,6 +47,7 @@
                 <input type="hidden" value="{{ $response->discount }}">
             </form>
             <span class="separate-price"></span>
+            <div class="center">
             <div class="get-into-cart">
                 <div class="cart-title">
                     <p> Add to cart</p>
@@ -57,8 +62,10 @@
                 </form>
                 </div>
             </div>
-        </div>
+            </div>
+
     </div>
+</div>
     </div>
 </div>
 
