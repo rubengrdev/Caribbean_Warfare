@@ -21,6 +21,7 @@ body{
     color: rgba(128, 128, 128, 0.141);
 }
 .nav-login{
+    margin-top:20px;
     display:flex;
     justify-content: center;
 }
@@ -59,11 +60,12 @@ nav{
     align-items:center;
     height:180px;
 }
+
 .anchor-logo{
     display:flex;
-    width:280px;
+    width:220px;
     height:auto;
-    height:160px;
+    height:120px;
     transition:0.2s;
 }
 .logo{
@@ -175,10 +177,7 @@ select{
 }
 
 @media (max-width:1500px) {
-    .anchor-logo{
-        width:250px;
-        height:140px;
-    }
+
     .nav-link-black{
         font-size:20px;
     }
