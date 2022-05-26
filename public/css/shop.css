@@ -281,6 +281,21 @@ p{
     margin-bottom:50px;
 }
 
+@media (max-width:1800px) {
+.location p{
+    font-size:60px;
+}
+}
+
+@media (max-width:1195px) {
+    .location p{
+        font-size:30px;
+    }
+    .bigpan{
+        display:none;
+    }
+}
+
 @media (max-width:1580px) {
     #grid-shop{
         max-width:100%;
@@ -299,11 +314,18 @@ p{
         align-self: center;
         justify-self: center;
     }
-
+    .options{
+        width:40%;
+        display:flex;
+        justify-content:flex-end;
+        align-items:right;
+    }
     .product-sect{
         margin-bottom:20px;
     }
-
+    .location p{
+        font-size:50px;
+    }
 }
 
 @media (max-width:800px) {

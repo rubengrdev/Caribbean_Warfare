@@ -5,7 +5,7 @@
     <div id="card">
         <nav class="nav-shop">
             <div class="location">
-                <p>Search Results</p>
+                <p class="search-result">Results</p>
             </div>
             <span class="bigpan"></span>
             <div class="options">
