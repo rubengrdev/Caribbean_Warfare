@@ -26,6 +26,9 @@ Route::get('shop/all', 'ProductController@all')->name('all');
 //ruta para buscar items de la tienda
 Route::post('shop/search','ProductController@search')->name('product.search');
 
+//ruta para acceder al carrito
+Route::resource('cart', 'ShoppingCartController')->names('cart');
+
 //ruta para los recurso del inventario
 Route::resource('inventory', 'InventoryController')->names('inventory');
 

@@ -7,6 +7,7 @@ use App\Inventory;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Region;
+use App\Score;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -82,6 +83,8 @@ class RegisterController extends Controller
         Inventory::create(['user_id'=>$userid['id'],'product_id'=>1,'amount'=>1,'equipped'=>true,'created_at'=>now(),'updated_at'=>now()]);
 
         User::where('id',$userid['id'])->update(['avatar_id'=>1]);
+
+        Score::create(['id_user'=>$userid['id'],'score'=>0,'date'=>now(),'created_at'=>now(),'updated_at'=>now()]);
 
         return $createduser;
     }
