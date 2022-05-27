@@ -9,7 +9,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        //  $this->authorizeResource(Product::class, 'product');
+        // $this->authorizeResource(Product::class, 'product');
     }
     /**
      * Display a listing of the resource.
@@ -90,6 +90,9 @@ public function additem($arrayprod){
      */
     public function show($id)
     {
+        //intento de usar can y cannot
+        //$request->user()->cannot('view')
+
         //conseguimos todos los datos de el producto referenciado
         $product = Product::where('id', $id)->get();
         //comprovamos que no esté vacio y solo nos devuelva unas llaves sin contenido

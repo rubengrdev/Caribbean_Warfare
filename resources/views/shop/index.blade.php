@@ -67,9 +67,13 @@
                                 <p>{{ $product->price }}</p>
                             </div>
                             <div class="product-shopping">
-                                <button type="submit" class="btn btn-primary btn-simple">
-                                    <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
-                                </button>
+                                <form action="{{ route('shoppingCart.store')}}" method="POST">
+                                    @csrf
+                                    <input type="number" name="id" id="id" value="{{$product->id}}" style="display:none">
+                                    <button type="submit" class="btn btn-primary btn-simple">
+                                        <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
+                                    </button>
+                                </form>
                             </div>
 
                         </div>
