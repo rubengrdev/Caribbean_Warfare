@@ -5,6 +5,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use App\Shoppingcart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Product;
+use Illuminate\Database\Eloquent\Collection;
+use PhpParser\Node\Expr\New_;
 
 class ShoppingCartController extends Controller
 {
@@ -15,9 +18,10 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-
+        /*
         $cart=session()->get('product.id');
-        return view('cart', compact('cart'));
+        return view('home', compact('cart'));
+        */
     }
 
     /**
@@ -38,10 +42,17 @@ class ShoppingCartController extends Controller
      */
     public function store(Request $request)
     {
-        $id=$request['id'];
-        //Shoppingcart::create(['user_id'=>Auth::user()->id,'product_id'=>$id]);
 
-        $request->session()->put('product.id', $id);
+        $cart = session()->get('cart', []);
+        $cart[] = intval($request->id);
+        // $_SESSION["cart"] = [];
+        // $_SESSION["cart"] += [intval($request->id)];
+        // $cart->push('cart', intval($request->id));
+        $request->session()->push('cart.id', $cart);
+
+        dd($request->session()->all());
+        // dd($_SESSION["shoppingCart"]);
+        // return back();
     }
 
     /**
@@ -52,8 +63,6 @@ class ShoppingCartController extends Controller
      */
     public function show($id)
     {
-
-
         $cart=session()->get('product.id',$id);
 
         return $cart;
@@ -77,7 +86,7 @@ class ShoppingCartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
     }
