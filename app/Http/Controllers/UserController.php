@@ -56,9 +56,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('users.edit');
     }
 
     /**
@@ -70,12 +70,15 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
         $validatedData = $request->validate([
             'username' => 'required|max:255',
             'email' => 'required|max:255'
         ]);
 
-        $user->update($validatedData);
+        if($user->update($validatedData)){
+            return redirect()->route('home');
+        }
 
         return back();
     }
@@ -88,7 +91,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //Inventory::where('user_id',Auth::user()->id)->delete();
+        Inventory::where('user_id',Auth::user()->id)->delete();
         $user->delete();
 
         return back();

@@ -26,12 +26,20 @@
                     @foreach ($items as $item)
 
                     @if ($item->category == 'avatar')
-                    <form method="POST" class="form-invent" action="">
+
+                    <form method="POST" class="form-invent formput" action="">
                         @csrf
                         @method('PUT')
 
-                        <div class="inventory-item">
-                            <img src="{{ $item->image }}">
+                        <div class="inventory-item" oncontextmenu="javascript:imageDetail({{ json_encode($item) }}); return false;">
+                            <a class="inventory-item-img">
+                                <img src="{{ $item->image }}">
+                                <div class="reverse-image">
+                                    <button class="btn-simple">
+                                        <p>{{ $item->name }}</p>
+                                    </button>
+                                </div>
+                            </a>
                             <form>
                                 <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
                             </form>
@@ -52,13 +60,21 @@
                 <div id="inventory-grid">
                     @foreach ($items as $item)
 
-                    @if ($item->category == 'skin')
-                    <form method="POST" class="form-invent" action="">
+                    @if ($item->category == 'skins')
+
+                    <form method="POST" class="form-invent formput" action="">
                         @csrf
                         @method('PUT')
 
-                        <div class="inventory-item">
-                            <img src="{{ $item->image }}">
+                        <div class="inventory-item" oncontextmenu="javascript:imageDetail({{ json_encode($item) }}); return false;">
+                            <a class="inventory-item-img">
+                                <img src="{{ $item->image }}">
+                                <div class="reverse-image">
+                                    <button class="btn-simple">
+                                        <p>{{ $item->name }}</p>
+                                    </button>
+                                </div>
+                            </a>
                             <form>
                                 <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
                             </form>
@@ -120,5 +136,38 @@
                 inventform.submit();
             })
         });
+
+
+        function imageDetail(json){
+            console.log(json)
+            let inventoryitemimg = document.querySelectorAll(".inventory-item-img");
+            let image = document.querySelectorAll(".inventory-item img");
+
+            let getObjects = document.querySelectorAll(".inventory-item-blade");
+            inventoryitemimg.forEach(element => {
+
+                if(json.id == JSON.parse(element.parentElement.children[1].value).id){
+
+
+                    if(element.children[0].style.display == "none"){
+                        element.children[0].style.display = "flex";
+                        element.children[1].style.display = "none";
+
+                        return false;
+
+
+                    }else{
+                        element.children[0].style.display = "none";
+                        element.children[1].style.display = "flex";
+
+                        return false;
+                    }
+
+                }
+
+            });
+
+            return false;
+        }
     </script>
 @endsection

@@ -27,13 +27,14 @@ class LeaderboardController extends Controller
     public function index()
     {
         $userdata=User::where('id',Auth::id())->select('users.*')->get();
+        $userscore=Score::where('id_user',Auth::id())->select('scores.*')->get();
         $this->getTop();
         return view('leaderboard',compact('userdata'));
     }
 
     public function getTop()
     {
-        return Score::orderBy('score', 'desc')->value('id_user','score')->take(10)->get();
+        return Score::orderBy('score', 'desc')->select('scores.*')->take(10)->get();
         // No se si puedo pillar 2 values (id y score)
     }
 

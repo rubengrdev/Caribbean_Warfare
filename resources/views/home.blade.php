@@ -9,8 +9,8 @@
                     <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >
                 </a>
                 <span class="space-home"></span>
-                <a class="leaderboard-box">
-                    <img class="throphy-icon" title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
+                <a class="leaderboard-box" href="{{ route("user.edit", Auth::user()->id) }}">
+                    <img class="throphy-icon"  title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
                 </a>
             </div>
             <div id="user-info">
@@ -43,7 +43,7 @@
                                     <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >
                                 </a>
                                 <span class="space-home"></span>
-                                <a class="leaderboard-box">
+                                <a class="leaderboard-box" href="{{ route("user.edit", Auth::user()->id) }}">
                                     <img class="throphy-icon" title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
                                 </a>
                             </div>
