@@ -56,10 +56,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-
-        return view('settings');
+        return view('users.edit');
     }
 
     /**
@@ -71,6 +70,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        dd($user);
         $validatedData = $request->validate([
             'username' => 'required|max:255',
             'email' => 'required|max:255'
