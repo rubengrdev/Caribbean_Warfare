@@ -94,7 +94,7 @@ class UserController extends Controller
         //Inventory::where('user_id',Auth::user()->id)->delete();
         $user->delete();
 
-        return back();
+        return view('welcome');
     }
 
     public function updateAvatar(Request $request)
