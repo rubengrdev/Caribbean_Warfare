@@ -51,14 +51,24 @@
                 <p>Skins</p>
                 <div id="inventory-grid">
                     @foreach ($items as $item)
-                        @if ($item->category == 'skin')
-                            <div class="inventory-item">
-                                <img src="{{ $item->image }}">
-                                <form>
-                                    <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
-                                </form>
-                            </div>
-                        @endif
+
+                    @if ($item->category == 'skin')
+                    <form method="POST" class="form-invent" action="">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="inventory-item">
+                            <img src="{{ $item->image }}">
+                            <form>
+                                <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
+                            </form>
+                            <input type="hidden" value="" name="id" class="hidden-input">
+
+                        </div>
+                        <input type="submit" class="button-hidden">
+                        </input>
+                    </form>
+                    @endif
                     @endforeach
                 </div>
             </div>
@@ -97,21 +107,15 @@
                 }
             //si le da click  a uno de los items obtenemos su JSON
             item.addEventListener("click", () => {
-
-
                 let itemData = JSON.parse(item.children[1].value);
                 //agregamos el valor que pasaremos por ID al mediante el formulario hidden, cuando pulse el botón de equipar enviará un Request al método Update
                 let hiddeninput = document.querySelector(".hidden-input");
                 hiddeninput.value = itemData.product_id;
                 let inventform = document.querySelector(".form-invent");
                 let route = window.location.href;
-
                 let id = itemData.id;
                 let fullroute = route + "/" + id;
-                console.log(fullroute)
-
                 inventform.action = fullroute;
-                console.log(inventform);
                 let buttonh = document.querySelector(".button-hidden");
                 inventform.submit();
             })
