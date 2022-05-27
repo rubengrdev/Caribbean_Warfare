@@ -18,7 +18,6 @@ class ProductPolicy
      */
     public function viewAny(User $user)
     {
-
         return $user->id > 0;
     }
 
@@ -29,10 +28,9 @@ class ProductPolicy
      * @param  \App\Product  $product
      * @return mixed
      */
-    public function show(User $user, Product $product)
+    public function view(User $user, Product $product)
     {
-        dd($user);
-        return $user->id > 0 && $product->id > 0;
+        return true;
     }
 
     /**
