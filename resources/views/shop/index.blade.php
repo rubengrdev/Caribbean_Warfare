@@ -19,13 +19,13 @@
                 </button>
             </form>
                 <span class="separator"></span>
-                <form class="form-search" method="GET" action="{{ route('login') }}">
-                    @csrf
+                <a class="form-search" href="{{ route('shoppingCart.index') }}">
+
 
                 <button type="submit" class="btn btn-primary btn-simple">
                     <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
                 </button>
-            </form>
+            </a>
             </div>
         </nav>
         <article id="portal-shop">
