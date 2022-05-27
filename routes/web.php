@@ -26,11 +26,12 @@ Route::get('shop/all', 'ProductController@all')->name('all');
 //ruta para buscar items de la tienda
 Route::post('shop/search','ProductController@search')->name('product.search');
 
-//ruta para acceder al carrito
-Route::resource('cart', 'ShoppingCartController')->names('cart');
 
 //ruta para los recurso del inventario
 Route::resource('inventory', 'InventoryController')->names('inventory');
+
+//ruta para el historial de compras
+Route::get('history', 'ShoppingHistoryController@index')->name('history');
 
 //ruta para los recursos del usuario
 Route::resource('user', 'UserController')->names('user');
@@ -49,6 +50,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('leaderboard', 'LeaderboardController@index')->name('leaderboard');
+Route::get('leaderboard/getTop', 'LeaderboardController@getTop')->name('leaderboard.getTop');
 Route::get('lobby', 'LobbyController@findGame')->name('lobby');
 
 //Route::get('leaderboard', 'LeaderboardController@getTop')->name('getTop');

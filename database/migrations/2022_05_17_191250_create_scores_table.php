@@ -19,7 +19,7 @@ class CreateScoresTable extends Migration
             $table->integer('score');
             $table->datetimetz('date');
             $table->timestamps();
-            $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
