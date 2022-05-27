@@ -91,7 +91,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        Inventory::where('user_id',Auth::user()->id)->delete();
+        Inventory::where('user_id',Auth::user()->id);
         $user->delete();
 
         return back();
@@ -99,7 +99,7 @@ class UserController extends Controller
 
     public function updateAvatar(Request $request)
     {
-        //dd($request);
+        dd($request);
         $validatedData = $request->validate([
             'avatar_id' => 'nullable|max:20',
         ]);
