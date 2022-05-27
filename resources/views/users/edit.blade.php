@@ -18,6 +18,7 @@
                 <div class="card-body">
                     <div class="card-header"><p>{{ __('Edit') }}</p></div>
                     <form method="POST" action="{{ route('user.update', Auth::user()) }}">
+                        @method('PUT')
                         @csrf
 
                         <div class="form-group row">
@@ -48,19 +49,6 @@
                             </div>
                         </div>
 
-
-
-                        <div class="row align-items-start mb-3">
-                            <div class="col-2">
-                                <label  class="form-label" for="contents"><p>{{ __('Region') }}</p></label>
-                            </div>
-                            <div class="col-10 w-20">
-                                <select class="form-select region-selector" name="region_id" aria-label="Default select example"  class="@error('region_id') is-invalid @enderror">
-                                    <option disabled hidden selected>Select your region</option>
-
-                                  </select>
-                            </div>
-                        </div>
                         <div class="form-group row mb-0  button-div">
                             <div class="col-md-6 offset-md-4 button-div">
                                 <button type="submit" class="btn btn-primary btn-action">
@@ -72,6 +60,9 @@
                     <br>
                     <hr>
                     <form method="POST" action="{{ route('user.destroy', Auth::user()) }}">
+                        @method('DELETE')
+                        @csrf
+
                         <div class="form-group row mb-0  button-div">
                             <div class="col-md-6 offset-md-4 button-div">
                                 <button type="submit" class="btn btn-primary btn-action red">
