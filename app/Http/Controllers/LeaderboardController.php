@@ -27,6 +27,7 @@ class LeaderboardController extends Controller
     public function index()
     {
         $userdata=User::where('id',Auth::id())->select('users.*')->get();
+        $userscore=Score::where('id_user',Auth::id())->select('scores.*')->get();
         $this->getTop();
         return view('leaderboard',compact('userdata'));
     }
