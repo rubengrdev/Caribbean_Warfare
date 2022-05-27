@@ -23,7 +23,6 @@
     align-items: center;
 }
 #avatars, #skins, #description{
-    flex:1;
     height:500px;
 }
 #inventory-card span{
@@ -157,5 +156,7 @@
     width:100%;
     height:auto;
 }
-
+.button-hidden{
+    display:none;
+}
 
