@@ -28,9 +28,9 @@ class LeaderboardController extends Controller
     {
         $userdata=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('equipped',1)->select('products.*', 'inventories.*')->get();
         $userscore=Score::where('id_user',Auth::id())->select('scores.*')->get();
-        $this->getTop();
+        $top = $this->getTop();
 
-        return view('leaderboard',compact('userdata', 'userscore'));
+        return view('leaderboard',compact('userdata', 'userscore', 'top'));
     }
 
     public function getTop()
