@@ -35,7 +35,7 @@ class LeaderboardController extends Controller
 
     public function getTop()
     {
-        return DB::table('users')->join('scores','scores.id_user','=','users.id')->join('products','users.avatar_id','=','products.id')->orderBy('score', 'desc')->select('users.username','users.id','users.region_id','users.avatar_id','scores.score','products.image')->take(10)->get();
+        return DB::table('users')->join('scores','scores.id_user','=','users.id')->join('products','users.avatar_id','=','products.id')->join('regions','users.region_id','=','regions.id')->orderBy('score', 'desc')->select('users.username','users.id','users.region_id','users.avatar_id','scores.score','products.image','regions.region')->take(10)->get();
         //return Score::orderBy('score', 'desc')->select('scores.*')->take(10)->get();
     }
 

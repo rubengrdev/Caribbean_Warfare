@@ -99,7 +99,7 @@ class UserController extends Controller
 
     public function updateAvatar(Request $request)
     {
-        dd($request);
+        //dd($request);
         $validatedData = $request->validate([
             'avatar_id' => 'nullable|max:20',
         ]);
