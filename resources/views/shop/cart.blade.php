@@ -41,7 +41,7 @@
 
             </span>
             <div class="shoppingcart-delete">
-                <form method="POST" action="{{ route('user.destroy', Auth::user()) }}">
+                <form method="POST" action="{{ route('shoppingCart.destroy', 3) }}">
                     @method('DELETE')
                     @csrf
 
@@ -76,7 +76,7 @@
 
             </span>
             <div class="shoppingcart-delete">
-                <form method="POST" action="{{ route('shoppingCart.destroy', 1  ) }}">
+                <form method="POST" action="{{ route('shoppingCart.destroy', 4  ) }}">
                     @method('DELETE')
                     @csrf
 
