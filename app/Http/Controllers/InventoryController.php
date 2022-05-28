@@ -47,9 +47,9 @@ class InventoryController extends Controller
     public function store(Request $products)
     {
 
-            foreach($products as $product){
-                Inventory::create(['user_id'=>Auth::user()->id,'product_id',$product['id']]);
-            }
+        foreach($products as $product){
+            Inventory::create(['user_id'=>Auth::user()->id,'product_id',$product['id']]);
+        }
 
     }
 

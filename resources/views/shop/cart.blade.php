@@ -9,7 +9,7 @@
             </div>
             <div class="history-title">
                 <div>
-                    <a  href="{{ route('history') }}">
+                    <a  href="{{ route('shoppingCart.removeAll') }}">
                         <p>Remove All</p>
                     </a>
                 </div>
@@ -21,8 +21,7 @@
 </section>
 <div id="shoppingcart-main">
     <div class="align-shop">
-        @foreach ($products as $product)
-
+        @foreach ($products as $key => $product)
 
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
@@ -34,7 +33,7 @@
             <div class="shoppingcart-amount">
 
                     <div class="setamount">+</div>
-                    <p>2</p>
+                    <p>{{ $amounts[$key] }}</p>
                     <div class="setamount">-</div>
             </div>
             <div class="shoppingcart-price">
@@ -44,7 +43,7 @@
 
             </span>
             <div class="shoppingcart-delete">
-                <form method="POST" action="{{ route('shoppingCart.removeAll') }}">
+                <form method="POST" action="{{ route('shoppingCart.destroy', $product->id) }}">
                     @method('DELETE')
                     @csrf
 
