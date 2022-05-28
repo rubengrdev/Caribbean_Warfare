@@ -79,6 +79,10 @@ td{
     height:40px;
 
 }
+.img-scoreboard{
+    height:40px;
+    border-radius:100%;
+}
 td p{
 
     font-size:20px;

@@ -113,8 +113,7 @@ class InventoryController extends Controller
 
 
 
-        //Ahora ya accede y llama a la función correctamente,
-        //pero todavía no actualiza el campo de avatar_id del usuario
+
 
 
         if ($categ[0]->category=='avatar'){
@@ -122,7 +121,8 @@ class InventoryController extends Controller
             //dd($user);
             $updateAv= new UserController;
             $request->merge(['avatar_id' => intval($request->id)]);
-
+            //dd($request);
+            $updateAv->updateAvatar($request);
 
 
         }

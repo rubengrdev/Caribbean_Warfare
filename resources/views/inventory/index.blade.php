@@ -60,7 +60,7 @@
                 <div id="inventory-grid">
                     @foreach ($items as $item)
 
-                    @if ($item->category == 'skins')
+                    @if ($item->category == 'skin')
 
                     <form method="POST" class="form-invent formput" action="">
                         @csrf

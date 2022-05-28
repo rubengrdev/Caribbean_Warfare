@@ -41,14 +41,15 @@
                 <th><p>ID</p></th>
                 <th><p>Country</p></th>
               </tr>
+              @foreach($top as $t)
               <tr>
                 <td><p>1</p></td>
-                <td><p>Image</p></td>
-                <td><p>rubengomez</p></td>
-                <td><p>1</p></td>
-                <td><p>Spain</p></td>
+                <td><img  class="img-scoreboard" src="{{ $t->image }}"></td>
+                <td><p>{{ $t->username }}</p></td>
+                <td><p>{{ $t->id }}</p></td>
+                <td><p>{{ $t->region }}</p></td>
               </tr>
-
+              @endforeach
             </table>
           </div>
 

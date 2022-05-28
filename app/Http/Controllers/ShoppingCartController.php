@@ -1,13 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use Symfony\Component\HttpFoundation\Session\Session;
-use App\Shoppingcart;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Product;
-use Illuminate\Database\Eloquent\Collection;
-use PhpParser\Node\Expr\New_;
 
 class ShoppingCartController extends Controller
 {
@@ -18,11 +13,16 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        return view('shop.cart');
-        /*
-        $cart=session()->get('product.id');
-        return view('home', compact('cart'));
-        */
+        $cart=session()->get('cart', 'default');
+        $products = [];
+
+        if ($cart > 0) {
+            foreach ($cart as $cart => $id) {
+                $products[] = Product::where('id', $id)->first();
+            }
+        }
+
+        return view('shop.cart', compact('products'));
     }
 
     /**
@@ -43,17 +43,9 @@ class ShoppingCartController extends Controller
      */
     public function store(Request $request)
     {
-
-        $cart = session()->get('cart', []);
-        $cart[] = intval($request->id);
-        // $_SESSION["cart"] = [];
-        // $_SESSION["cart"] += [intval($request->id)];
-        // $cart->push('cart', intval($request->id));
-        $request->session()->push('cart.id', $cart);
-
-        dd($request->session()->all());
-        // dd($_SESSION["shoppingCart"]);
-        // return back();
+        $request->session()->push('cart', intval($request->id));
+        // dd($request->session()->all());
+        return back();
     }
 
     /**
@@ -62,11 +54,14 @@ class ShoppingCartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        $cart=session()->get('product.id',$id);
+        /*
+        $cart=session()->get('cart', $product->id);
+        dd($cart);
 
         return $cart;
+        */
     }
 
     /**
@@ -98,15 +93,25 @@ class ShoppingCartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        session()->forget('product.id');
+        $products = session()->get('cart');
 
+        // esto mira dentro del array de productos si hay alguno con la id del producto a eliminar
+        if (($key = array_search($id, $products)) !== false) {
+            unset($products[$key]);
+        }
+        $request->session()->put('cart', $products);
+        // dd($request->session()->all());
+
+        return back();
     }
 
-    public function removeproduct($id)
+    public function removeAll(Request $request)
     {
-        session()->forget('product.id',$id);
+        $request->session()->forget('cart');
+
+        return view('shop.cart');
     }
 
 }
