@@ -284,7 +284,9 @@
     }
 }
 @media(max-width:400px){
-
+    .nav-inventory .locationn p{
+        font-size:40px;
+    }
     #inventory-grid{
         margin-top:10px;
         padding:20px;

@@ -3,9 +3,9 @@
 @section('content')
 <section id="shop-section">
     <div id="card-shop">
-        <nav class="nav-inventory">
+        <nav class="nav-cart">
             <div class="location">
-                <p>Shopping Cart</p>
+                <p>Cart</p>
             </div>
             <div class="history-title">
                 <div>
@@ -37,6 +37,9 @@
             <div class="shoppingcart-price">
                 <p>2,99€</p>
             </div>
+            <span class="grid-cart-hidden">
+
+            </span>
             <div class="shoppingcart-delete">
                 <form method="POST" action="{{ route('user.destroy', Auth::user()) }}">
                     @method('DELETE')
@@ -69,6 +72,9 @@
             <div class="shoppingcart-price">
                 <p>2,99€</p>
             </div>
+            <span class="grid-cart-hidden">
+
+            </span>
             <div class="shoppingcart-delete">
                 <form method="POST" action="{{ route('shoppingCart.destroy', 1  ) }}">
                     @method('DELETE')

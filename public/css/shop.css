@@ -22,7 +22,10 @@
 .location{
     transition:0.3s;
     flex:1;
+    display:flex;
+    align-items:center;
 }
+
 .location p{
     transition:0.3s;
 }
@@ -424,6 +427,11 @@ p{
     display:flex;
     margin-bottom:20px;
 }
+#image-box{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .shoppingcart-image-desc{
     flex:1;
     text-align: center;
@@ -432,13 +440,15 @@ p{
     width:150px;
     height:auto;
 }
+.grid-cart-hidden{
+    display:none;
+}
 .shoppingcart-title{
     flex:2;
     display:flex;
     align-items: center;
     justify-content: center;
     padding-top: 5px;
- line-height: 10px;
  font-size: 25px;
  font-weight: 800;
 }
@@ -473,10 +483,49 @@ p{
  justify-content: center;
  align-items: center;
  font-size: 20px;
- font-weight: 900;
  color: #202020;
  cursor: pointer;
 }
 .shoppingcart-amount p{
     font-size:25px;
 }
+@media(max-width:1100px){
+    .cart-item{
+        display:grid;
+        grid-template-columns: auto auto ;
+        grid-template-rows: auto auto auto;
+    }
+    .shoppingcart-delete{
+        margin-bottom:15px;
+        margin-top: 15px;
+    }
+    .grid-cart-hidden{
+        display:block;
+        height:20px;
+        width: 20px;
+    }
+}
+
+@media(max-width:440px){
+    .nav-cart{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height:100px;
+    }
+
+
+
+}
+.history-title div a{
+    position:absolute;
+    margin-top:15px;
+}
+.history-title div {
+   height:100%;
+   align-items:center;
+}
+.history-title {
+    height:100%;
+    align-items:center;
+ }

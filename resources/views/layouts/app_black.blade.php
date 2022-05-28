@@ -62,6 +62,7 @@
                             <a class="nav-link-black" href="{{ route('shop.index') }}">{{ __('Shop') }}</a>
                         </li>
 
+
                             <span class="separator-layout"></span>
 
                         <li class="nav-item dropdown">

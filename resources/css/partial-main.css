@@ -35,6 +35,7 @@
         align-items: center;
         height:auto;
     }
+
     #product-img{
         width:100%;
         height:100%;
@@ -170,8 +171,6 @@
 @media (max-width:1800px) {
     #image-box{
         margin-left:0px;
-        min-height:480px;
-        min-width:480px;
     }
 
 
@@ -184,7 +183,6 @@
     }
     #image-box{
         padding:0px;
-        max-width:100%;
         height:auto;
         min-height:auto;
     }
@@ -216,4 +214,14 @@
     margin-top:20px;
 }
 
+}
+@media(max-width:450px){
+    #view-product{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #image-box{
+        max-width:100%;
+    }
 }

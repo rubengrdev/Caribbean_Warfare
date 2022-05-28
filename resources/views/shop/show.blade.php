@@ -52,7 +52,7 @@
                 <div class="cart-title">
                     <p> Add to cart</p>
                 </div>
-                <div class="options-show">
+                <div class="options-show-cart">
                     <form class="form-search-show" method="GET" action="{{ route('login') }}">
                         @csrf
 

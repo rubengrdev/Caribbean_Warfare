@@ -9,7 +9,7 @@
                 <div class="history-title">
                     <div>
                         <a  href="{{ route('history') }}">
-                            <p>Shopping history</p>
+                            <p>Shop history</p>
                         </a>
                     </div>
 
