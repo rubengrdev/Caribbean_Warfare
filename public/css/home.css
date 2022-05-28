@@ -21,13 +21,13 @@
 #user-info .name p{
     font-size:30px;
 }
-.image-box{
+.image-box-user{
     width:100%;
     height:auto;
     display:flex;
     justify-content:center;
 }
-.image-box div img{
+.image-box-user div img{
     height:300px;
     border-radius:50%;
     border:40px solid #3378cc1f;
@@ -185,6 +185,12 @@
         padding-top:20px;
         padding-bottom:20px;
         margin-top:20px;
+    }
+}
+
+@media(max-width:500px){
+    .image-box-user div img{
+        height: 200px;
     }
 }
 

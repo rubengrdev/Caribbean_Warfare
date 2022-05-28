@@ -194,7 +194,8 @@ select{
         width:40px;
     }
     #dropdown-menu{
-        animation: lazydrop 300ms ease-in-out forwards;
+        -webkit-animation: lazydrop 300ms ease-in-out forwards;
+                animation: lazydrop 300ms ease-in-out forwards;
 
         width:auto;
         padding-left:50px;
@@ -215,6 +216,18 @@ select{
         margin-left:30px;
     }
 
+}
+
+@-webkit-keyframes lazydrop {
+    85% {
+        transform: scaleY(1.1)
+    }
+    0% {
+        transform: scaleY(0)
+    }
+    100% {
+        transform: scaleY(1)
+    }
 }
 
 @keyframes lazydrop {
@@ -242,3 +255,4 @@ select{
     }
 
 }
+

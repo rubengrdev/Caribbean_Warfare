@@ -6,8 +6,9 @@
     "/css/shop.css": "/css/shop.css",
     "/css/layout.css": "/css/layout.css",
     "/css/app.css": "/css/app.css",
+    "/css/partial-main.css": "/css/partial-main.css",
     "/css/home.css": "/css/home.css",
     "/css/own.css": "/css/own.css",
-    "/css/partial-main.css": "/css/partial-main.css",
+    "/css/leaderboard.css": "/css/leaderboard.css",
     "/css/inventory.css": "/css/inventory.css"
 }

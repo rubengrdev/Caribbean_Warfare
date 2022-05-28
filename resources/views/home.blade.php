@@ -17,7 +17,7 @@
                 <div class="name">
                         <p>{{ Auth::user()->username }}</p>
                 </div>
-                <div class="image-box">
+                <div class="image-box-user">
                     <div>
                         <img src="{{ $items[0]->image }}">
                     </div>

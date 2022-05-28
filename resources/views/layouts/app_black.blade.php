@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
+    <link rel="icon" href="{{ asset('media/img/logo/caribbean_warfaresvg_logo_ship_color_white.png') }}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -23,6 +23,7 @@
     <link href="{{ asset('css/shop.css') }}" rel="stylesheet">
     <link href="{{ asset('css/inventory.css') }}" rel="stylesheet">
     <link href="{{ asset('css/partial-main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/leaderboard.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
