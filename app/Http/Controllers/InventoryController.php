@@ -113,8 +113,7 @@ class InventoryController extends Controller
 
 
 
-        //Ahora ya accede y llama a la función correctamente,
-        //pero todavía no actualiza el campo de avatar_id del usuario
+
 
 
         if ($categ[0]->category=='avatar'){

@@ -35,13 +35,14 @@ class LeaderboardController extends Controller
 
     public function getTop()
     {
-        return Score::orderBy('score', 'desc')->select('scores.*')->take(10)->get();
+        return DB::table('users')->join('scores','scores.id_user','=','users.id')->join('products','users.avatar_id','=','products.id')->orderBy('score', 'desc')->select('users.username','users.id','users.region_id','users.avatar_id','scores.score','products.image')->take(10)->get();
+        //return Score::orderBy('score', 'desc')->select('scores.*')->take(10)->get();
         // No se si puedo pillar 2 values (id y score)
     }
 
     public function getTopRegion()
     {
-        return DB::table('users')->join('scores','scores.id_user','=','users.id')->where('region_id',Auth::region_id())->orderBy('score', 'desc')->value('id_user','score')->take(10)->get();
+        return DB::table('users')->join('scores','scores.id_user','=','users.id')->where('region_id',Auth::user()->region_id)->orderBy('score', 'desc')->value('id_user','score')->take(10)->get();
 
     }
 
