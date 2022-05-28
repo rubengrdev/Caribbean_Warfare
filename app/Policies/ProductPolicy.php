@@ -7,8 +7,8 @@ use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ProductPolicy
-{
-    use HandlesAuthorization;
+ {
+     use HandlesAuthorization;
 
     /**
      * Determine whether the user can view any models.
@@ -18,7 +18,6 @@ class ProductPolicy
      */
     public function viewAny(User $user)
     {
-
         return $user->id > 0;
     }
 
@@ -29,70 +28,69 @@ class ProductPolicy
      * @param  \App\Product  $product
      * @return mixed
      */
-    public function show(User $user, Product $product)
+    public function view(User $user, Product $product)
     {
-        dd($user);
-        return $user->id > 0 && $product->id > 0;
+        return true;
     }
 
-    /**
-     * Determine whether the user can create models.
-     *
-     * @param  \App\User  $user
-     * @return mixed
-     */
-    public function create(User $user)
-    {
-        //
-    }
+//     /**
+//      * Determine whether the user can create models.
+//      *
+//      * @param  \App\User  $user
+//      * @return mixed
+//      */
+     public function create(User $user)
+     {
+         //
+     }
 
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Product  $product
-     * @return mixed
-     */
-    public function update(User $user, Product $product)
-    {
+//     /**
+//      * Determine whether the user can update the model.
+//      *
+//      * @param  \App\User  $user
+//      * @param  \App\Product  $product
+//      * @return mixed
+//      */
+     public function update(User $user, Product $product)
+     {
         if ($user->isAdmin($user)){
-            return true;
-        }
-    }
+             return true;
+         }
+     }
 
-    /**
-     * Determine whether the user can delete the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Product  $product
-     * @return mixed
-     */
-    public function delete(User $user, Product $product)
-    {
-        //
-    }
+//     /**
+//      * Determine whether the user can delete the model.
+//      *
+//      * @param  \App\User  $user
+//      * @param  \App\Product  $product
+//      * @return mixed
+//      */
+     public function delete(User $user, Product $product)
+     {
+                //
+     }
 
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Product  $product
-     * @return mixed
-     */
-    public function restore(User $user, Product $product)
-    {
-        //
-    }
+//     /**
+//      * Determine whether the user can restore the model.
+//      *
+//      * @param  \App\User  $user
+//      * @param  \App\Product  $product
+//      * @return mixed
+//      */
+     public function restore(User $user, Product $product)
+     {
+         //
+     }
 
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Product  $product
-     * @return mixed
-     */
-    public function forceDelete(User $user, Product $product)
+//     /**
+//      * Determine whether the user can permanently delete the model.
+//      *
+//      * @param  \App\User  $user
+//      * @param  \App\Product  $product
+//      * @return mixed
+//      */
+     public function forceDelete(User $user, Product $product)
     {
-        //
-    }
-}
+         //
+     }
+ }

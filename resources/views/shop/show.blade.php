@@ -9,11 +9,11 @@
     </div>
     <span class="bigpan"></span>
     <div class="options-show">
-        <form class="form-search-show" method="GET" action="{{ route('login') }}">
+        <form class="form-search-show" method="GET" action="{{ route('shoppingCart.index') }}">
             @csrf
 
         <button type="submit" class="btn btn-primary btn-simple">
-            <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
+            <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='Go to Shopping Cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
         </button>
     </form>
     </div>
@@ -52,7 +52,7 @@
                 <div class="cart-title">
                     <p> Add to cart</p>
                 </div>
-                <div class="options-show">
+                <div class="options-show-cart">
                     <form class="form-search-show" method="GET" action="{{ route('login') }}">
                         @csrf
 

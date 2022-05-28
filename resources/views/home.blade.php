@@ -5,19 +5,19 @@
     <div id="card-home">
         <div id="card-content">
             <div class="responsive-options">
-                <a class="leaderboard-box">
+                <a class="leaderboard-box" href="{{ route('leaderboard') }}">
                     <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >
                 </a>
                 <span class="space-home"></span>
-                <a class="leaderboard-box">
-                    <img class="throphy-icon" title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
+                <a class="leaderboard-box" href="{{ route("user.edit", Auth::user()->id) }}">
+                    <img class="throphy-icon"  title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
                 </a>
             </div>
             <div id="user-info">
                 <div class="name">
                         <p>{{ Auth::user()->username }}</p>
                 </div>
-                <div class="image-box">
+                <div class="image-box-user">
                     <div>
                         <img src="{{ $items[0]->image }}">
                     </div>
@@ -39,11 +39,11 @@
                     <div id="home-main-order">
                         <div id="user-data-main">
                             <div id="user-data-main-header">
-                                <a class="leaderboard-box">
+                                <a class="leaderboard-box"  href="{{ route('leaderboard') }}">
                                     <img class="throphy-icon" title="https://www.flaticon.com/free-icons/prize Prize icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/trofeo-rankings.png') }}" >
                                 </a>
                                 <span class="space-home"></span>
-                                <a class="leaderboard-box">
+                                <a class="leaderboard-box" href="{{ route("user.edit", Auth::user()->id) }}">
                                     <img class="throphy-icon" title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
                                 </a>
                             </div>

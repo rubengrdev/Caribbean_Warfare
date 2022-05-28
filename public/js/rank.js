@@ -26,7 +26,6 @@ var Rank = /*#__PURE__*/function () {
     key: "fetchData",
     value: function fetchData() {
       this.button.addEventListener("click", function () {
-        console.log("ok");
         fetch(window.location + "/rank").then(function (response) {
           return response.text();
         }).then(function (data) {
@@ -49,6 +48,5 @@ var Rank = /*#__PURE__*/function () {
 var button = document.querySelector(".rank");
 var ranks = new Rank(button);
 ranks.fetchData();
-console.log("ok");
 /******/ })()
 ;

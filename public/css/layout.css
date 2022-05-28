@@ -6,7 +6,6 @@ html,* {
 
 body{
     display: block;
-    width:100vw;
     height:100vh;
 
 }
@@ -109,6 +108,7 @@ nav{
     font-family: 'Lexend', sans-serif;
     font-size:22px;
     padding-bottom: 5px;
+    transition:0.3s;
 }
 .nav-link-black:hover{
     border-bottom: 3px solid black !important;
@@ -153,9 +153,7 @@ ul{
     width:5px;
     height:auto;
 }
-body{
-    overflow-x:hidden;
-}
+
 .div-remember{
     margin-top:5px;
 }
@@ -195,7 +193,8 @@ select{
         width:40px;
     }
     #dropdown-menu{
-        animation: lazydrop 300ms ease-in-out forwards;
+        -webkit-animation: lazydrop 300ms ease-in-out forwards;
+                animation: lazydrop 300ms ease-in-out forwards;
 
         width:auto;
         padding-left:50px;
@@ -218,6 +217,18 @@ select{
 
 }
 
+@-webkit-keyframes lazydrop {
+    85% {
+        transform: scaleY(1.1)
+    }
+    0% {
+        transform: scaleY(0)
+    }
+    100% {
+        transform: scaleY(1)
+    }
+}
+
 @keyframes lazydrop {
     85% {
         transform: scaleY(1.1)
@@ -229,3 +240,18 @@ select{
         transform: scaleY(1)
     }
 }
+.red{
+    background-color: rgba(255, 0, 0, 0.757);
+}
+.invalid-feedback{
+    display:none;
+}
+@media(max-width:440px){
+    .responsive-dropdown{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+

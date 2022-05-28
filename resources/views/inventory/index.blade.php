@@ -9,7 +9,7 @@
                 <div class="history-title">
                     <div>
                         <a  href="{{ route('history') }}">
-                            <p>Shopping history</p>
+                            <p>Shop history</p>
                         </a>
                     </div>
 
@@ -24,14 +24,32 @@
                 <p>Avatars</p>
                 <div id="inventory-grid">
                     @foreach ($items as $item)
-                        @if ($item->category == 'avatar')
-                            <div class="inventory-item">
+
+                    @if ($item->category == 'avatar')
+
+                    <form method="POST" class="form-invent formput" action="">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="inventory-item" oncontextmenu="javascript:imageDetail({{ json_encode($item) }}); return false;">
+                            <a class="inventory-item-img">
                                 <img src="{{ $item->image }}">
-                                <form>
-                                    <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
-                                </form>
-                            </div>
-                        @endif
+                                <div class="reverse-image">
+                                    <button class="btn-simple">
+                                        <p>{{ $item->name }}</p>
+                                    </button>
+                                </div>
+                            </a>
+                            <form>
+                                <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
+                            </form>
+                            <input type="hidden" value="" name="id" class="hidden-input">
+
+                        </div>
+                        <input type="submit" class="button-hidden">
+                        </input>
+                    </form>
+                    @endif
                     @endforeach
                 </div>
 
@@ -41,14 +59,32 @@
                 <p>Skins</p>
                 <div id="inventory-grid">
                     @foreach ($items as $item)
-                        @if ($item->category == 'skin')
-                            <div class="inventory-item">
+
+                    @if ($item->category == 'skins')
+
+                    <form method="POST" class="form-invent formput" action="">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="inventory-item" oncontextmenu="javascript:imageDetail({{ json_encode($item) }}); return false;">
+                            <a class="inventory-item-img">
                                 <img src="{{ $item->image }}">
-                                <form>
-                                    <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
-                                </form>
-                            </div>
-                        @endif
+                                <div class="reverse-image">
+                                    <button class="btn-simple">
+                                        <p>{{ $item->name }}</p>
+                                    </button>
+                                </div>
+                            </a>
+                            <form>
+                                <input type="hidden" class="inventory-item-blade" value="{{ json_encode($item) }}">
+                            </form>
+                            <input type="hidden" value="" name="id" class="hidden-input">
+
+                        </div>
+                        <input type="submit" class="button-hidden">
+                        </input>
+                    </form>
+                    @endif
                     @endforeach
                 </div>
             </div>
@@ -67,16 +103,7 @@
                     <div class="desc-body">
                         <p></p>
                     </div>
-                    <div class="desc-options">
-                        <form method="POST" action="{{ route('inventory.update', 1) }}">
-                            @csrf
-                            @method('PUT')
-                            <input type="hidden" value="" name="id" class="hidden-input">
-                            <button type="submit" class="btn btn-primary btn-action btn-equip">
-                                <p>{{ __('Equip') }}</p>
-                            </button>
-                        </form>
-                    </div>
+
                 </div>
             </div>
 
@@ -84,10 +111,10 @@
     </section>
     <script>
         let inventoryitem = document.querySelectorAll(".inventory-item");
-        let descinventory = document.querySelector(".description-inventory");
 
         inventoryitem.forEach(item => {
-            let itemData = JSON.parse(item.children[1].children[0].value);
+
+            let itemData = JSON.parse(item.children[1].value);
                 if(itemData.equipped == 1){
                     item.style.border = " 10px solid #235694be";
                 }else{
@@ -96,29 +123,51 @@
                 }
             //si le da click  a uno de los items obtenemos su JSON
             item.addEventListener("click", () => {
-                //cuando le de click a algún item cambiaremos el display del menú de descripción
-                descinventory.style.display = "block";
-                let itemData = JSON.parse(item.children[1].children[0].value);
-                //en el caso que haya hecho click en ESTA imagen en específico
-                //asignamos los valores de PHP Blade a los datos de la descripción del item:
-                let descimg = document.querySelector(".desc-image img");
-                //cambiamos el atributo con la ruta de php del item seleccionado
-                descimg.setAttribute("src", itemData.image);
-                //cambiamos el titulo del objeto seleccionado
-                let desctitle = document.querySelector(".desc-title p");
-                desctitle.textContent = itemData.name;
-                let descbody = document.querySelector(".desc-body p")
-                descbody.textContent = itemData.description;
+                let itemData = JSON.parse(item.children[1].value);
                 //agregamos el valor que pasaremos por ID al mediante el formulario hidden, cuando pulse el botón de equipar enviará un Request al método Update
                 let hiddeninput = document.querySelector(".hidden-input");
                 hiddeninput.value = itemData.product_id;
-                let button = document.querySelector(".btn-equip");
-                if(itemData.equipped == 1){
-                    button.style.display = "none";
-                }else{
-                    button.style.display = "block";
-                }
+                let inventform = document.querySelector(".form-invent");
+                let route = window.location.href;
+                let id = itemData.id;
+                let fullroute = route + "/" + id;
+                inventform.action = fullroute;
+                let buttonh = document.querySelector(".button-hidden");
+                inventform.submit();
             })
         });
+
+
+        function imageDetail(json){
+            console.log(json)
+            let inventoryitemimg = document.querySelectorAll(".inventory-item-img");
+            let image = document.querySelectorAll(".inventory-item img");
+
+            let getObjects = document.querySelectorAll(".inventory-item-blade");
+            inventoryitemimg.forEach(element => {
+
+                if(json.id == JSON.parse(element.parentElement.children[1].value).id){
+
+
+                    if(element.children[0].style.display == "none"){
+                        element.children[0].style.display = "flex";
+                        element.children[1].style.display = "none";
+
+                        return false;
+
+
+                    }else{
+                        element.children[0].style.display = "none";
+                        element.children[1].style.display = "flex";
+
+                        return false;
+                    }
+
+                }
+
+            });
+
+            return false;
+        }
     </script>
 @endsection
