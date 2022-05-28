@@ -26,10 +26,11 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        $userdata=User::where('id',Auth::id())->select('users.*')->get();
+        $userdata=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('equipped',1)->select('products.*', 'inventories.*')->get();
         $userscore=Score::where('id_user',Auth::id())->select('scores.*')->get();
         $this->getTop();
-        return view('leaderboard',compact('userdata'));
+
+        return view('leaderboard',compact('userdata', 'userscore'));
     }
 
     public function getTop()

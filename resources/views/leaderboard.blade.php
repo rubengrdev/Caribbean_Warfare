@@ -14,18 +14,18 @@
     <div id="rankingheader">
         <div class="user-info-header">
             <div class="image-leaderboard">
-                <img src="{{ asset('media/img/coconuts.png') }}">
+                <img src="{{ $userdata[0]->image }}">
             </div>
             <div class="user-title-leaderboard">
-                <p>Name</p>
-                <p>JSJKJAJKAS</p>
+                <p>{{ Auth::user()->username }}</p>
+                <p>#{{ Auth::user()->id }}</p>
             </div>
         </div>
 
         <div class="world-rank-header">
-            <p class="world-ranking-title">World Ranking</p>
+            <p class="world-ranking-title">Score</p>
             <span></span>
-            <p>232</p>
+            <p>{{ $userscore[0]->score }}</p>
         </div>
     </div>
 
@@ -43,10 +43,10 @@
               </tr>
               <tr>
                 <td><p>1</p></td>
-                <td><p>Smith</p></td>
-                <td><p>50</p></td>
-                <td><p>50</p></td>
-                <td><p>50</p></td>
+                <td><p>Image</p></td>
+                <td><p>rubengomez</p></td>
+                <td><p>1</p></td>
+                <td><p>Spain</p></td>
               </tr>
 
             </table>

@@ -35,6 +35,7 @@
 }
 .image-leaderboard img{
     border-radius:100%;
+    max-width:80px;
 }
 .user-title-leaderboard{
 flex:1;
