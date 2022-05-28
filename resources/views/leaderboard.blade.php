@@ -39,7 +39,6 @@
                 <th></th>
                 <th><p>Username</p></th>
                 <th><p>Score</p></th>
-                <th><p>ID</p></th>
                 <th><p>Country</p></th>
               </tr>
               @foreach($top as $t)
@@ -48,7 +47,6 @@
                 <td><img  class="img-scoreboard" src="{{ $t->image }}"></td>
                 <td><p>{{ $t->username }}</p></td>
                 <td><p>{{ $t->score }}</p></td>
-                <td><p>{{ $t->id }}</p></td>
                 <td><p>{{ $t->region }}</p></td>
               </tr>
               @endforeach
