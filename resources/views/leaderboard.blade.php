@@ -34,11 +34,11 @@
     <div id="ranking-scoreboard">
         <div id="score-board-table" style="overflow-x:auto;">
             <table>
-              <tr>
+              <tr class="title-table">
                 <th><p>Rank</p></th>
                 <th></th>
                 <th><p>Username</p></th>
-                <th><p>Player ID</p></th>
+                <th><p>ID</p></th>
                 <th><p>Country</p></th>
               </tr>
               <tr>
@@ -48,41 +48,7 @@
                 <td><p>50</p></td>
                 <td><p>50</p></td>
               </tr>
-              <tr>
-                <td><p>2</p></td>
-                <td><p>Jackson</p></td>
-                <td><p>94</p></td>
-                <td><p>94</p></td>
-                <td><p>94</p></td>
-              </tr>
-              <tr>
-                <td><p>3</p></td>
-                <td><p>Johnson</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-              </tr>
-              <tr>
-                <td><p>4</p></td>
-                <td><p>Johnson</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-              </tr>
-              <tr>
-                <td><p>5</p></td>
-                <td><p>Johnson</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-              </tr>
-              <tr>
-                <td><p>6</p></td>
-                <td><p>Johnson</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-                <td><p>67</p></td>
-              </tr>
+
             </table>
           </div>
 

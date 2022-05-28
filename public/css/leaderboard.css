@@ -78,7 +78,15 @@ td{
     height:40px;
 
 }
+td p{
 
+    font-size:20px;
+}
+.title-table th p{
+    padding-bottom: 3px;
+    text-decoration: underline;
+    font-size:20px;
+}
 
 
 @media(max-width:900px){
