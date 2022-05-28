@@ -21,6 +21,8 @@ Route::get('/', function () {
 Route::resource('shop', 'ProductController')->names('shop');
 //ruta para los recursos del carrito
 Route::resource('shoppingCart', 'ShoppingCartController')->names('shoppingCart');
+//ruta para eliminar todo el shoppingcart
+Route::delete('shoppingCart', 'ShoppingCartController@removeAll')->name('shoppingCart.removeAll');
 //ruta para metodos extra de la tienda (ver historial de compras)
 Route::get('shop/history', 'ProductController@history')->name('history');
 //ruta para metodos extra de la tienda ( ver todos los productos de la tienda)

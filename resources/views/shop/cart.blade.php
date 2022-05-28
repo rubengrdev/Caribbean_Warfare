@@ -21,12 +21,15 @@
 </section>
 <div id="shoppingcart-main">
     <div class="align-shop">
+        @foreach ($products as $product)
+
+
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
-                <img src="{{ asset('media/img/coconuts.png') }}" />
+                <img src="{{ $product->image }}" />
             </div>
             <div class="shoppingcart-title">
-                <p>product name aaaa</p>
+                <p>{{ $product->name }}</p>
             </div>
             <div class="shoppingcart-amount">
 
@@ -35,13 +38,13 @@
                     <div class="setamount">-</div>
             </div>
             <div class="shoppingcart-price">
-                <p>2,99€</p>
+                <p>{{ $product->price }}€</p>
             </div>
             <span class="grid-cart-hidden">
 
             </span>
             <div class="shoppingcart-delete">
-                <form method="POST" action="{{ route('shoppingCart.destroy', 3) }}">
+                <form method="POST" action="{{ route('shoppingCart.removeAll') }}">
                     @method('DELETE')
                     @csrf
 
@@ -55,41 +58,7 @@
                 </form>
             </div>
         </div>
-
-        <div class="cart-item">
-            <div class="shoppingcart-image-desc">
-                <img src="{{ asset('media/img/coconuts.png') }}" />
-            </div>
-            <div class="shoppingcart-title">
-                <p>product name aaaa</p>
-            </div>
-            <div class="shoppingcart-amount">
-
-                    <div class="setamount">+</div>
-                    <p>2</p>
-                    <div class="setamount">-</div>
-            </div>
-            <div class="shoppingcart-price">
-                <p>2,99€</p>
-            </div>
-            <span class="grid-cart-hidden">
-
-            </span>
-            <div class="shoppingcart-delete">
-                <form method="POST" action="{{ route('shoppingCart.destroy', 4  ) }}">
-                    @method('DELETE')
-                    @csrf
-
-                    <div class="form-group row mb-0  button-div">
-                        <div class="col-md-6 offset-md-4 button-div">
-                            <button type="submit" class="btn btn-primary btn-action red">
-                                <p>{{ __('Delete') }}</p>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+        @endforeach
         </div>
     </div>
 
