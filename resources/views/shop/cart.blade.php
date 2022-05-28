@@ -70,7 +70,7 @@
                 <p>2,99€</p>
             </div>
             <div class="shoppingcart-delete">
-                <form method="POST" action="{{ route('user.destroy', Auth::user()) }}">
+                <form method="POST" action="{{ route('shoppingCart.destroy', 1  ) }}">
                     @method('DELETE')
                     @csrf
 
