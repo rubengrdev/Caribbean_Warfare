@@ -103,6 +103,7 @@
     display: block;
     flex:1;
     height:100%;
+    margin-bottom:50px;
 }
 .price-num{
     color: rgb(252, 70, 70);
@@ -111,7 +112,11 @@
 .price p:nth-child(1){
     font-size:25px;
 }
-
+.center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    }
 .get-into-cart{
     background-color: #3680d97b;
     display:flex;
@@ -181,6 +186,7 @@
         }
         .responsive-text{
             width:400px;
+            text-align:center;
             height:auto;
             margin-bottom:100px;
         }
