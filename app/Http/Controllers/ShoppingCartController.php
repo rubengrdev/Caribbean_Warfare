@@ -16,8 +16,10 @@ class ShoppingCartController extends Controller
         $cart=session()->get('cart', 'default');
         $products = [];
 
-        foreach ($cart as $cart => $id) {
-            $products[] = Product::where('id', $id)->first();
+        if ($cart > 0) {
+            foreach ($cart as $cart => $id) {
+                $products[] = Product::where('id', $id)->first();
+            }
         }
 
         return view('shop.cart', compact('products'));
