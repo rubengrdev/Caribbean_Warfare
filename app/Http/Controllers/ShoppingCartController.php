@@ -145,10 +145,20 @@ class ShoppingCartController extends Controller
         if (($key = array_search($id, $products)) !== false) {
             unset($products[$key]);
             unset($amounts[$key]);
+            $savedAmounts = $amounts;
+            $savedProducts = $products;
+
+            $request->session()->forget('cart.id');
+            $request->session()->forget('cart.amounts');
+
+            foreach ($savedProducts as $key => $value) {
+                $request->session()->push('cart.id', $value);
+            }
+            foreach ($savedAmounts as $key => $value) {
+                $request->session()->push('cart.amounts', $value);
+            }
         }
 
-        $request->session()->put('cart.id', $products);
-        $request->session()->put('cart.amounts', $amounts);
         // dd($request->session()->all());
 
         return back();

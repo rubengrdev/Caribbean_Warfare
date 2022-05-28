@@ -21,7 +21,8 @@
 </section>
 <div id="shoppingcart-main">
     <div class="align-shop">
-        @foreach ($products as $product)
+        @foreach ($products as $key => $product)
+
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
                 <img src="{{ $product->image }}" />
@@ -32,7 +33,7 @@
             <div class="shoppingcart-amount">
 
                     <div class="setamount">+</div>
-                    <p>{{ $amounts[$loop->index] }}</p>
+                    <p>{{ $amounts[$key] }}</p>
                     <div class="setamount">-</div>
             </div>
             <div class="shoppingcart-price">
