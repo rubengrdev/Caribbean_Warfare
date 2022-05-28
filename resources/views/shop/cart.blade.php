@@ -44,7 +44,7 @@
 
             </span>
             <div class="shoppingcart-delete">
-                <form method="POST" action="{{ route('shoppingCart.destroy', $product->id) }}">
+                <form method="POST" action="{{ route('shoppingCart.removeAll') }}">
                     @method('DELETE')
                     @csrf
 

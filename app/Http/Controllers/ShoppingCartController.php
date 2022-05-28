@@ -111,7 +111,7 @@ class ShoppingCartController extends Controller
     {
         $request->session()->forget('cart');
 
-        return back();
+        return view('shop.cart');
     }
 
 }
