@@ -121,7 +121,8 @@ class InventoryController extends Controller
             //dd($user);
             $updateAv= new UserController;
             $request->merge(['avatar_id' => intval($request->id)]);
-
+            //dd($request);
+            $updateAv->updateAvatar($request);
 
 
         }

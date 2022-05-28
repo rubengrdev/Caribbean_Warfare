@@ -57,7 +57,16 @@
             </div>
         </div>
         @endforeach
+            <hr>
+            <div class="align-right-cart">
+                <form>
+                    <button type="submit" class="buy-all-cart">
+                        <p>Buy Items</p>
+                    </button>
+                </form>
+            </div>
         </div>
+
     </div>
 
 </div>
