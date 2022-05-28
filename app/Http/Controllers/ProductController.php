@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Inventory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class ProductController extends Controller
@@ -58,6 +60,15 @@ public function additem($arrayprod){
     }
     //return view('shop');
 } */
+
+
+
+public function additem($arrayprod){
+    foreach($arrayprod as $product){
+        Inventory::create(['user_id'=>Auth::user()->id,'product_id',$product['id']]);
+    }
+    return view('shop');
+}
 
     /**
      * Show the form for creating a new resource.
