@@ -1,5 +1,5 @@
 @extends('layouts.app_black')
-
+{{ $top }}
 @section('content')
 <section id="shop-section">
     <div id="card-shop">
@@ -47,7 +47,7 @@
                 <td><img  class="img-scoreboard" src="{{ $t->image }}"></td>
                 <td><p>{{ $t->username }}</p></td>
                 <td><p>{{ $t->id }}</p></td>
-                <td><p>Spain</p></td>
+                <td><p>{{ $t->region }}</p></td>
               </tr>
               @endforeach
             </table>
