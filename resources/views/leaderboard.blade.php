@@ -1,5 +1,5 @@
 @extends('layouts.app_black')
-{{ $top }}
+
 @section('content')
 <section id="shop-section">
     <div id="card-shop">
