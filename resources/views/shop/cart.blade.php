@@ -60,7 +60,8 @@
         @endforeach
             <hr>
             <div class="align-right-cart">
-                <form>
+                <form method="POST" action="{{ route('inventory.saveFromCart') }}">
+                    @csrf
                     <button type="submit" class="buy-all-cart">
                         <p>Buy Items</p>
                     </button>

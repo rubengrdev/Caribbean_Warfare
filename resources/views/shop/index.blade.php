@@ -54,7 +54,9 @@
                 </div>
             </div>
             <div id="grid-shop">
+                {{-- {{dd($products)}} --}}
                 @foreach($products as $product)
+
                     <div class="grid-item">
                         <div class="product-image">
                             <a onclick="window.location='{{ route('shop.show', $product->id)}}'">

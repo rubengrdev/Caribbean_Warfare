@@ -33,6 +33,8 @@ Route::post('shop/search','ProductController@search')->name('product.search');
 
 //ruta para los recurso del inventario
 Route::resource('inventory', 'InventoryController')->names('inventory');
+//ruta para añadir el carrito al inventario
+Route::post('inventory', 'InventoryController@saveFromCart')->name('inventory.saveFromCart');
 
 //ruta para el historial de compras
 Route::get('history', 'ShoppingHistoryController@index')->name('history');
