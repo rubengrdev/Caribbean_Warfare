@@ -264,7 +264,14 @@
     }
 }
 @media(max-width:640px){
-
+    .responsive-text{
+        min-width:auto;
+        width:auto;
+        text-align:center;
+    }
+    .price p{
+        text-align:center;
+    }
     #inventory-grid{
         margin-top:10px;
         padding:20px;
@@ -284,6 +291,7 @@
     }
 }
 @media(max-width:400px){
+
     .nav-inventory .locationn p{
         font-size:40px;
     }
@@ -305,3 +313,4 @@
         margin-bottom:100px;
     }
 }
+

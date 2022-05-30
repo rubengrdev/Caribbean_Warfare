@@ -2,6 +2,14 @@
 @section('content')
 <div class="show-header">
     <div class="margin-header">
+        @if (session('success'))
+                <div class="center-cart-ok">
+                    <div role="alert">
+                        <p>{{ session('success') }}</p>
+                    </div>
+                </div>
+            @endif
+
 <nav class="nav-shop">
     <div class="location-show">
         <p>{{ $response->name }}</p>
@@ -46,11 +54,12 @@
             </form>
             <span class="separate-price"></span>
             @if($response->available == 1)
-            <form action="{{ route('inventory.add')}}" method="POST">
+            <form action="{{ route('inventory.add')}}" method="POST" class="form-under-price">
                 @csrf
+                <button type="submit" class="btn btn-primary btn-simple add-cart-button">
                 <div class="shop-now">
                     <input type="hidden" name="product" id="id" value="{{$response}}" style="display:none">
-                <button type="submit" class="btn btn-primary btn-simple add-cart-button">
+
                     <div class="cart-title">
                         <p>Buy Now</p>
                     </div>
@@ -61,9 +70,10 @@
             <div class="center">
                 <form action="{{ route('shoppingCart.store')}}" method="POST">
                     @csrf
+                    <button type="submit" class="btn btn-primary btn-simple add-cart-button">
+
                     <div class="get-into-cart">
                     <input type="number" name="id" id="id" value="{{$response->id}}" style="display:none">
-                    <button type="submit" class="btn btn-primary btn-simple add-cart-button">
 
                         <div class="options-show-cart">
                             <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
