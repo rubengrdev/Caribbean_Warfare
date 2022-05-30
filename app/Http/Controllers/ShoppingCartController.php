@@ -13,8 +13,9 @@ class ShoppingCartController extends Controller
      */
     public function index()
     {
-        $cart=session()->get('cart', 'default');
+        $cart=session()->get('cart.id', 'default');
         $products = [];
+        $amounts=session()->get('cart.amounts', 'default');
 
         if ($cart > 0) {
             foreach ($cart as $cart => $id) {
@@ -22,7 +23,7 @@ class ShoppingCartController extends Controller
             }
         }
 
-        return view('shop.cart', compact('products'));
+        return view('shop.cart', compact('products', 'amounts'));
     }
 
     /**
@@ -41,12 +42,54 @@ class ShoppingCartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    /*
+    public function storeInicial(Request $request)
     {
+
+        $products = session()->get('cart');
+
+        // Hace que no se puedan repetir productos
+        if ($products > 0) {
+            if (($key = array_search($request->id, $products)) !== false) {
+                // dd($products);
+                return back();
+            }
+        }
         $request->session()->push('cart', intval($request->id));
+        // $request->session()->push('cart.amount', 1);
         // dd($request->session()->all());
         return back();
     }
+    */
+
+    public function store(Request $request)
+    {
+
+        $products = session()->get('cart.id');
+        $amounts = session()->get('cart.amounts');
+
+        // Hace que no se puedan repetir productos
+        if ($products > 0) {
+            if (($key = array_search($request->id, $products)) !== false) {
+                $savedAmounts = $amounts;
+                $savedAmounts[$key] = $savedAmounts[$key] + 1;
+                $request->session()->forget('cart.amounts');
+                foreach ($savedAmounts as $key => $value) {
+                    $request->session()->push('cart.amounts', $value);
+                }
+
+
+                // dd($request->session()->all());
+                return back();
+            }
+        }
+        $request->session()->push('cart.id', intval($request->id));
+        $request->session()->push('cart.amounts', 1);
+        // dd($request->session()->all());
+        return back();
+    }
+
+
 
     /**
      * Display the specified resource.
@@ -95,13 +138,27 @@ class ShoppingCartController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $products = session()->get('cart');
+        $products = session()->get('cart.id');
+        $amounts = session()->get('cart.amounts');
 
         // esto mira dentro del array de productos si hay alguno con la id del producto a eliminar
         if (($key = array_search($id, $products)) !== false) {
             unset($products[$key]);
+            unset($amounts[$key]);
+            $savedAmounts = $amounts;
+            $savedProducts = $products;
+
+            $request->session()->forget('cart.id');
+            $request->session()->forget('cart.amounts');
+
+            foreach ($savedProducts as $key => $value) {
+                $request->session()->push('cart.id', $value);
+            }
+            foreach ($savedAmounts as $key => $value) {
+                $request->session()->push('cart.amounts', $value);
+            }
         }
-        $request->session()->put('cart', $products);
+
         // dd($request->session()->all());
 
         return back();
@@ -109,9 +166,10 @@ class ShoppingCartController extends Controller
 
     public function removeAll(Request $request)
     {
-        $request->session()->forget('cart');
+        $request->session()->forget('cart.id');
+        $request->session()->forget('cart.amounts');
 
-        return view('shop.cart');
+        return view('shop');
     }
 
 }

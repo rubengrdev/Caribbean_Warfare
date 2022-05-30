@@ -44,12 +44,15 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $products)
+    public function store(Request $product)
     {
 
-            foreach($products as $product){
-                Inventory::create(['user_id'=>Auth::user()->id,'product_id',$product['id']]);
-            }
+        if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$product['id'])->value('product_id')) != null)){
+            Inventory::where('user_id',Auth::user()->id)->where('product_id',$product['id'])->update(['amount'=>DB::raw('amount+1')]);
+        }else{
+            Inventory::create(['user_id'=>Auth::user()->id,'product_id'=>$product['id'],'amount'=>1,'equipped'=>0]);
+        }
+
 
     }
 
@@ -139,5 +142,45 @@ class InventoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function saveFromCart(){
+
+        $cart=session()->get('cart.id', 'default');
+        $amounts=session()->get('cart.amounts', 'default');
+        $products=[];
+        if ($cart > 0) {
+            foreach ($cart as $cart => $id) {
+                $products[] = Product::where('id', $id)->first();
+            }
+        }
+
+        for($i=0;$i<count($products);$i++){
+            if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->value('product_id')) != null)){
+                Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->increment('amount',$amounts[$i]);
+                session()->forget('cart.id');
+                session()->forget('cart.amounts');
+            }else{
+                Inventory::create(['user_id'=>Auth::user()->id,'product_id'=>$products[$i]->id,'amount'=>$amounts[$i],'equipped'=>0]);
+                session()->forget('cart.id');
+                session()->forget('cart.amounts');
+            }
+        }
+
+        // $prodCont=new ProductController;
+        // $prodCont->index();
+        // $prodList=$prodCont->all();
+        // dd($prodCont->all());
+        // return view('shop.index',compact('prodList'));
+
+        $products=Product::where('available', 1)->where('id','>',1)-> orderBy("created_at","desc")->get();
+        if($products != null && $products != '[]'){
+            return view('shop.index', compact('products'));
+
+        }
+
+
+
+
     }
 }
