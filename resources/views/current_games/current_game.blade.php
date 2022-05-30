@@ -1,18 +1,35 @@
 @extends('layouts.app_black')
 
 @section('content')
-<section id="shop-section">
-    <h2>In Game</h2>
-    <div class="start-game-box">
-        <a class="button-start-game" href="{{ route('winGame')}}">
-        <div >
-
-                <p>WIN GAME</p>
-
-        </div>
-    </a>
+<div class="show-header">
+    <div class="margin-header">
+<nav class="nav-shop">
+    <div class="location-show">
+        <p>Lobby</p>
     </div>
-</section>
+    <span class="bigpan"></span>
+
+
+</nav>
+</div>
+</div>
+
+
+<div id="grid-shop">
+    {{-- {{dd($products)}} --}}
+    <a class="button-start-game" href="{{ route('winGame')}}">
+        <div>
+                <p>WIN GAME</p>
+        </div>
+        </a>
+</div>
+
+
+
+
+
+
+<!--
 <script>
     let boardSize = 10;
     let myBoard = createBoard(boardSize);
@@ -61,4 +78,5 @@
         return result;
     }
 </script>
+-->
 @endsection

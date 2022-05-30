@@ -70,9 +70,10 @@
             <div class="center">
                 <form action="{{ route('shoppingCart.store')}}" method="POST">
                     @csrf
+                    <button type="submit" class="btn btn-primary btn-simple add-cart-button">
+
                     <div class="get-into-cart">
                     <input type="number" name="id" id="id" value="{{$response->id}}" style="display:none">
-                    <button type="submit" class="btn btn-primary btn-simple add-cart-button">
 
                         <div class="options-show-cart">
                             <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
