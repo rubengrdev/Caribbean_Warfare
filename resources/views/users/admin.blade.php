@@ -14,7 +14,16 @@
 
 <div id="shoppingcart-main">
     <div class="align-shop">
-        <p>*You can't modify Admin's Role*</p><br>
+
+        @if(count($users) == 0)
+            <div class="center-admin">
+                <div>
+                    <p>No Users available</p>
+                </div>
+            </div>
+            @else
+            <p>*You can't modify Admin's Role*</p><br>
+        @endif
         @foreach($users as $u)
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
@@ -47,10 +56,10 @@
                 </form>
             </div>
             <div class="shoppingcart-price">
-                <form method="POST" action="{{ route('shoppingCart.destroy', $u->id) }}">
+                <form method="POST" action="{{ route('admin.delete') }}">
                     @method('DELETE')
                     @csrf
-
+                    <input type="hidden" name="id" value="{{ $u->id }}">
                     <div class="form-group row mb-0  button-div">
                         <div class="col-md-6 offset-md-4 button-div">
                             <button type="submit" class="btn btn-primary btn-action red">

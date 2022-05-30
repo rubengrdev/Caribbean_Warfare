@@ -46,6 +46,7 @@ Route::resource('user', 'UserController')->names('user');
 //ruta para los metodos del administrador
 Route::get('admin', 'UserController@admin')->name('admin');
 Route::put('admin', 'UserController@updateAdmin')->name('admin.update');
+Route::delete('admin', 'UserController@deleteAdmin')->name('admin.delete');
 //ruta para obtener el rango del usuario
 Route::get('home/rank', 'RankController@fetchRank')->name('rank');
 //ruta para obtener la puntuación del usuario

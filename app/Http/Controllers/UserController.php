@@ -87,6 +87,18 @@ class UserController extends Controller
         return back();
     }
 
+
+    public function deleteAdmin(Request $request)
+    {
+       if(Auth::user()->role_id == 2){
+            $user = User::where('id', $request->id);
+            $user->delete();
+            return redirect()->route('admin');
+       }
+       return back();
+    }
+
+
      /**
      * Update the specified resource in storage.
      *
