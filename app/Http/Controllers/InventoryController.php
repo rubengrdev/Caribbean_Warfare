@@ -49,15 +49,20 @@ class InventoryController extends Controller
         $item=json_decode($request->product);
         //dd($item->id);
 
-        if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$item->id)->value('product_id')) != null)){
+        if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$item->id)->value('product_id')) != null && Inventory::where('user_id',Auth::user()->id)->where('product_id',$item->id)->value('product_id') != 2)){
+
+        }else if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$item->id)->value('product_id')) == 2)){
             Inventory::where('user_id',Auth::user()->id)->where('product_id',$item->id)->update(['amount'=>DB::raw('amount+1')]);
 
-        }else{
+        }else if((Inventory::where('user_id',Auth::user()->id)->where('product_id',$item->id)->value('product_id')) == null){
             Inventory::create(['user_id'=>Auth::user()->id,'product_id'=>$item->id,'amount'=>1,'equipped'=>0]);
-          
+
         }
 
-
+        $products=Product::where('available', 1)->where('id','>',1)-> orderBy("created_at","desc")->get();
+        if($products != null && $products != '[]'){
+            return view('shop.index', compact('products'));
+        }
     }
 
     /**
@@ -158,14 +163,17 @@ class InventoryController extends Controller
                 $products[] = Product::where('id', $id)->first();
             }
         }
-
+        //dd($products[0]->id);
         for($i=0;$i<count($products);$i++){
-            if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->value('product_id')) != null)){
+            if ((Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->value('product_id')) != null && Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->value('product_id') != 2){
+                session()->forget('cart.id');
+                session()->forget('cart.amounts');
+            }else if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->value('product_id')) == 2)){
                 Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->increment('amount',$amounts[$i]);
                 session()->forget('cart.id');
                 session()->forget('cart.amounts');
-            }else{
-                Inventory::create(['user_id'=>Auth::user()->id,'product_id'=>$products[$i]->id,'amount'=>$amounts[$i],'equipped'=>0]);
+            }else if((Inventory::where('user_id',Auth::user()->id)->where('product_id',$products[$i]->id)->value('product_id')) == null){
+                Inventory::create(['user_id'=>Auth::user()->id,'product_id'=>$products[$i]->id,'amount'=>1,'equipped'=>0]);
                 session()->forget('cart.id');
                 session()->forget('cart.amounts');
             }

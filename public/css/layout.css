@@ -173,6 +173,16 @@ select{
     width:40px;
     margin-right:30px;
 }
+.adminuser{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+.admin-button{
+    width:50px;
+    height:100%;
+}
 
 @media (max-width:1500px) {
 
@@ -242,7 +252,16 @@ select{
 }
 .red{
     background-color: rgba(255, 0, 0, 0.757);
+
 }
+.card-body a{
+    text-decoration: none;
+}
+.select-admin{
+    text-indent:0px;
+    height:25px;
+}
+
 .invalid-feedback{
     display:none;
 }

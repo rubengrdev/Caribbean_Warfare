@@ -82,6 +82,8 @@ class RegisterController extends Controller
 
         Inventory::create(['user_id'=>$userid['id'],'product_id'=>1,'amount'=>1,'equipped'=>true,'created_at'=>now(),'updated_at'=>now()]);
 
+        Inventory::create(['user_id'=>$userid['id'],'product_id'=>2,'amount'=>5,'equipped'=>true,'created_at'=>now(),'updated_at'=>now()]);
+
         User::where('id',$userid['id'])->update(['avatar_id'=>1]);
 
         Score::create(['id_user'=>$userid['id'],'score'=>0,'date'=>now(),'created_at'=>now(),'updated_at'=>now()]);
