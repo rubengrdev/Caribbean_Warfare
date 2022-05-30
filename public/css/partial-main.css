@@ -36,9 +36,22 @@
         align-items: center;
         height:auto;
     }
+    .make-changes{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #desc-box-edit{
+        text-align: center;
+        align-items: center;
+    }
     #product-img{
         width:100%;
         height:100%;
+    }
+    #product-img-edit{
+        width:400px;
+        height:400px;
     }
     .location-show{
         transition:0.3s;
