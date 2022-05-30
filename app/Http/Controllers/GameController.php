@@ -42,9 +42,11 @@ class GameController extends Controller
     {
         $currentGame = DB::table('current_games')->orderBy('created_at', 'desc')->where('user_id1', Auth::user()->id)->orWhere('user_id2', Auth::user()->id)->take(1)->get();
 
-        $coconutAmount = DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->get();
+        $coconutAmount1 = DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',$currentGame[0]->user_id1)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->get();
 
-        if (count($currentGame) > 0 && ($coconutAmount[0]->amount) > 0) {
+        $coconutAmount2 = DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',$currentGame[0]->user_id2)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->get();
+
+        if (count($currentGame) > 0 && ($coconutAmount1[0]->amount) > 0 && ($coconutAmount2[0]->amount) > 0) {
                 // dd($score[0]->score);
 
             $arrayPlayers = [$currentGame[0]->user_id1, $currentGame[0]->user_id2];
@@ -71,7 +73,11 @@ class GameController extends Controller
                 Score::where('id_user', $loser)->update(['score'=>$scoreLoser[0]->score-100]);
             }
 
-            DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->decrement('amount', 1);
+            //dd($currentGame[0]->user_id2);
+
+            DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',$currentGame[0]->user_id1)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->decrement('amount', 1);
+
+            DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',$currentGame[0]->user_id2)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->decrement('amount', 1);
 
             return back();
         }
