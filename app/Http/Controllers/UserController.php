@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use App\Inventory;
 use Illuminate\Http\Request;
 
@@ -109,5 +110,10 @@ class UserController extends Controller
         $user->update($validatedData,$user);
 
         return back();
+    }
+
+    public function admin(){
+        $users= DB::table('users')->join('scores','scores.id_user','=','users.id')->join('products','users.avatar_id','=','products.id')->join('regions','users.region_id','=','regions.id')->orderBy('score', 'desc')->select('users.username','users.id','users.region_id','users.avatar_id','scores.score','products.image','regions.region')->get();
+        return view('users.admin',  compact('users'));
     }
 }
