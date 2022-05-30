@@ -56,7 +56,7 @@ class GameController extends Controller
                 $loser = $arrayPlayers[0];
             }
 
-            Matche::create(['user_id1'=>$winner,'user_id2'=>$currentGame[0]->user_id2,'winner'=>$winner,'points'=>100, 'date'=> now(), 'created_at'=>now(), 'updated_at'=>now()]);
+            Matche::create(['user_id1'=>$winner,'user_id2'=>$loser,'winner'=>$winner,'points'=>100, 'date'=> now(), 'created_at'=>now(), 'updated_at'=>now()]);
 
             $scoreWinner =  Score::where('id_user', $winner)->get();
             $scoreLoser =  Score::where('id_user', $loser)->get();
