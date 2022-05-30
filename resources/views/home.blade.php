@@ -81,7 +81,9 @@
                 </div>
                 <div class="start-game-box">
                     <div class="button-start-game">
-                        <p>START NEW GAME</p>
+                        <a href="{{ route('winGame')}}">
+                            <p>START NEW GAME</p>
+                        </a>
                     </div>
                 </div>
             </article>
