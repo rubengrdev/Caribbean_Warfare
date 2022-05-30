@@ -41,9 +41,9 @@
                 <th><p>Score</p></th>
                 <th><p>Country</p></th>
               </tr>
-              @foreach($top as $t)
+              @foreach($top as $key => $t)
               <tr>
-                <td><p>1</p></td>
+                <td><p>{{ $key+1 }}</p></td>
                 <td><img  class="img-scoreboard" src="{{ $t->image }}"></td>
                 <td><p>{{ $t->username }}</p></td>
                 <td><p>{{ $t->score }}</p></td>
