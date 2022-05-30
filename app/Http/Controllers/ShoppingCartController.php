@@ -43,25 +43,6 @@ class ShoppingCartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    /*
-    public function storeInicial(Request $request)
-    {
-
-        $products = session()->get('cart');
-
-        // Hace que no se puedan repetir productos
-        if ($products > 0) {
-            if (($key = array_search($request->id, $products)) !== false) {
-                // dd($products);
-                return back();
-            }
-        }
-        $request->session()->push('cart', intval($request->id));
-        // $request->session()->push('cart.amount', 1);
-        // dd($request->session()->all());
-        return back();
-    }
-    */
 
     public function store(Request $request)
     {
@@ -81,13 +62,13 @@ class ShoppingCartController extends Controller
 
 
                 // dd($request->session()->all());
-                return redirect::back()->with('success', 'Item addet to cart succesfully!');
+                return redirect::back()->with('success', 'Item added to cart succesfully!');
             }
         }
         $request->session()->push('cart.id', intval($request->id));
         $request->session()->push('cart.amounts', 1);
         // dd($request->session()->all());
-        return redirect::back()->with('success', 'Item addet to cart succesfully!');
+        return redirect::back()->with('success', 'Item added to cart succesfully!');
     }
 
 
