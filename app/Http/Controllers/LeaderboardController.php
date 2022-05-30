@@ -26,7 +26,7 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        $userdata=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('equipped',1)->select('products.*', 'inventories.*')->get();
+        $userdata=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('equipped',1)->where('category','avatar')->select('products.*', 'inventories.*')->get();
         $userscore=Score::where('id_user',Auth::id())->select('scores.*')->get();
         $top = $this->getTop();
 
