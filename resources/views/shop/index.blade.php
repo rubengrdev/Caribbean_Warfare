@@ -29,6 +29,24 @@
             </a>
             </div>
         </nav>
+        <article>
+            @if($errors->any())
+            <div class="center-shop">
+                <div>
+                    <p>{{$errors->first()}}</p>
+                </div>
+            </div>
+            @endif
+
+            @if (session('success'))
+                <div class="center-cart-ok">
+                    <div role="alert">
+                        <p>{{ session('success') }}</p>
+                    </div>
+                </div>
+            @endif
+        </article>
+
         <article id="portal-shop">
 
                 <img src="{{ asset('media/img/skins/blas-de-lezo/portal-big-blas-de-lezo-picture-of-bundle-caribbean-warfare-skin-pack-v2.jpg') }}">

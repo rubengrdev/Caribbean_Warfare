@@ -6,6 +6,7 @@ use App\Inventory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request as FacadesRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends Controller
 {
@@ -134,7 +135,7 @@ public function additem($arrayprod){
         if(count($collection) >= 1){
             return view('shop.search', ['products' => $collection]);
         }
-        return back();
+        return Redirect::back()->withErrors(['message' => 'Product not found']);
 
     }
 

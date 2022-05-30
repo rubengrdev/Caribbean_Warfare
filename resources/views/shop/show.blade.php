@@ -48,9 +48,10 @@
             @if($response->available == 1)
             <form action="{{ route('inventory.add')}}" method="POST">
                 @csrf
+                <button type="submit" class="btn btn-primary btn-simple add-cart-button">
                 <div class="shop-now">
                     <input type="hidden" name="product" id="id" value="{{$response}}" style="display:none">
-                <button type="submit" class="btn btn-primary btn-simple add-cart-button">
+
                     <div class="cart-title">
                         <p>Buy Now</p>
                     </div>
