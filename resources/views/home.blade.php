@@ -40,7 +40,7 @@
                 <div class="coconout-box">
                     <div class="coconout-info">
                         <img class="coconout-thumnail" src="{{ asset('media/img/coconuts.png') }}">
-                        <p>x 5 remaining</p>
+                        <p>x {{ ($coconut[0]->amount)}} remaining</p>
                     </div>
                 </div>
             </div>

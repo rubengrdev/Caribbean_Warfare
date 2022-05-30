@@ -27,6 +27,7 @@ class HomeController extends Controller
         $items=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('category','avatar')->where('equipped',1)->select('products.*', 'inventories.*')->get();
         $coconut=DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->get();
         //dd($items);
+        //dd($coconut);
         return view('home',compact('items','coconut'));
     }
 }
