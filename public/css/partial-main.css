@@ -118,6 +118,9 @@
     color: rgb(252, 70, 70);
     font-size:35px;
 }
+.form-under-price{
+    margin-top:20px;
+}
 .price p:nth-child(1){
     font-size:25px;
 }
@@ -125,7 +128,7 @@
 .get-into-cart{
     background-color: #a8c7ed7b;
     display:flex;
-
+    margin-top:20px;
     min-width:120px;
     justify-content: center;
     align-items: center;
@@ -244,7 +247,6 @@
     #image-box{
         margin-left:0px;
         min-height:480px;
-        min-width:480px;
     }
 
 

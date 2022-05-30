@@ -62,7 +62,7 @@ class InventoryController extends Controller
         $products=Product::where('available', 1)->where('id','>',1)-> orderBy("created_at","desc")->get();
         if($products != null && $products != '[]'){
 
-            return view('shop.index', compact('products'))->with('success', 'Item added to your Inventory!');
+            return redirect()->route('shop.index')->with('success', 'Item added to your Inventory!');
         }
         return back()->withErrors(['message' => 'Product not found']);
     }

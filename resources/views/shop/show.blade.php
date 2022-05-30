@@ -2,6 +2,14 @@
 @section('content')
 <div class="show-header">
     <div class="margin-header">
+        @if (session('success'))
+                <div class="center-cart-ok">
+                    <div role="alert">
+                        <p>{{ session('success') }}</p>
+                    </div>
+                </div>
+            @endif
+
 <nav class="nav-shop">
     <div class="location-show">
         <p>{{ $response->name }}</p>
@@ -46,7 +54,7 @@
             </form>
             <span class="separate-price"></span>
             @if($response->available == 1)
-            <form action="{{ route('inventory.add')}}" method="POST">
+            <form action="{{ route('inventory.add')}}" method="POST" class="form-under-price">
                 @csrf
                 <button type="submit" class="btn btn-primary btn-simple add-cart-button">
                 <div class="shop-now">
