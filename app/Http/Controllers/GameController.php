@@ -41,33 +41,35 @@ class GameController extends Controller
     {
         $currentGame = DB::table('current_games')->orderBy('created_at', 'desc')->where('user_id1', Auth::user()->id)->orWhere('user_id2', Auth::user()->id)->take(1)->get();
 
+        if (count($currentGame) > 0) {
+                // dd($score[0]->score);
 
-        // dd($score[0]->score);
+            $arrayPlayers = [$currentGame[0]->user_id1, $currentGame[0]->user_id2];
 
-        $arrayPlayers = [$currentGame[0]->user_id1, $currentGame[0]->user_id2];
+            $winnerKey = array_rand($arrayPlayers);
 
-        $winnerKey = array_rand($arrayPlayers);
+            $winner = $arrayPlayers[$winnerKey];
 
-        $winner = $arrayPlayers[$winnerKey];
+            if ($winnerKey == 0) {
+                $loser = $arrayPlayers[1];
+            } else {
+                $loser = $arrayPlayers[0];
+            }
 
-        if ($winnerKey == 0) {
-            $loser = $arrayPlayers[1];
-        } else {
-            $loser = $arrayPlayers[0];
+            Matche::create(['user_id1'=>$winner,'user_id2'=>$loser,'winner'=>$winner,'points'=>100, 'date'=> now(), 'created_at'=>now(), 'updated_at'=>now()]);
+
+            $scoreWinner =  Score::where('id_user', $winner)->get();
+            $scoreLoser =  Score::where('id_user', $loser)->get();
+
+            Score::where('id_user', $winner)->update(['score'=>$scoreWinner[0]->score+100]);
+
+            if (intval($scoreLoser[0]->score) > 0) {
+
+                Score::where('id_user', $loser)->update(['score'=>$scoreLoser[0]->score-100]);
+            }
+
+            return back();
         }
-
-        Matche::create(['user_id1'=>$currentGame[0]->user_id1,'user_id2'=>$currentGame[0]->user_id2,'winner'=>$winner,'points'=>100, 'date'=> now(), 'created_at'=>now(), 'updated_at'=>now()]);
-
-        $scoreWinner =  Score::where('id_user', $winner)->get();
-        $scoreLoser =  Score::where('id_user', $loser)->get();
-
-        Score::where('id_user', $winner)->update(['score'=>$scoreWinner[0]->score+100]);
-
-        if (intval($scoreLoser[0]->score) <= 0) {
-
-            Score::where('id_user', $currentGame[0]->user_id2)->update(['score'=>$scoreLoser[0]->score-100]);
-        }
-
         return back();
     }
 }
