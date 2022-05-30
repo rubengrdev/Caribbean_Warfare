@@ -30,6 +30,7 @@ mix.css('resources/css/own.css', 'public/css')
     css('resources/css/shop.css','public/css'),
     css('resources/css/inventory.css','public/css'),
     css('resources/css/leaderboard.css','public/css'),
+    css('resources/css/game.css','public/css'),
     css('resources/css/partial-main.css','public/css');
 
 mix.css('resources/css/welcome.css', 'public/css');

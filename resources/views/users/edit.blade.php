@@ -13,7 +13,21 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-
+                @if(Auth::user()->role_id == 2)
+                <div class="card-body">
+                    <div class="card-header"><p>{{ __('Admin') }}</p></div>
+                    <a href="{{ route('admin') }}">
+                        <div class="form-group row mb-0  button-div">
+                            <div class="col-md-6 offset-md-4 button-div">
+                                <button class="btn btn-primary btn-action red">
+                                    <p>{{ __('View Users') }}</p>
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <br>
+                @endif
 
                 <div class="card-body">
                     <div class="card-header"><p>{{ __('Edit') }}</p></div>
@@ -48,7 +62,18 @@
                                 @enderror
                             </div>
                         </div>
+                        <br>
 
+                        <div class="form-group row mb-0 restore-pass">
+                            <div class="col-md-8 offset-md-4  button-div">
+                                @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <p>{{ __('Modify Password') }}</p>
+                                </a>
+                                @endif
+                            </div>
+                        </div>
+                        <br>
                         <div class="form-group row mb-0  button-div">
                             <div class="col-md-6 offset-md-4 button-div">
                                 <button type="submit" class="btn btn-primary btn-action">
@@ -72,6 +97,10 @@
                         </div>
                     </form>
                 </div>
+                <br>
+
+
+
             </div>
         </div>
     </div>

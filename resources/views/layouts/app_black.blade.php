@@ -17,13 +17,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/home.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/shop.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/inventory.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/partial-main.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/leaderboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/layout.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/welcome.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/shop.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/inventory.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/partial-main.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/leaderboard.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/game.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="app">

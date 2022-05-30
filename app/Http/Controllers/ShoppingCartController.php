@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
+use Illuminate\Support\Facades\Redirect;
 
 class ShoppingCartController extends Controller
 {
@@ -80,13 +81,13 @@ class ShoppingCartController extends Controller
 
 
                 // dd($request->session()->all());
-                return back();
+                return redirect::back()->with('success', 'Item addet to cart succesfully!');
             }
         }
         $request->session()->push('cart.id', intval($request->id));
         $request->session()->push('cart.amounts', 1);
         // dd($request->session()->all());
-        return back();
+        return redirect::back()->with('success', 'Item addet to cart succesfully!');
     }
 
 

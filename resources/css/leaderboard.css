@@ -1,0 +1,127 @@
+.align-leaderboard{
+    display:flex;
+    justify-content: center;
+    width:100%;
+    height:auto;
+}
+#rankingheader{
+    margin-top:20px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width:85%;
+    height:auto;
+    border-radius:5px;
+    border:2px solid black;
+}
+.user-info-header, .world-rank-header{
+    flex:1;
+    height:150px;
+}
+.user-title-leaderboard p{
+    margin-left:10px;
+}
+.user-info-header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-leaderboard{
+    height:auto;
+    flex:0.8;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-leaderboard img{
+    border-radius:100%;
+    max-width:80px;
+}
+.user-title-leaderboard{
+flex:1;
+font-size:20px;
+}
+
+.world-rank-header{
+    display:flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right:50px;
+}
+.world-rank-header p{
+    font-size:20px;
+}
+.world-rank-header span{
+    width:50px;
+    height:20px;
+}
+#ranking-scoreboard{
+    width:85%;
+    margin-top:50px;
+}
+#score-board-table{
+    display:flex;
+    justify-content: center;
+
+}
+#score-board-table{
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+#score-board-table table{
+    width:100%;
+
+}
+table th, td{
+    text-align:center;
+}
+td{
+    height:40px;
+
+}
+.img-scoreboard{
+    height:40px;
+    border-radius:100%;
+}
+td p{
+
+    font-size:20px;
+}
+.title-table th p{
+    padding-bottom: 3px;
+    text-decoration: underline;
+    font-size:20px;
+}
+
+
+@media(max-width:900px){
+    .world-rank-header span{
+        display:none;
+    }
+    .world-ranking-title{
+        display:none;
+    }
+    .world-rank-header{
+        flex:0.2;
+    }
+}
+@media(max-width:440px){
+    .user-info-header, .world-rank-header{
+        flex:1;
+        height:100px;
+    }
+    .image-leaderboard{
+        display:none;
+    }
+    .user-title-leaderboard{
+        margin-left:20px;
+    }
+    .world-rank-header{
+
+        margin-right:30px;
+    }
+    .nav-inventory .location{
+        margin-top:20px;
+    }
+}
+
