@@ -69,6 +69,31 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    public function updateAdmin(Request $request)
+    {
+        if($request->role_id == null){
+            return back();
+        }
+        $jsonuser = json_decode($request->user);
+        $newrole = intval($request->role_id);
+
+        $update = DB::table('users')
+              ->where('id', $jsonuser->id)
+              ->update(['role_id' => $newrole]);
+
+        if($update){
+            return redirect()->route('admin');
+        }
+        return back();
+    }
+
+     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, User $user)
     {
 
@@ -113,7 +138,9 @@ class UserController extends Controller
     }
 
     public function admin(){
-        $users= DB::table('users')->join('scores','scores.id_user','=','users.id')->join('products','users.avatar_id','=','products.id')->join('regions','users.region_id','=','regions.id')->orderBy('score', 'desc')->select('users.username','users.id','users.region_id','users.avatar_id','scores.score','products.image','regions.region')->get();
+        $users= DB::table('users')->join('scores','scores.id_user','=','users.id')->join('products','users.avatar_id','=','products.id')->join('regions','users.region_id','=','regions.id')->orderBy('score', 'desc')->select('users.username','users.id','users.region_id','users.avatar_id','scores.score','products.image','regions.region')->where('role_id', 1)->get();
         return view('users.admin',  compact('users'));
     }
+
+
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app_black')
 
 @section('content')
-{{ $users }}
+
 <section id="shop-section">
     <div id="card-shop">
         <nav class="nav-cart">
@@ -14,6 +14,7 @@
 
 <div id="shoppingcart-main">
     <div class="align-shop">
+        <p>*You can't modify Admin's Role*</p><br>
         @foreach($users as $u)
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
@@ -24,14 +25,15 @@
             </div>
 
             <div class="shoppingcart-price">
-                <form method="POST" action="{{ route('shoppingCart.destroy', $u->id) }}" class="adminuser">
+                <form method="POST" action="{{ route('admin.update') }}" class="adminuser">
                     @method('PUT')
                     @csrf
-                    <select class="select-admin" name="roleselector">
-                        <option selected="selected">Role</option>
+                    <select class="select-admin" name="role_id">
+                        <option selected="true"  disabled="disabled">Role</option>
                         <option value="1">User</option>
-                        <option value="1">Admin</option>
+                        <option value="2">Admin</option>
                     </select>
+                    <input type="hidden" name="user" value="{{ json_encode($u) }}">
                     <span class="admin-button">
 
                     </span>

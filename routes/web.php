@@ -44,7 +44,8 @@ Route::get('history', 'ShoppingHistoryController@index')->name('history');
 //ruta para los recursos del usuario
 Route::resource('user', 'UserController')->names('user');
 //ruta para los metodos del administrador
-Route::get('user', 'UserController@admin')->name('admin');
+Route::get('admin', 'UserController@admin')->name('admin');
+Route::put('admin', 'UserController@updateAdmin')->name('admin.update');
 //ruta para obtener el rango del usuario
 Route::get('home/rank', 'RankController@fetchRank')->name('rank');
 //ruta para obtener la puntuación del usuario

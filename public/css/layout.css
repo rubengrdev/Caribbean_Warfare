@@ -252,9 +252,13 @@ select{
 }
 .red{
     background-color: rgba(255, 0, 0, 0.757);
+
+}
+.card-body a{
+    text-decoration: none;
 }
 .select-admin{
-    text-indent:5px;
+    text-indent:0px;
     height:25px;
 }
 
