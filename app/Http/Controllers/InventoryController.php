@@ -44,8 +44,9 @@ class InventoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $product)
+    public function store(Request $request)
     {
+        dd(json_decode($request->product));
 
         if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$product['id'])->value('product_id')) != null)){
             Inventory::where('user_id',Auth::user()->id)->where('product_id',$product['id'])->update(['amount'=>DB::raw('amount+1')]);
