@@ -3,8 +3,14 @@
 @section('content')
 <section id="shop-section">
     <h2>In Game</h2>
-    <div id="gameDiv">
+    <div class="start-game-box">
+        <a class="button-start-game" href="{{ route('winGame')}}">
+        <div >
 
+                <p>WIN GAME</p>
+
+        </div>
+    </a>
     </div>
 </section>
 <script>
@@ -13,8 +19,8 @@
     let enemyBoard = createBoard(boardSize);
     let gameDiv = document.getElementById('gameDiv');
 
-    printBoard(enemyBoard, true);
-    printBoard(myBoard);
+    // printBoard(enemyBoard, true);
+    // printBoard(myBoard);
 
     function createBoard(size)
     {
