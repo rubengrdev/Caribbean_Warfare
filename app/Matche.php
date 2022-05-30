@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Matche extends Model
 {
     protected $fillable = [
-        'user_id1', 'user_id2', 'winner', 'points'
-    ];
-
-    protected $casts = [
-        'date' => 'datetime',
+        'user_id1', 'user_id2', 'winner', 'points', 'date'
     ];
 
     public function users(){
