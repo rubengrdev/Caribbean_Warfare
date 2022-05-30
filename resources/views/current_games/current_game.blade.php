@@ -13,15 +13,22 @@
 </nav>
 </div>
 </div>
+<section id="game-section">
+    <div class="lobby-header">
 
+    </div>
+    <div class="lobby-menu">
+        <a class="button-win-game" href="{{ route('winGame')}}">
+            <div>
+                    <p>WIN GAME</p>
+            </div>
+        </a>
+    </div>
+</section>
 
 <div id="grid-shop">
     {{-- {{dd($products)}} --}}
-    <a class="button-start-game" href="{{ route('winGame')}}">
-        <div>
-                <p>WIN GAME</p>
-        </div>
-        </a>
+
 </div>
 
 

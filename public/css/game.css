@@ -1,0 +1,31 @@
+#game-section{
+    display:flex;
+    justify-content: center;
+    width:100%;
+    height:auto;
+}
+.lobby-menu{
+    display:flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width:85%;
+    height:auto;
+}
+.button-win-game
+{
+    text-decoration:none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3680d97b;
+    width:200px;
+    height:100px;
+    color:black;
+    transition:0.3s;
+    border-radius:5px;
+    font-size:20px;
+}
+.button-win-game:hover
+{
+    background-color: #367fd9a7;
+}
