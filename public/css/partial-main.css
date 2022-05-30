@@ -293,6 +293,11 @@
     justify-content: center;
     align-items:center;
 }
+.nav-shop{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .get-into-cart{
     margin-top:20px;
 }

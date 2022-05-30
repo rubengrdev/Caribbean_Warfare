@@ -12,6 +12,16 @@
                 <a class="leaderboard-box" href="{{ route("user.edit", Auth::user()->id) }}">
                     <img class="throphy-icon"  title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
                 </a>
+                <span class="space-home"></span>
+                <a class="leaderboard-box" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                    <img class="throphy-icon"  title="Button to Log Out" src="{{ asset('media/img/icons/logout.png') }}" >
+            </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+                </form>
+
             </div>
             <div id="user-info">
                 <div class="name">
@@ -46,15 +56,37 @@
                                 <a class="leaderboard-box" href="{{ route("user.edit", Auth::user()->id) }}">
                                     <img class="throphy-icon" title="https://www.flaticon.com/free-icons/settings Settings icons created by Freepik - Flaticon" src="{{ asset('media/img/icons/settings-icon.png') }}" >
                                 </a>
+                                <span class="space-home"></span>
+                                <a class="leaderboard-box" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                        <img class="throphy-icon"  title="Button to Log Out" src="{{ asset('media/img/icons/logout.png') }}" >
+                                </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                    </form>
+
+
+
+
+
+
+
+
+
                             </div>
                         </div>
 
                     </div>
                 </div>
                 <div class="start-game-box">
-                    <div class="button-start-game">
-                        <p>START NEW GAME</p>
+                    <a class="button-start-game" href="{{ route('winGame')}}">
+                    <div >
+
+                            <p>START NEW GAME</p>
+
                     </div>
+                </a>
                 </div>
             </article>
         </div>
