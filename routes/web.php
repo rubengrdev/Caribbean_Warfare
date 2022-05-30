@@ -33,6 +33,8 @@ Route::post('shop/search','ProductController@search')->name('product.search');
 
 //ruta para los recurso del inventario
 Route::resource('inventory', 'InventoryController')->names('inventory');
+//Ruta de inventory Store, por alguna razón en el recurso previo no se crea esta ruta
+Route::post('inventory/{$product}', 'InventoryController@store')->name('inventory.store');
 //ruta para añadir el carrito al inventario
 Route::post('inventory', 'InventoryController@saveFromCart')->name('inventory.saveFromCart');
 

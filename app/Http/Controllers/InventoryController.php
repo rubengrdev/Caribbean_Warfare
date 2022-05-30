@@ -50,7 +50,7 @@ class InventoryController extends Controller
         if (((Inventory::where('user_id',Auth::user()->id)->where('product_id',$product['id'])->value('product_id')) != null)){
             Inventory::where('user_id',Auth::user()->id)->where('product_id',$product['id'])->update(['amount'=>DB::raw('amount+1')]);
         }else{
-            Inventory::create(['user_id'=>Auth::user()->id,'product_id',$product['id'],'amount'=>1,'equipped'=>0]);
+            Inventory::create(['user_id'=>Auth::user()->id,'product_id'=>$product['id'],'amount'=>1,'equipped'=>0]);
         }
 
 
