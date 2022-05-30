@@ -56,6 +56,7 @@ class InventoryController extends Controller
 
         }else if((Inventory::where('user_id',Auth::user()->id)->where('product_id',$item->id)->value('product_id')) == null){
             Inventory::create(['user_id'=>Auth::user()->id,'product_id'=>$item->id,'amount'=>1,'equipped'=>0]);
+
         }
 
         $products=Product::where('available', 1)->where('id','>',1)-> orderBy("created_at","desc")->get();

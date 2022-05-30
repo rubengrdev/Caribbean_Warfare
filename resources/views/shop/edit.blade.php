@@ -3,10 +3,10 @@
 <section>
 
 <div id="image-box">
-    <img id="product-img" src="{{ $product->image }}">
+    <img id="product-img-edit" src="{{ asset($product->image) }}">
 
 </div>
-<div id="desc-box">
+<div id="desc-box-edit">
     <h1 class="text-title">{{ $product->name }}</h1>
     <p class="text">{{ $product->description }}</p>
     <!--<input type="checkbox" name="permissions[]" value=""-->

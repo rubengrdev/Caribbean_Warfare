@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="start-game-box">
-                    <a class="button-start-game" href="{{ route('winGame')}}">
+                    <a class="button-start-game" href="{{ route('lobby')}}">
                     <div >
 
                             <p>START NEW GAME</p>
