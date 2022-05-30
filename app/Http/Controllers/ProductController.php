@@ -125,7 +125,7 @@ public function additem($arrayprod){
     public function search(Request $request)
     {
 
-        $products = product::where('name', 'LIKE', '%'.$request->search.'%')->get();
+        $products = product::where('name', 'LIKE', '%'.$request->search.'%')->where('id','>',1)->get();
 
         $collection = collect(new Product());
         foreach($products as $product){
