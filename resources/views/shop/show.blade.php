@@ -47,29 +47,43 @@
                 <input type="hidden" value="{{ $response->discount }}">
             </form>
             <span class="separate-price"></span>
+            <form action="{{ route('inventory.add')}}" method="POST">
+                @csrf
+                <div class="shop-now">
+                    <input type="hidden" name="product" id="id" value="{{$response}}" style="display:none">
+                <button type="submit" class="btn btn-primary btn-simple add-cart-button">
+                    <div class="cart-title">
+                        <p>Buy Now</p>
+                    </div>
+
+                </div>
+            </button>
+        </form>
             <div class="center">
-            <div class="get-into-cart">
-                <div class="cart-title">
-                    <p> Add to cart</p>
-                </div>
-                <div class="options-show-cart">
-                    <form class="form-search-show" method="GET" action="{{ route('login') }}">
-                        @csrf
+                <form action="{{ route('shoppingCart.store')}}" method="POST">
+                    @csrf
+                    <div class="get-into-cart">
+                    <input type="number" name="id" id="id" value="{{$response->id}}" style="display:none">
+                    <button type="submit" class="btn btn-primary btn-simple add-cart-button">
 
-                    <button type="submit" class="btn btn-primary btn-simple">
-                        <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
-                    </button>
-                </form>
-                </div>
-            </div>
+                        <div class="options-show-cart">
+                            <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
+                        </div>
+
+                    </div>
+                </button>
+            </form>
             </div>
 
     </div>
 </div>
     </div>
 </div>
+    <script>
+        let id = document.querySelector("#id");
 
+    </script>
     </section>
-    <script src="{{ asset('js/admin.js')}}"></script>
+
 @endsection
 

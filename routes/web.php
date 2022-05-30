@@ -26,13 +26,15 @@ Route::delete('shoppingCart', 'ShoppingCartController@removeAll')->name('shoppin
 //ruta para metodos extra de la tienda (ver historial de compras)
 Route::get('shop/history', 'ProductController@history')->name('history');
 //ruta para metodos extra de la tienda ( ver todos los productos de la tienda)
-Route::get('shop/all', 'ProductController@all')->name('all');
+Route::get('all', 'ProductController@all')->name('all');
 //ruta para buscar items de la tienda
 Route::post('shop/search','ProductController@search')->name('product.search');
 
 
 //ruta para los recurso del inventario
 Route::resource('inventory', 'InventoryController')->names('inventory');
+//Ruta de inventory Store, por alguna razón en el recurso previo no se crea esta ruta
+Route::post('inventory/buy', 'InventoryController@store')->name('inventory.add');
 //ruta para añadir el carrito al inventario
 Route::post('inventory', 'InventoryController@saveFromCart')->name('inventory.saveFromCart');
 
