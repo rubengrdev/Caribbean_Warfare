@@ -164,12 +164,15 @@ class ShoppingCartController extends Controller
         return back();
     }
 
-    public function removeAll(Request $request)
+    public function removeAll()
     {
-        $request->session()->forget('cart.id');
-        $request->session()->forget('cart.amounts');
+        session()->forget('cart.id');
+        session()->forget('cart.amounts');
+        //$request->session()->forget('cart.id');
+        //$request->session()->forget('cart.amounts');
 
-        return view('shop');
+        //return view('shop');
+        return back();
     }
 
 }
