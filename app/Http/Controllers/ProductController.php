@@ -37,7 +37,7 @@ class ProductController extends Controller
      */
     public function all()
     {
-        $products=Product::all();
+        $products=Product::where('available', 1)->where('id','>',1)-> orderBy("created_at","desc")->get();;
         return view('shop.all', compact('products'));
     }
 
