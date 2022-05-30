@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-
+                @if(Auth::user()->role_id == 2)
                 <div class="card-body">
                     <div class="card-header"><p>{{ __('Admin') }}</p></div>
                     <a href="{{ route('admin') }}">
@@ -27,6 +27,7 @@
                     </a>
                 </div>
                 <br>
+                @endif
 
                 <div class="card-body">
                     <div class="card-header"><p>{{ __('Edit') }}</p></div>
