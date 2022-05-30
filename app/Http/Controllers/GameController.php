@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Inventory;
 use App\Matche;
 use App\Score;
 use Illuminate\Http\Request;
@@ -41,7 +42,9 @@ class GameController extends Controller
     {
         $currentGame = DB::table('current_games')->orderBy('created_at', 'desc')->where('user_id1', Auth::user()->id)->orWhere('user_id2', Auth::user()->id)->take(1)->get();
 
-        if (count($currentGame) > 0) {
+        $coconutAmount = DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->get();
+
+        if (count($currentGame) > 0 && ($coconutAmount[0]->amount) > 0) {
                 // dd($score[0]->score);
 
             $arrayPlayers = [$currentGame[0]->user_id1, $currentGame[0]->user_id2];
@@ -67,6 +70,8 @@ class GameController extends Controller
 
                 Score::where('id_user', $loser)->update(['score'=>$scoreLoser[0]->score-100]);
             }
+
+            DB::table('inventories')->join('products','inventories.product_id','=','products.id')->where('user_id',Auth::user()->id)->where('category','consumable')->where('equipped',1)->select('products.*', 'inventories.*')->decrement('amount', 1);
 
             return back();
         }
