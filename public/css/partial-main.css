@@ -185,6 +185,10 @@
 .center{
     margin-left:20px;
 }
+.options-cart img{
+    height:40px;
+    width:40px;
+}
 @media (max-width:800px) {
     .location-show{
         font-size:40px;
@@ -221,6 +225,7 @@
     justify-content: center;
     align-items:center;
 }
+
 }
 @media (max-width:1800px) {
     #image-box{
@@ -246,6 +251,7 @@
         justify-content: center;
         align-items:center;
     }
+
 
 
 }

@@ -8,6 +8,12 @@
         <p>{{ $response->name }}</p>
     </div>
     <span class="bigpan"></span>
+    @if (Auth::user()->role_id == 2)
+    <div class="options-cart">
+        <img src="{{ asset('media/img/icons/edit.png') }}" alt="https://www.flaticon.es/iconos-gratis/editar Editar iconos creados por Kiranshastry">
+    </div>
+    @endif
+
 </nav>
 </div>
 </div>
