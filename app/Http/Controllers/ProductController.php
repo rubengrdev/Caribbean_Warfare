@@ -183,7 +183,7 @@ public function additem($arrayprod){
 
 
             if($product->update($validatedData)){
-                return view('shop.show',['response' => true]);
+                return redirect()->route('shop.index');
             }else{
                 return view('shop.show',['response' => false]);
             }

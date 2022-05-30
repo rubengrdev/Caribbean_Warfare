@@ -58,10 +58,11 @@
                 @foreach($products as $product)
 
                     <div class="grid-item">
+                        <a onclick="window.location='{{ route('shop.show', $product->id)}}'">
                         <div class="product-image">
-                            <a onclick="window.location='{{ route('shop.show', $product->id)}}'">
+
                                 <img src={{ asset( $product->image ) }}>
-                            </a>
+
                         </div>
                         <div class="product-sect">
                         <div class="product-info">
@@ -85,6 +86,7 @@
                             <input type="hidden" value="{{ $product->id }}">
                         </form>
                         <span class="grid-item-space"></span>
+                    </a>
                     </div>
                 @endforeach
             </div>
