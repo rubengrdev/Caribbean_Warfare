@@ -60,6 +60,7 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::get('leaderboard', 'LeaderboardController@index')->name('leaderboard');
 Route::get('leaderboard/getTop', 'LeaderboardController@getTop')->name('leaderboard.getTop');
 Route::get('lobby', 'LobbyController@findGame')->name('lobby');
+Route::get('winGame', 'GameController@winGame')->name('winGame');
 
 //Route::get('leaderboard', 'LeaderboardController@getTop')->name('getTop');
 //Route::get('/shop', 'ShopController@index')->name('shop');
