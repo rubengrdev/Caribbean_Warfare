@@ -33,7 +33,7 @@
 
                         <div class="inventory-item" oncontextmenu="javascript:imageDetail({{ json_encode($item) }}); return false;">
                             <a class="inventory-item-img">
-                                <img src="{{ $item->image }}">
+                                <img src="{{ $item->image }}" alt="inventory item caribbean warfare">
                                 <div class="reverse-image">
                                     <button class="btn-simple">
                                         <p>{{ $item->name }}</p>

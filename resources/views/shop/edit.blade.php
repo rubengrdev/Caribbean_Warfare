@@ -3,7 +3,7 @@
 <section>
 
 <div id="image-box">
-    <img id="product-img-edit" src="{{ asset($product->image) }}">
+    <img id="product-img-edit" alt="product image" src="{{ asset($product->image) }}">
 
 </div>
 <div id="desc-box-edit">

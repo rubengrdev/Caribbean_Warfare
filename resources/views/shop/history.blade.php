@@ -17,7 +17,7 @@
         @foreach($history as $h)
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
-                <img src="{{$h->image }}" />
+                <img alt="history image item" src="{{$h->image }}" />
             </div>
             <div class="shoppingcart-title">
                 <p>{{$h->name }}</p>

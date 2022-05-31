@@ -28,7 +28,7 @@
                     <div class="grid-item">
                         <div class="product-image">
                             <a onclick="window.location='{{ route('shop.show', ['shop'=>$product->id])}}'">
-                                <img src={{ asset( $product->image ) }}>
+                                <img alt="caribbean warfare product image" src={{ asset( $product->image ) }}>
                             </a>
                         </div>
                         <div class="product-sect">

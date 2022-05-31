@@ -25,7 +25,7 @@
 
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
-                <img src="{{ $product->image }}" />
+                <img alt="my cart product image" src="{{ $product->image }}" />
             </div>
             <div class="shoppingcart-title">
                 <p>{{ $product->name }}</p>

@@ -29,7 +29,7 @@
                 </div>
                 <div class="image-box-user">
                     <div>
-                        <img src="{{ $items[0]->image }}">
+                        <img alt="user avatar image" src="{{ $items[0]->image }}">
                     </div>
                 </div>
                 <div class="rank-box">
@@ -39,7 +39,7 @@
                 </div>
                 <div class="coconout-box">
                     <div class="coconout-info">
-                        <img class="coconout-thumnail" src="{{ asset('media/img/coconuts.png') }}">
+                        <img class="coconout-thumnail" alt="coconout thumbnail" src="{{ asset('media/img/coconuts.png') }}">
                         <p>x {{ ($coconut[0]->amount)}} remaining</p>
                     </div>
                 </div>

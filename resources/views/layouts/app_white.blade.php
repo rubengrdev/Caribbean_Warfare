@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="anchor-logo" href="{{ url('/') }}">
-                    <img class="logo" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_white.png')}}" />
+                    <img class="logo" alt="logo caribbean warfare" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_white.png')}}" />
                 </a>
             </div>
 

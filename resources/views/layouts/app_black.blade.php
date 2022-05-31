@@ -33,11 +33,11 @@
 
                 @if(Auth::user())
                     <a class="anchor-logo" href="{{ url('home') }}">
-                    <img class="logo" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
+                    <img class="logo" alt="logo caribbean warfare" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
                     </a>
                 @else
                 <a class="anchor-logo" href="{{ url('/') }}">
-                    <img class="logo" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
+                    <img class="logo" alt="logo caribbean warfare" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
                 </a>
                 @endif
             </div>
@@ -68,9 +68,7 @@
                             <span class="separator-layout"></span>
 
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link-black dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
+
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="nav-link-black" href="{{ route('shoppingCart.index') }}">
@@ -100,20 +98,12 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link-black dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
-                    </a>
+
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="nav-link-black" href="{{ route('shoppingCart.index') }}">
                             {{ __('My Cart') }}
                         </a>
-
-
-
-
-
-
 
                     </div>
                 </li>
@@ -132,6 +122,7 @@
 <script>
     let dropdown = document.querySelector(".dropdown-img");
     let counter = 0;
+
     dropdown.addEventListener("click", ()=>{
         let dropmenu = document.querySelector("#dropdown-menu");
         if(counter == 0){
