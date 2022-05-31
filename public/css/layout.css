@@ -24,6 +24,9 @@ body{
     display:flex;
     justify-content: center;
 }
+label{
+    font-family: 'Lexend', sans-serif;
+}
 .login-location{
     display:flex;
     justify-content: center;
@@ -141,6 +144,7 @@ ul{
     margin: 4px 2px;
     cursor: pointer;
     border-radius:5px;
+    font-family: 'Lexend', sans-serif;
 }
 .center-admin{
     width:100%;

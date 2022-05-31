@@ -15,9 +15,9 @@
     </div>
     <div class="button-section">
         <a href="{{ route('login') }}">
-            <button id="calltoaction">
+            <div id="calltoaction">
                 <p>GET STARTED</p>
-            </button>
+            </div>
         </a>
 
     </div>

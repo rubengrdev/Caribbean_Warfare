@@ -70,7 +70,7 @@
                         <li class="nav-item dropdown">
 
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu dropdown-menu-right">
                                 <a class="nav-link-black" href="{{ route('shoppingCart.index') }}">
                                     {{ __('My Cart') }}
                                 </a>
@@ -100,7 +100,7 @@
                 <li class="nav-item dropdown">
 
 
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-right">
                         <a class="nav-link-black" href="{{ route('shoppingCart.index') }}">
                             {{ __('My Cart') }}
                         </a>

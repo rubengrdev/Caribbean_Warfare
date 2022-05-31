@@ -62,7 +62,7 @@
                                     document.getElementById('logout-form').submit();">
                                         <img class="throphy-icon"  title="Button to Log Out" src="{{ asset('media/img/icons/logout.png') }}" >
                                 </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form1" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                     </form>
 

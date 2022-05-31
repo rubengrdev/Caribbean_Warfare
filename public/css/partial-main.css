@@ -167,7 +167,6 @@
 .options-show{
     display:flex;
     justify-content:flex-end;
-    align-items: right;
     flex:1;
     padding-right:35px;
 }

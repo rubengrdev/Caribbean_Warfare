@@ -36,7 +36,6 @@
 .history-title div{
     display:flex;
     justify-content:flex-end;
-    align-items:right;
 }
 .history-title div p{
 
@@ -85,7 +84,6 @@
     height:140px;
     overflow:hidden;
     transition: 1s;
-    -webkit-animation:1s;
             animation:1s;
 }
 .reverse-image{
@@ -100,7 +98,6 @@
     height:140px;
     overflow:hidden;
     transition: 1s;
-    -webkit-animation:1s;
             animation:1s;
 
             background-color: white;
@@ -115,7 +112,6 @@
     height:140px;
     overflow:hidden;
     transition: 1s;
-    -webkit-animation:1s;
             animation:1s;
 }
 
