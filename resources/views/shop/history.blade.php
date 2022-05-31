@@ -16,17 +16,17 @@
     <div class="align-shop">
         @foreach($history as $h)
         <div class="cart-item">
-            <div class="shoppingcart-image-desc">
+            <div tabindex="5" class="shoppingcart-image-desc">
                 <img alt="history image item" src="{{$h->image }}" />
             </div>
-            <div class="shoppingcart-title">
+            <div tabindex="5" class="shoppingcart-title">
                 <p>{{$h->name }}</p>
             </div>
-            <div class="shoppingcart-amount">
+            <div tabindex="5" class="shoppingcart-amount">
                 <p>{{$h->price }}€</p>
 
             </div>
-            <div class="shoppingcart-price">
+            <div tabindex="5" class="shoppingcart-price">
                 <p>{{ $h->created_at }}</p>
             </div>
 

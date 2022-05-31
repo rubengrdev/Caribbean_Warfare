@@ -8,7 +8,7 @@
                 </div>
                 <div class="history-title">
                     <div>
-                        <a  href="{{ route('history') }}">
+                        <a tabindex="5"  href="{{ route('history') }}">
                             <p>Shop history</p>
                         </a>
                     </div>
@@ -32,7 +32,7 @@
                         @method('PUT')
 
                         <div class="inventory-item" oncontextmenu="javascript:imageDetail({{ json_encode($item) }}); return false;">
-                            <a class="inventory-item-img">
+                            <a tabindex="6" class="inventory-item-img">
                                 <img src="{{ $item->image }}" alt="inventory item caribbean warfare">
                                 <div class="reverse-image">
                                     <button class="btn-simple">
@@ -67,7 +67,7 @@
                         @method('PUT')
 
                         <div class="inventory-item" oncontextmenu="javascript:imageDetail({{ json_encode($item) }}); return false;">
-                            <a class="inventory-item-img">
+                            <a tabindex="7" class="inventory-item-img">
                                 <img src="{{ $item->image }}">
                                 <div class="reverse-image">
                                     <button class="btn-simple">
