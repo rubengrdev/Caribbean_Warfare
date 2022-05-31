@@ -12,8 +12,9 @@
             <div class="options-cart">
                 <form class="form-search" method="POST" action="{{ route('product.search') }}">
                     @csrf
+                <label>
                 <input id="searchbar" type="text" class="form-control @error('search') is-invalid @enderror" name="search" value="{{ old('search') }}" required autocomplete="Find products" autofocus>
-
+            </label>    
                 <button type="submit" class="btn btn-primary btn-simple">
                     <img src="{{ asset('media/img/icons/lupa.png') }}" title='icon lupa' alt="Icon from FlatIcon: https://www.flaticon.es/iconos-gratis/lupa">
                 </button>
@@ -49,7 +50,7 @@
 
         <article id="portal-shop">
 
-                <img src="{{ asset('media/img/skins/blas-de-lezo/portal-big-blas-de-lezo-picture-of-bundle-caribbean-warfare-skin-pack-v2.jpg') }}">
+                <img alt="promotion banner caribbean warfare" src="{{ asset('media/img/skins/blas-de-lezo/portal-big-blas-de-lezo-picture-of-bundle-caribbean-warfare-skin-pack-v2.jpg') }}">
                 <div class="content-text">
                     <p class="title-header">Blas de Lezo Bundle</p>
                     <p class="price-header">7.99€</p>
@@ -79,7 +80,7 @@
                         <a onclick="window.location='{{ route('shop.show', $product->id)}}'">
                         <div class="product-image">
 
-                                <img src={{ asset( $product->image ) }}>
+                                <img alt="product caribbean warfare" src={{ asset( $product->image ) }}>
 
                         </div>
                         <div class="product-sect">

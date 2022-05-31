@@ -30,7 +30,7 @@
 
 <div id="view-product">
     <div id="image-box">
-        <img id="product-img" src="{{asset($response->image) }}">
+        <img id="product-img" alt="product image" src="{{asset($response->image) }}">
     </div>
 
     <div id="desc-box">

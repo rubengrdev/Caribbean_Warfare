@@ -14,7 +14,7 @@
     <div id="rankingheader">
         <div class="user-info-header">
             <div class="image-leaderboard">
-                <img src="{{ $userdata[0]->image }}">
+                <img alt="profile image" src="{{ $userdata[0]->image }}">
             </div>
             <div class="user-title-leaderboard">
                 <p>{{ Auth::user()->username }}</p>
@@ -44,7 +44,7 @@
               @foreach($top as $key => $t)
               <tr>
                 <td><p>{{ $key+1 }}</p></td>
-                <td><img  class="img-scoreboard" src="{{ $t->image }}"></td>
+                <td><img  class="img-scoreboard" alt="user ranking profile image" src="{{ $t->image }}"></td>
                 <td><p>{{ $t->username }}</p></td>
                 <td><p>{{ $t->score }}</p></td>
                 <td><p>{{ $t->region }}</p></td>

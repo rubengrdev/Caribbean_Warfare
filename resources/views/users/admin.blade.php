@@ -27,7 +27,7 @@
         @foreach($users as $u)
         <div class="cart-item">
             <div class="shoppingcart-image-desc">
-                <img src="{{$u->image }}" />
+                <img alt="user profile image" src="{{$u->image }}" />
             </div>
             <div class="shoppingcart-title">
                 <p>{{$u->username }}</p>
