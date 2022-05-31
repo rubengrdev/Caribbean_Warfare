@@ -167,7 +167,6 @@
 .options-show{
     display:flex;
     justify-content:flex-end;
-    align-items: right;
     flex:1;
     padding-right:35px;
 }
@@ -176,6 +175,7 @@
     max-height:40px;
     transition:0.3s;
 }
+
 .type-item
 {
     color:#6a5638;
@@ -271,6 +271,15 @@
 
 }
 @media (max-width:1500px) {
+    .form-add-button{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-top:50px;
+    }
+    .center{
+        margin-left:0px;
+    }
     .responsive-text{
         width:30%;
         min-width:400px;
