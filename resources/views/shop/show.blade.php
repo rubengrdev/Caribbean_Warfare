@@ -68,7 +68,7 @@
             </button>
         </form>
             <div class="center">
-                <form action="{{ route('shoppingCart.store')}}" method="POST">
+                <form class="form-add-button" action="{{ route('shoppingCart.store')}}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-primary btn-simple add-cart-button">
 
