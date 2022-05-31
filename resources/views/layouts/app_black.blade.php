@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Caribbean Warfare') }}</title>
     <link rel="icon" href="{{ asset('media/img/logo/caribbean_warfaresvg_logo_ship_color_white.png') }}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -32,11 +32,11 @@
             <div class="container">
 
                 @if(Auth::user())
-                    <a class="anchor-logo" href="{{ url('home') }}">
+                    <a class="anchor-logo" tabindex="1" href="{{ url('home') }}">
                     <img class="logo" alt="logo caribbean warfare" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
                     </a>
                 @else
-                <a class="anchor-logo" href="{{ url('/') }}">
+                <a class="anchor-logo" tabindex="1" href="{{ url('/') }}">
                     <img class="logo" alt="logo caribbean warfare" src="{{ asset('/media/img/logo/caribbean_warfaresvg_logo_ship_color_black.png')}}" />
                 </a>
                 @endif
@@ -48,20 +48,20 @@
                         @guest
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link-black" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link-black" tabindex="2" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link-black" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link-black" tabindex="3" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif
                         @else
                         <div class="responsive-nav">
                         <li class="nav-item">
-                            <a class="nav-link-black" href="{{ route('inventory.index') }}">{{ __('Inventory') }}</a>
+                            <a class="nav-link-black" tabindex="2" href="{{ route('inventory.index') }}">{{ __('Inventory') }}</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link-black" href="{{ route('shop.index') }}">{{ __('Shop') }}</a>
+                            <a class="nav-link-black" tabindex="3" href="{{ route('shop.index') }}">{{ __('Shop') }}</a>
                         </li>
 
 
@@ -70,8 +70,8 @@
                         <li class="nav-item dropdown">
 
 
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <a class="nav-link-black" href="{{ route('shoppingCart.index') }}">
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="nav-link-black" tabindex="4" href="{{ route('shoppingCart.index') }}">
                                     {{ __('My Cart') }}
                                 </a>
 
