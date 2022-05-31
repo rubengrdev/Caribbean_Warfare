@@ -11,9 +11,9 @@
             <div class="options">
                 <form class="form-search" method="POST" action="{{ route('product.search') }}">
                     @csrf
-                <input id="searchbar" type="text" class="form-control @error('search') is-invalid @enderror" name="search" value="{{ old('search') }}" required autocomplete="Find products" autofocus>
+                <input id="searchbar" tabindex="5" type="text" class="form-control @error('search') is-invalid @enderror" name="search" value="{{ old('search') }}" required autocomplete="Find products">
 
-                <button type="submit" class="btn btn-primary btn-simple">
+                <button tabindex="6" type="submit" class="btn btn-primary btn-simple">
                     <img src="{{ asset('media/img/icons/lupa.png') }}" title='icon lupa' alt="Icon from FlatIcon: https://www.flaticon.es/iconos-gratis/lupa">
                 </button>
             </form>
@@ -24,7 +24,7 @@
                 @foreach($products as $product)
                     <div class="grid-item">
                         <div class="product-image">
-                            <a onclick="window.location='{{ route('shop.show', ['shop'=>$product->id])}}'">
+                            <a tabindex="7" onclick="window.location='{{ route('shop.show', ['shop'=>$product->id])}}'">
                                 <img alt="caribbean warfare product" src={{ asset( $product->image ) }}>
                             </a>
                         </div>
@@ -35,9 +35,13 @@
                                 <p>{{ $product->price }}</p>
                             </div>
                             <div class="product-shopping">
-                                <button type="submit" class="btn btn-primary btn-simple">
+                                <form action="{{ route('shoppingCart.store')}}" method="POST">
+                                    @csrf
+                                    <input type="number" name="id" id="id" value="{{$product->id}}" style="display:none">
+                                <button tabindex="7" type="submit" class="btn btn-primary btn-simple">
                                     <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
                                 </button>
+                                </form>
                             </div>
 
                         </div>

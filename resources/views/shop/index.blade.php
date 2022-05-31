@@ -13,9 +13,9 @@
                 <form class="form-search" method="POST" action="{{ route('product.search') }}">
                     @csrf
                 <label>
-                <input id="searchbar" type="text" class="form-control @error('search') is-invalid @enderror" name="search" value="{{ old('search') }}" required autocomplete="Find products" autofocus>
-            </label>    
-                <button type="submit" class="btn btn-primary btn-simple">
+                <input id="searchbar" type="text" tabindex="5" class="form-control @error('search') is-invalid @enderror" name="search" value="{{ old('search') }}" required autocomplete="Find products">
+            </label>
+                <button type="submit" tabindex="6" class="btn btn-primary btn-simple">
                     <img src="{{ asset('media/img/icons/lupa.png') }}" title='icon lupa' alt="Icon from FlatIcon: https://www.flaticon.es/iconos-gratis/lupa">
                 </button>
             </form>
@@ -23,7 +23,7 @@
                 <a class="form-search" href="{{ route('shoppingCart.index') }}">
 
 
-                        <button type="submit" class="btn btn-primary btn-simple">
+                        <button type="submit" tabindex="7" class="btn btn-primary btn-simple">
                             <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='Go to Shopping Cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
                         </button>
 
@@ -54,7 +54,7 @@
                 <div class="content-text">
                     <p class="title-header">Blas de Lezo Bundle</p>
                     <p class="price-header">7.99€</p>
-                    <button class="btn-simple border" onclick="window.location='{{ route('shop.show', ['shop'=>2])}}'">
+                    <button class="btn-simple border" tabindex="8" onclick="window.location='{{ route('shop.show', ['shop'=>3])}}'">
                         <p><strong>View Product</strong></p>
                     </button>
                 </div>
@@ -67,7 +67,7 @@
                     <p>Last items</p>
                 </div>
                 <div class="all-filter">
-                    <a href="{{ route('all') }}">
+                    <a tabindex="9" href="{{ route('all') }}">
                         <p>View All</p>
                     </a>
                 </div>
@@ -77,10 +77,10 @@
                 @foreach($products as $product)
 
                     <div class="grid-item">
-                        <a onclick="window.location='{{ route('shop.show', $product->id)}}'">
+                        <a tabindex="10" onclick="window.location='{{ route('shop.show', $product->id)}}'">
                         <div class="product-image">
 
-                                <img alt="product caribbean warfare" src={{ asset( $product->image ) }}>
+                                <img alt="product caribbean warfare"  src={{ asset( $product->image ) }}>
 
                         </div>
                         <div class="product-sect">
@@ -93,7 +93,7 @@
                                 <form action="{{ route('shoppingCart.store')}}" method="POST">
                                     @csrf
                                     <input type="number" name="id" id="id" value="{{$product->id}}" style="display:none">
-                                    <button type="submit" class="btn btn-primary btn-simple">
+                                    <button type="submit" tabindex="10" class="btn btn-primary btn-simple">
                                         <img src="{{ asset('media/img/icons/carrito-de-compras.png') }}" title='icon shopping cart' alt="Icon from FlatIcon, created by Freepik: https://www.flaticon.es/iconos-gratis/supermercado">
                                     </button>
                                 </form>
