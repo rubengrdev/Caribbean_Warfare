@@ -1,7 +1,7 @@
 @extends('layouts.app_black')
 
 @section('content')
-<section id="shop-section">
+<div id="shop-section">
     <div id="card-home">
         <div id="card-content">
             <div class="responsive-options">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </div>
-            <article id="home-section">
+            <div id="home-section">
                 <div class="home-main">
                     <div id="home-main-order">
                         <div id="user-data-main">
@@ -65,15 +65,6 @@
                                     <form id="logout-form1" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                     </form>
-
-
-
-
-
-
-
-
-
                             </div>
                         </div>
 
@@ -88,10 +79,10 @@
                     </div>
                 </a>
                 </div>
-            </article>
+            </section>
         </div>
     </div>
-</section>
+</div>
 <script>
     let rankbox = document.querySelector(".rank");
     let rankp = document.querySelector(".rank p");

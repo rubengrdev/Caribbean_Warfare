@@ -139,7 +139,7 @@
 
 
         function imageDetail(json){
-            console.log(json)
+            //console.log(json)
             let inventoryitemimg = document.querySelectorAll(".inventory-item-img");
             let image = document.querySelectorAll(".inventory-item img");
 
